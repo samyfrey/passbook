@@ -14,9 +14,9 @@ const SignIn = ({ msgAlert, setUser }) => {
 
   const onSignIn = async (event) => {
     event.preventDefault()
-
     try {
       const res = await signIn(email, password)
+      console.log(email, password)
       setUser(res.data.user)
 
       msgAlert({

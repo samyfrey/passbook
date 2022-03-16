@@ -14,8 +14,8 @@ export const signUp = (email, password, passwordConfirmation) => {
 export const signIn = (email, password) => {
   return axios.post(apiUrl + '/sign-in/', {
     credentials: {
-      email,
-      password
+      email: email,
+      password: password
     }
   })
 }

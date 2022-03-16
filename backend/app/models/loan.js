@@ -15,10 +15,9 @@ const loanSchema = new mongoose.Schema(
             type: Date,
             required: true
         },
-        company: {
+        borrower: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Client',
-            required: true, 
 		},
 	},
 	{
@@ -33,4 +32,4 @@ const loanSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model('Loan', clientSchema)
+module.exports = loanSchema

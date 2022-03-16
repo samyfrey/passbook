@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const loanSchema = require('./loan')
 
 const clientSchema = new mongoose.Schema(
 	{
@@ -11,10 +12,11 @@ const clientSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-        loans: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Loan'
-        }
+		owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+		},
+		loans: [loanSchema]
 	},
 	{
 		timestamps: true,

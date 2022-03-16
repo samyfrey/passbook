@@ -14,8 +14,8 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // INDEX
-// GET /examples
-router.get('/clients', requireToken, (req, res, next) => {
+// GET /loans
+router.get('/loans', requireToken, (req, res, next) => {
 	Client.find()
 		.then((clients) => res.status(200).json({ clients: clients }))
 		.catch(next)
@@ -34,21 +34,24 @@ router.get('/examples/:id', requireToken, (req, res, next) => {
 })
 
 // CREATE
-// POST /examples
-router.post('/clients', requireToken, (req, res, next) => {
-	req.body.client.owner = req.user.id
+// POST /loans
+router.post('/loans', requireToken, (req, res, next) => {
+	const loanData = req.body.loan
+	const borrowerId = loanData.borrowerId
 
-	Client.create(req.body.client)
-		.then((client) => {
-			res.status(201).json({ client })
+	Client.findById(borrowerId)
+		.then(handle404)
+		.then(client => {
+			client.loans.push(loanData)
+			return client.save()
 		})
+		.then(client => res.status(201).json({ client }))
 		.catch(next)
 })
 
 // UPDATE
 // PATCH /examples/5a7db6c74d55bc51bdf39793
 router.patch('/examples/:id', requireToken, removeBlanks, (req, res, next) => {
-
 	delete req.body.example.owner
 
 	Example.findById(req.params.id)
