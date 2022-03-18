@@ -46,28 +46,19 @@ router.post('/clients', requireToken, (req, res, next) => {
 })
 
 // UPDATE
-// PATCH /examples/5a7db6c74d55bc51bdf39793
-router.patch('/examples/:id', requireToken, removeBlanks, (req, res, next) => {
+// PATCH /examples/
+router.patch('/clients/:borrowerId', requireToken, removeBlanks, (req, res, next) => {
 
-	delete req.body.example.owner
+	// delete req.body.client.owner
 
-	Example.findById(req.params.id)
+	Client.findById(req.params.borrowerId)
 		.then(handle404)
-		.then((example) => requireOwnership(req, example))
-		.then((example) => example.updateOne(req.body.example))
+		.then(client => requireOwnership(req, client))
+		.then(client => client.updateOne(req.body.client))
 		.then(() => res.sendStatus(204))
 		.catch(next)
 })
 
-// DESTROY
-// DELETE /examples/5a7db6c74d55bc51bdf39793
-router.delete('/examples/:id', requireToken, (req, res, next) => {
-	Example.findById(req.params.id)
-		.then(handle404)
-		.then((example) => requireOwnership(req, example))
-		.then((example) => example.deleteOne())
-		.then(() => res.sendStatus(204))
-		.catch(next)
-})
+
 
 module.exports = router
