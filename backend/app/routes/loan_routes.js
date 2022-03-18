@@ -50,14 +50,21 @@ router.post('/loans', requireToken, (req, res, next) => {
 })
 
 // UPDATE
-// PATCH /examples/:id
-router.patch('/loans/:id', requireToken, removeBlanks, (req, res, next) => {
-	delete req.body.loan.borrower
+// PATCH /loan/:id 
+// body: need the borrowerId 
 
-	Loan.findById(req.params.id)
+router.patch('/loans/:loanId', (req, res, next) => {
+	const loanId = req.params.loanId
+	const loanData = req.body.loan
+	const borrowerId = loanData.borrowerId
+
+	Client.findById(borrowerId)
 		.then(handle404)
-		.then((loan) => requireOwnership(req, loan))
-		.then((loan) => loan.updateOne(req.body.loan))
+		.then(client => {
+			const loan = client.loans.id(loanId)
+			loan.set(loanData)
+			return client.save()
+		})
 		.then(() => res.sendStatus(204))
 		.catch(next)
 })
