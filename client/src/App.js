@@ -9,11 +9,12 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import Clients from './components/Clients'
 
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-
+  // const [clients, setClients] = useState([])
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
@@ -53,6 +54,7 @@ const App = () => {
           />
 
         </Routes>
+        <Clients />
       </main>
     </>
   )

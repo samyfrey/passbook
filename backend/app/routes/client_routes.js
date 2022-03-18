@@ -17,7 +17,7 @@ const router = express.Router()
 // GET /clients
 router.get('/clients', (req, res, next) => {
 	Client.find()
-		.then((clients) => res.status(200).json({ clients: clients }))
+		.then(clients => res.status(200).json({ clients }))
 		.catch(next)
 })
 
