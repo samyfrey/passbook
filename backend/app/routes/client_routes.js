@@ -14,7 +14,7 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // INDEX
-// GET /examples
+// GET /clients
 router.get('/clients', (req, res, next) => {
 	Client.find()
 		.then((clients) => res.status(200).json({ clients: clients }))
@@ -22,14 +22,11 @@ router.get('/clients', (req, res, next) => {
 })
 
 // SHOW
-// GET /examples/5a7db6c74d55bc51bdf39793
-router.get('/examples/:id', requireToken, (req, res, next) => {
-	// req.params.id will be set based on the `:id` in the route
-	Example.findById(req.params.id)
+// GET /clients/5a7db6c74d55bc51bdf39793
+router.get('/clients/:borrowerId', requireToken, (req, res, next) => {
+	Client.findById(req.params.borrowerId)
 		.then(handle404)
-		// if `findById` is succesful, respond with 200 and "example" JSON
-		.then((example) => res.status(200).json({ example: example }))
-		// if an error occurs, pass it to the handler
+		.then(client => res.status(200).json({ client }))
 		.catch(next)
 })
 
