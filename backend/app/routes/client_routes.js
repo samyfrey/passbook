@@ -15,7 +15,7 @@ const router = express.Router()
 
 // INDEX
 // GET /examples
-router.get('/clients', requireToken, (req, res, next) => {
+router.get('/clients', (req, res, next) => {
 	Client.find()
 		.then((clients) => res.status(200).json({ clients: clients }))
 		.catch(next)

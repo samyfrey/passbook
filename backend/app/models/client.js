@@ -5,8 +5,7 @@ const clientSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: true,
-			unique: true,
+			required: true
 		},
 		industry: {
 			type: String,

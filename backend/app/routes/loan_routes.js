@@ -2,7 +2,7 @@ const express = require('express')
 const passport = require('passport')
 
 const Client = require('../models/client')
-
+const Loan = require('../models/loan')
 const customErrors = require('../../lib/custom_errors')
 
 const handle404 = customErrors.handle404
@@ -15,9 +15,9 @@ const router = express.Router()
 
 // INDEX
 // GET /loans
-router.get('/loans', requireToken, (req, res, next) => {
+router.get('/loans', (req, res, next) => {
 	Client.find()
-		.then((clients) => res.status(200).json({ clients: clients }))
+		.then(loans => res.status(200).json({ loans }))
 		.catch(next)
 })
 
@@ -50,25 +50,31 @@ router.post('/loans', requireToken, (req, res, next) => {
 })
 
 // UPDATE
-// PATCH /examples/5a7db6c74d55bc51bdf39793
-router.patch('/examples/:id', requireToken, removeBlanks, (req, res, next) => {
-	delete req.body.example.owner
+// PATCH /examples/:id
+router.patch('/loans/:id', requireToken, removeBlanks, (req, res, next) => {
+	delete req.body.loan.borrower
 
-	Example.findById(req.params.id)
+	Loan.findById(req.params.id)
 		.then(handle404)
-		.then((example) => requireOwnership(req, example))
-		.then((example) => example.updateOne(req.body.example))
+		.then((loan) => requireOwnership(req, loan))
+		.then((loan) => loan.updateOne(req.body.loan))
 		.then(() => res.sendStatus(204))
 		.catch(next)
 })
 
 // DESTROY
-// DELETE /examples/5a7db6c74d55bc51bdf39793
-router.delete('/examples/:id', requireToken, (req, res, next) => {
-	Example.findById(req.params.id)
+// DELETE /examples/id
+router.delete('/loans/:loanId', requireToken, (req, res, next) => {
+	const loanId = req.params.loanId
+	const borrowerId = req.body.loan.borrowerId
+
+	Client.findById(borrowerId)
 		.then(handle404)
-		.then((example) => requireOwnership(req, example))
-		.then((example) => example.deleteOne())
+		// .then((loan) => requireOwnership(req, loan))
+		.then((client) => {
+			client.loans.id(loanId).remove()
+			return client.save()
+		})
 		.then(() => res.sendStatus(204))
 		.catch(next)
 })

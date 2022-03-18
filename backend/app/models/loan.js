@@ -4,16 +4,23 @@ const loanSchema = new mongoose.Schema(
 	{
 		description: {
 			type: String,
-			required: true,
-			unique: true,
+			required: true
 		},
 		amount: {
 			type: Number,
 			required: true,
 		},
-        closingDate: {
+		revenue: {
+			type: Number,
+			// required: true,
+		},
+        startDate: {
             type: Date,
-            required: true
+            // required: true
+        },
+        maturityDate: {
+            type: Date,
+            // required: true
         },
         borrower: {
 			type: mongoose.Schema.Types.ObjectId,
@@ -22,13 +29,6 @@ const loanSchema = new mongoose.Schema(
 	},
 	{
 		timestamps: true,
-		toJSON: {
-			// remove `hashedPassword` field when we call `.toJSON`
-			transform: (_doc, user) => {
-				delete user.hashedPassword
-				return user
-			},
-		},
 	}
 )
 
