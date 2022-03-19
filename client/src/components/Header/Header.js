@@ -6,15 +6,15 @@ import { Link, NavLink } from 'react-router-dom'
 
 const authenticatedOptions = (
   <>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+    <NavLink to='/account/change-password' className='nav-link'>Change Password</NavLink>
+    <NavLink to='/account/sign-out' className='nav-link'>Sign Out</NavLink>
   </>
 )
 
 const unauthenticatedOptions = (
   <>
-    <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
-    <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
+    <NavLink to='/account/sign-up' className='nav-link'>Sign Up</NavLink>
+    <NavLink to='/account/sign-in' className='nav-link'>Sign In</NavLink>
   </>
 )
 

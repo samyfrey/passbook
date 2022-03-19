@@ -9,7 +9,10 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import Clients from './components/Clients'
+import { Dashboard } from './components/pages/Dashboard/Dashboard'
+import { Account } from './components/pages/Account/Account'
+import { ClientsOverview } from './components/pages/Clients/ClientsOverview'
+import { ClientDetail } from './components/pages/Clients/ClientDetail'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -25,7 +28,7 @@ const App = () => {
   return (
     <>
       <Header user={user} />
-      {msgAlerts.map(msgAlert => (
+      {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert
           key={msgAlert.id}
           heading={msgAlert.heading}
@@ -36,25 +39,40 @@ const App = () => {
       ))}
       <main className='container'>
         <Routes>
-          <Route
-            path='/sign-up'
-            element={<SignUp msgAlert={msgAlert} setUser={setUser} /> }
-          />
-          <Route
-            path='/sign-in'
-            element={<SignIn msgAlert={msgAlert} setUser={setUser} /> }
-          />
-          <Route
-            path='/sign-out'
-            element={<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} /> }
-          />
-          <Route
-            path='/change-password'
-            element={<ChangePassword msgAlert={msgAlert} user={user} /> }
-          />
+          <Route path='/account/'>
+            <Route index element={<Account />} />
+            <Route
+              path='sign-up'
+              element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+            />
+            <Route
+              path='sign-in'
+              element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+            />
+            <Route
+              path='change-password'
+              element={<ChangePassword msgAlert={msgAlert} user={user} />}
+            />
+            <Route
+              path='sign-out'
+              element={
+                <SignOut
+                  msgAlert={msgAlert}
+                  clearUser={clearUser}
+                  user={user}
+                />
+              }
+            />
+          </Route>
 
+          <Route path='/clients/'>
+            <Route index element={<ClientsOverview />} />
+            <Route path=':borrowerId' element={<ClientDetail />} />
+            <Route path='create' element={<ClientCreate />} />
+          </Route>
+
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
-        <Clients />
       </main>
     </>
   )

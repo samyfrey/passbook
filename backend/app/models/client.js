@@ -5,7 +5,8 @@ const clientSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: true
+			required: true,
+			unique: true,
 		},
 		industry: {
 			type: String,
@@ -19,13 +20,7 @@ const clientSchema = new mongoose.Schema(
 	},
 	{
 		timestamps: true,
-		toJSON: {
-			// remove `hashedPassword` field when we call `.toJSON`
-			transform: (_doc, user) => {
-				delete user.hashedPassword
-				return user
-			},
-		},
+
 	}
 )
 

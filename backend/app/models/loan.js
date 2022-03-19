@@ -4,11 +4,11 @@ const loanSchema = new mongoose.Schema(
 	{
 		description: {
 			type: String,
-			required: true
+			// required: true
 		},
 		amount: {
 			type: Number,
-			required: true,
+			// required: true,
 		},
 		revenue: {
 			type: Number,

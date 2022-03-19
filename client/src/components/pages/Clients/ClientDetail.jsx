@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import '../../styles/Client.scss'
 
-import { indexClients } from '../api/clients'
+import { indexClients } from '../../../api/clients'
 
-const Clients = () => {
+const Client = () => {
   const [clients, setClients] = useState([])
   useEffect(() => {
     const fetchClients = async () => {
       try {
         const res = await indexClients()
         setClients(res.data.clients)
+        console.log(res)
       } catch (error) {
         console.log(error)
       }
@@ -26,4 +28,4 @@ const Clients = () => {
   ))
 }
 
-export default Clients
+export default Client
