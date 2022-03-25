@@ -21,6 +21,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <>
     <NavLink to='/' className='nav-link'>Home</NavLink>
+    <NavLink to='/clients/' className='nav-link'>Clients</NavLink>
   </>
 )
 
@@ -28,7 +29,7 @@ const Header = ({ user }) => (
   <Navbar bg='primary' variant='dark' expand='md'>
     <Container>
       <Navbar.Brand>
-        <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>react-auth-template</Link>
+        <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>PassBook</Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>

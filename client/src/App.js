@@ -12,7 +12,8 @@ import ChangePassword from './components/auth/ChangePassword'
 import { Dashboard } from './components/pages/Dashboard/Dashboard'
 import { Account } from './components/pages/Account/Account'
 import { ClientsOverview } from './components/pages/Clients/ClientsOverview'
-import { ClientDetail } from './components/pages/Clients/ClientDetail'
+import ClientDetail from './components/pages/Clients/ClientDetail'
+import { ClientCreate } from './components/pages/Clients/ClientCreate'
 
 const App = () => {
   const [user, setUser] = useState(null)

@@ -1,31 +1,47 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { showClient } from '../../../api/clients'
 import '../../styles/Client.scss'
+import { Spinner } from 'react-bootstrap'
 
-import { indexClients } from '../../../api/clients'
+const ClientDetail = () => {
+  const [borrower, setBorrower] = useState(null)
+  const { borrowerId } = useParams()
 
-const Client = () => {
-  const [clients, setClients] = useState([])
   useEffect(() => {
-    const fetchClients = async () => {
+    const fetchClient = async () => {
       try {
-        const res = await indexClients()
-        setClients(res.data.clients)
-        console.log(res)
+        const res = await showClient(borrowerId)
+        setBorrower(res.data.client)
+        console.log('borrower is', borrower)
       } catch (error) {
         console.log(error)
       }
     }
-    fetchClients()
+    fetchClient()
   }, [])
 
-  return clients.map(client => (
+  if (!borrower) {
+    return (
+      <Spinner animation='border' role='status'>
+        <span className='visually-hidden'>Loading...</span>
+      </Spinner>
+    )
+  }
+
+  const totalAmount = borrower.loans.reduce((total, loan) => {
+    return total + loan.amount
+  }, 0)
+  return (
     <>
-      <p>Hello from the clients component</p>
-      <li key={client._id}>
-        <p>{client.name}</p>
-      </li>
+      <p>{borrower.name}</p>
+      <p>{borrower.loans.map(loan => (
+        <li key={loan._id}>{loan.description}</li>
+      ))}</p>
+      <p>{totalAmount}</p>
     </>
-  ))
+
+  )
 }
 
-export default Client
+export default ClientDetail
