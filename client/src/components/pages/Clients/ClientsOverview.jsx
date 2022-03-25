@@ -21,6 +21,9 @@ export const ClientsOverview = () => {
   return (
     <div>
       <h1>Clients List</h1>
+      <Link to='/clients/create'>
+        <button>Add a client</button>
+      </Link>
       {clients.map(client => (
         <ul key={client._id}>
           <Link to={`/clients/${client._id}`}>{client.name}</Link>
