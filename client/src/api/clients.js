@@ -8,3 +8,14 @@ export const indexClients = () => {
 export const showClient = (borrowerId) => {
   return axios.get(`${apiUrl}/clients/${borrowerId}`)
 }
+
+export const createClient = (user, name, industry) => {
+  return axios.post(apiUrl + '/clients', {
+    client: { name, industry }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

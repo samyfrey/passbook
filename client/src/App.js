@@ -69,7 +69,7 @@ const App = () => {
           <Route path='/clients/'>
             <Route index element={<ClientsOverview />} />
             <Route path=':borrowerId' element={<ClientDetail />} />
-            <Route path='create' element={<ClientCreate />} />
+            <Route path='create' element={<ClientCreate user={user} />} />
           </Route>
 
           <Route path='/dashboard' element={<Dashboard />} />
