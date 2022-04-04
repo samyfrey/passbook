@@ -13,7 +13,7 @@ const ClientDetail = () => {
       try {
         const res = await showClient(borrowerId)
         setBorrower(res.data.client)
-        console.log('borrower is', borrower)
+        console.log('borrower res is', res)
       } catch (error) {
         console.log(error)
       }

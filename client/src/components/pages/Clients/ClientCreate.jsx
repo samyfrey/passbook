@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { createClient } from '../../../api/clients'
 import '../../styles/Client.scss'
 
 export const ClientCreate = ({ user }) => {
   const [name, setName] = useState('')
   const [industry, setIndustry] = useState('')
+  const [newClient, setNewClient] = useState(false)
   // post axios request
   // form
 
@@ -14,9 +16,14 @@ export const ClientCreate = ({ user }) => {
       const res = await createClient(user, name, industry)
       setName(res.data.client.name)
       setIndustry(res.data.client.industry)
+      setNewClient(true)
     } catch (error) {
       console.log(error)
     }
+  }
+
+  if (newClient) {
+    return <Navigate to={'/clients'} />
   }
   return (
 
