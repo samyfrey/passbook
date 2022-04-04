@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
+import ListTable from '../../Table/ListTable'
 // import { indexLoans } from '../../../api/loans'
-export const ClientsOverview = () => {
+
+const ClientsOverview = () => {
   const [clients, setClients] = useState(null)
   // const [loans, setLoans] = useState([])
   useEffect(() => {
@@ -56,6 +58,9 @@ export const ClientsOverview = () => {
         </ul>
       ))}
       {/* {globalAmount} */}
+      <ListTable clients={clients}/>
     </div>
   )
 }
+
+export default ClientsOverview

@@ -1,1 +1,1 @@
-import '../../styles/Loan.scss'
+import './Loan.scss'

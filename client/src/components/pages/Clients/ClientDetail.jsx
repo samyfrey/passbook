@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { showClient } from '../../../api/clients'
-import '../../styles/Client.scss'
+import './Client.scss'
 import { Spinner } from 'react-bootstrap'
 
 const ClientDetail = () => {
