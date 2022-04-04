@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
+import Sidebar from './components/sidebar/Sidebar'
 import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
@@ -27,18 +28,20 @@ const App = () => {
   }
 
   return (
-    <>
-      <Header user={user} />
-      {msgAlerts.map((msgAlert) => (
-        <AutoDismissAlert
-          key={msgAlert.id}
-          heading={msgAlert.heading}
-          variant={msgAlert.variant}
-          message={msgAlert.message}
-          id={msgAlert.id}
-        />
-      ))}
-      <main className='container'>
+    <div className='app'>
+      <Sidebar />
+      <div className='appContainer'>
+        <Header user={user} />
+        {msgAlerts.map((msgAlert) => (
+          <AutoDismissAlert
+            key={msgAlert.id}
+            heading={msgAlert.heading}
+            variant={msgAlert.variant}
+            message={msgAlert.message}
+            id={msgAlert.id}
+          />
+        ))}
+        container
         <Routes>
           <Route path='/account/'>
             <Route index element={<Account />} />
@@ -74,8 +77,8 @@ const App = () => {
 
           <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
-      </main>
-    </>
+      </div>
+    </div>
   )
 }
 

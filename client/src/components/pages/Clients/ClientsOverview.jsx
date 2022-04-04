@@ -4,6 +4,7 @@ import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
+import './Client.scss'
 // import { indexLoans } from '../../../api/loans'
 
 const ClientsOverview = () => {
@@ -47,18 +48,18 @@ const ClientsOverview = () => {
   // }, 0)
 
   return (
-    <div>
+    <div className='container'>
       <h1>Clients List</h1>
       <Link to='/clients/create'>
         <button>Add a client</button>
       </Link>
-      {clients.map(client => (
+      {/* {clients.map(client => (
         <ul key={client._id}>
           <Link to={`/clients/${client._id}`}>{client.name}</Link>
         </ul>
-      ))}
+      ))} */}
       {/* {globalAmount} */}
-      <ListTable clients={clients}/>
+      <ListTable rows={clients}/>
     </div>
   )
 }
