@@ -11,10 +11,11 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import { Dashboard } from './components/pages/Dashboard/Dashboard'
-import { Account } from './components/pages/Account/Account'
 import ClientsOverview from './components/pages/Clients/ClientsOverview'
 import ClientDetail from './components/pages/Clients/ClientDetail'
 import { ClientCreate } from './components/pages/Clients/ClientCreate'
+import Profile from './components/pages/Profile/Profile'
+import LoansOverview from './components/pages/Loans/LoansOverview'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -40,10 +41,10 @@ const App = () => {
             id={msgAlert.id}
           />
         ))}
-        container
+				container
         <Routes>
           <Route path='/account/'>
-            <Route index element={<Account />} />
+            <Route index element={<Profile />} />
             <Route
               path='sign-up'
               element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
@@ -72,6 +73,9 @@ const App = () => {
             <Route index element={<ClientsOverview />} />
             <Route path=':borrowerId' element={<ClientDetail />} />
             <Route path='create' element={<ClientCreate user={user} />} />
+          </Route>
+          <Route path='/loans/'>
+            <Route index element={<LoansOverview />} />
           </Route>
 
           <Route path='/dashboard' element={<Dashboard />} />

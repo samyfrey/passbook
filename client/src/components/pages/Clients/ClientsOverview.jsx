@@ -15,8 +15,8 @@ const ClientsOverview = () => {
       try {
         const res = await indexClients()
         setClients(res.data.clients)
-        console.log('index clients is', res)
-        await console.log('index clients is now', clients)
+        await console.log('index clients is', res)
+        await console.log('clients state is now', clients)
       } catch (error) {
         console.log(error)
       }
@@ -52,13 +52,23 @@ const ClientsOverview = () => {
       <h1>Clients List</h1>
       <Link to='/clients/create'>
         <button>Add a client</button>
-      </Link>
+      </Link>w
       {/* {clients.map(client => (
         <ul key={client._id}>
           <Link to={`/clients/${client._id}`}>{client.name}</Link>
         </ul>
       ))} */}
       {/* {globalAmount} */}
+      <p>Loan table {clients.map(client => (
+        <ul key={client._id}>
+          {/* <li>{client.name}</li> */}
+          {client.loans.map(loan => (
+            <ul key={loan._id}>
+              <li>{loan.amount}</li>
+            </ul>
+          ))}
+        </ul>
+      ))}</p>
       <ListTable rows={clients}/>
     </div>
   )

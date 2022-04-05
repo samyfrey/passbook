@@ -38,7 +38,7 @@ export function Sidebar () {
               <span>Budget</span>
             </li>
           </NavLink>
-          <NavLink to='/profile/' >
+          <NavLink to='/account/' >
             <li><PersonIcon className="icon"/>
               <span>Profile</span>
             </li>
