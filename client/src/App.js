@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import Sidebar from './components/sidebar/Sidebar'
+import { Sidebar } from './components/sidebar/Sidebar'
 import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
@@ -19,7 +19,6 @@ import { ClientCreate } from './components/pages/Clients/ClientCreate'
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-  // const [clients, setClients] = useState([])
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {

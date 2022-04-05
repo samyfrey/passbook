@@ -14,7 +14,7 @@
         .logo{
             font-size: 20px;
             font-weight: bold;
-            color: #243880 ;
+            color: #292627 ;
         }
 
         hr {
@@ -22,18 +22,27 @@
             border: 0.5px solid rgb(230, 227, 227);
 
         }
-
+    }
     .center{
-        padding-left: 10px
+        padding-left: 10px;
         
-        ul{
+        ul {
         list-style: none;
         margin: 0;
         padding: 0;
-        };
+        }
 
-    }
-    }
+        li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
 
-  
+        &:hover {
+          background-color: lightgray;
+        }
+    
+
+        }
+    }
 }
