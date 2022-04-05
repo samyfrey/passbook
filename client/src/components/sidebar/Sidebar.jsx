@@ -1,5 +1,7 @@
 import './sidebar.scss'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PeopleIcon from '@mui/icons-material/People'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
@@ -15,14 +17,32 @@ export function Sidebar () {
       <hr/>
       <div className='center'>
         <ul>
-          <li>
-            <DashboardIcon />
-            <span>Dashboard</span>
-          </li>
-          <li><PeopleIcon/><span>Clients</span></li>
-          <li><AccountBalanceIcon/><span>Loans</span></li>
-          <li><TimelineIcon/><span>Budget</span></li>
-          <li><PersonIcon/><span>Profile</span></li>
+          <NavLink to='/'>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </NavLink>
+          <NavLink to='/clients/' >
+            <li><PeopleIcon className="icon"/>
+              <span>Clients</span>
+            </li>
+          </NavLink>
+          <NavLink to='/loans/' >
+            <li><AccountBalanceIcon className="icon"/>
+              <span>Loans</span>
+            </li>
+          </NavLink>
+          <NavLink to='/budget/' >
+            <li><TimelineIcon className="icon"/>
+              <span>Budget</span>
+            </li>
+          </NavLink>
+          <NavLink to='/profile/' >
+            <li><PersonIcon className="icon"/>
+              <span>Profile</span>
+            </li>
+          </NavLink>
         </ul>
       </div>
       <div className='bottom'>color options</div>

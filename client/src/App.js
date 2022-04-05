@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import { Sidebar } from './components/sidebar/Sidebar'
-import Header from './components/Header/Header'
+// import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
@@ -30,7 +30,7 @@ const App = () => {
     <div className='app'>
       <Sidebar />
       <div className='appContainer'>
-        <Header user={user} />
+        {/* <Header user={user} /> */}
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}

@@ -41,8 +41,18 @@
         &:hover {
           background-color: lightgray;
         }
-    
+        
+        .icon {
+          font-size: 18px;
+          color: #0a6ec7;
+        }
 
+        span{
+            font-size: 16px;
+            font-weight: 600;
+            color: #888;
+            margin-left: 10px;
+        }
         }
     }
 }
