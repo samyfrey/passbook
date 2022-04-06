@@ -8,7 +8,7 @@ import './Client.scss'
 // import { indexLoans } from '../../../api/loans'
 
 const ClientsOverview = () => {
-  const [clients, setClients] = useState(null)
+  const [clients, setClients] = useState([])
   // const [loans, setLoans] = useState([])
   useEffect(() => {
     const fetchClients = async () => {
@@ -42,14 +42,23 @@ const ClientsOverview = () => {
       </Spinner>
     )
   } else {
-    const globalAmount = clients.map(client => {
-      return client.loans.reduce((total, loan) => {
-        return total + loan.amount
-      }, 0)
-    })
-    // const globalAmount = clients.loans.reduce((total, loan) => {
-    //   return total + loan.amount
-    // }, 0)
+    // const globalAmount = clients.map(client => {
+    //   return client.loans.reduce((total, loan) => {
+    //     return total + loan.amount
+    //   }, 0)
+    // })
+
+    let sum = 0
+    function grandTotal (clients) {
+      for (let i = 0; i < clients.length; i++) {
+        const selectBorrower = clients[i].loans
+        for (let j = 0; j < selectBorrower.length; j++) {
+          const result = selectBorrower[j].amount
+          sum += result
+        }
+      }
+      return sum
+    }
 
     return (
       <div className='container'>
@@ -62,7 +71,7 @@ const ClientsOverview = () => {
           <Link to={`/clients/${client._id}`}>{client.name}</Link>
         </ul>
       ))} */}
-        <p>Total loans: {globalAmount}</p>
+        <p>Total loans: {grandTotal(clients)}</p>
 
         <p>Loan table {clients.map(client => (
           <ul key={client._id}>
