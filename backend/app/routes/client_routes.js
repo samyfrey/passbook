@@ -63,5 +63,16 @@ router.patch('/clients/:borrowerId', requireToken, removeBlanks, (req, res, next
 })
 
 
+//DELETE 
+// /examples/:id
+
+router.delete('/clients/:borrowerId', requireToken, removeBlanks, (req, res, next) => {
+	  Client.findById(req.params.borrowerId)
+			.then(handle404)
+			.then(client => requireOwnership(req, client))
+			.then(client => client.deleteOne())
+			.then(() => res.sendStatus(204))
+			.catch(next)
+})
 
 module.exports = router

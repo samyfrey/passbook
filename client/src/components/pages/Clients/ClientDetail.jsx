@@ -13,13 +13,13 @@ const ClientDetail = () => {
       try {
         const res = await showClient(borrowerId)
         setBorrower(res.data.client)
-        console.log('borrower res is', res)
       } catch (error) {
         console.log(error)
       }
     }
     fetchClient()
   }, [])
+  console.log('borrower state is', borrower)
 
   if (!borrower) {
     return (
@@ -27,25 +27,25 @@ const ClientDetail = () => {
         <span className='visually-hidden'>Loading...</span>
       </Spinner>
     )
+  } else {
+    const totalAmount = borrower.loans.reduce((total, loan) => {
+      return total + loan.amount
+    }, 0)
+    return (
+      <>
+        <p>{borrower.name}</p>
+        <p>Industry: {borrower.industry}</p>
+        <p>Loan table {borrower.loans.map(loan => (
+          <ul key={loan._id}>
+            <li>{loan.description}</li>
+            <li>{loan.amount}</li>
+          </ul>
+        ))}</p>
+        <p>Total loans: {totalAmount}</p>
+      </>
+
+    )
   }
-
-  const totalAmount = borrower.loans.reduce((total, loan) => {
-    return total + loan.amount
-  }, 0)
-  return (
-    <>
-      <p>{borrower.name}</p>
-      <p>Industry: {borrower.industry}</p>
-      <p>Loan table {borrower.loans.map(loan => (
-        <ul key={loan._id}>
-          <li>{loan.description}</li>
-          <li>{loan.amount}</li>
-        </ul>
-      ))}</p>
-      <p>Total loans: {totalAmount}</p>
-    </>
-
-  )
 }
 
 export default ClientDetail

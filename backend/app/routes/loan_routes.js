@@ -80,7 +80,7 @@ router.patch('/loans/:loanId', (req, res, next) => {
 })
 
 // DESTROY
-// DELETE /examples/id
+// DELETE /loan/id
 router.delete('/loans/:loanId', requireToken, (req, res, next) => {
 	const loanId = req.params.loanId
 	const borrowerId = req.body.loan.borrowerId
