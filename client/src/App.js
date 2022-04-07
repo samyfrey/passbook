@@ -1,5 +1,8 @@
 /* eslint-disable no-tabs */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+// import { ClientDetail } from './ClientDetail'
+import { indexClients } from './api/clients'
+
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -26,6 +29,21 @@ const App = () => {
     const id = uuid()
     setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant, id }]))
   }
+
+  const [clients, setClients] = useState([])
+  // const [loans, setLoans] = useState([])
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const res = await indexClients()
+        setClients(res.data.clients)
+        // await console.log('index clients is', res)
+      } catch (error) {
+        console.log('error is', error)
+      }
+    }
+    fetchClients()
+  }, [])
 
   return (
     <div className='app'>
@@ -70,7 +88,7 @@ const App = () => {
           </Route>
 
           <Route path='/clients/'>
-            <Route index element={<ClientsOverview />} />
+            <Route index element={<ClientsOverview clients={clients}/>} />
             <Route path=':borrowerId' element={<ClientDetail />} />
             <Route path='create' element={<ClientCreate user={user} />} />
           </Route>
@@ -78,7 +96,7 @@ const App = () => {
             <Route index element={<LoansOverview />} />
           </Route>
 
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/' element={<Dashboard clients={clients}/>} />
         </Routes>
       </div>
     </div>

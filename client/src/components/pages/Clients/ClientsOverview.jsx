@@ -1,39 +1,26 @@
-import React, { useState, useEffect } from 'react'
-// import { ClientDetail } from './ClientDetail'
-import { indexClients } from '../../../api/clients'
+import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
 import './Client.scss'
 // import { indexLoans } from '../../../api/loans'
 
-const ClientsOverview = () => {
-  const [clients, setClients] = useState([])
-  // const [loans, setLoans] = useState([])
-  useEffect(() => {
-    const fetchClients = async () => {
-      try {
-        const res = await indexClients()
-        setClients(res.data.clients)
-        // await console.log('index clients is', res)
-      } catch (error) {
-        console.log('error is', error)
-      }
-    }
-    fetchClients()
-
-    //   const fetchLoans = async () => {
-    //     try {
-    //       const res = await indexLoans()
-    //       setClients(res.data.loans)
-    //       console.log('loan res is:', res)
-    //     } catch (error) {
-    //       console.log(error)
-    //     }
-    //   }
-    //   fetchLoans()
-  }, [])
-  console.log('clients state is now', clients)
+const ClientsOverview = ({ clients }) => {
+  // const [clients, setClients] = useState([])
+  // // const [loans, setLoans] = useState([])
+  // useEffect(() => {
+  //   const fetchClients = async () => {
+  //     try {
+  //       const res = await indexClients()
+  //       setClients(res.data.clients)
+  //       // await console.log('index clients is', res)
+  //     } catch (error) {
+  //       console.log('error is', error)
+  //     }
+  //   }
+  //   fetchClients()
+  // }, [])
 
   if (!clients) {
     return (
@@ -48,16 +35,41 @@ const ClientsOverview = () => {
     //   }, 0)
     // })
 
-    let sum = 0
-    function grandTotal (clients) {
-      for (let i = 0; i < clients.length; i++) {
-        const selectBorrower = clients[i].loans
+    function grandTotal (array) {
+      let sum = 0
+      for (let i = 0; i < array.length; i++) {
+        const selectBorrower = array[i].loans
         for (let j = 0; j < selectBorrower.length; j++) {
           const result = selectBorrower[j].amount
           sum += result
         }
       }
       return sum
+    }
+
+    const selectArray = (array) => {
+      const sum = []
+      for (let i = 0; i < array.length; i++) {
+        const selectBorrower = array[i].loans
+        for (let j = 0; j < selectBorrower.length; j++) {
+          const myArray = selectBorrower[j].revenue
+          sum.push(myArray)
+        }
+      }
+      return sum
+    }
+
+    const findCumulativeSum = arr => {
+      const creds = arr.reduce((acc, val) => {
+        let { sum, res } = acc
+        sum += val
+        res.push(sum)
+        return { sum, res }
+      }, {
+        sum: 0,
+        res: []
+      })
+      return creds.res
     }
 
     return (
