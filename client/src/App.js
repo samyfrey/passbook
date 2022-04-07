@@ -44,6 +44,7 @@ const App = () => {
     }
     fetchClients()
   }, [])
+  console.log('clients state is', clients)
 
   return (
     <div className='app'>

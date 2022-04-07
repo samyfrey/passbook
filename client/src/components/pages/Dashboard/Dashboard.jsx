@@ -1,5 +1,6 @@
 import './Dashboard.scss'
 import React from 'react'
+import Chart from '../../Chart/Chart'
 
 export const Dashboard = ({ clients }) => {
   function grandTotal (array) {
@@ -17,7 +18,7 @@ export const Dashboard = ({ clients }) => {
   return (
     <div className='dashboard'>
       <p>Revenues: {grandTotal(clients)}</p>
-
+      <Chart title="Last 6 Months (Revenue)" aspect={3 / 1}/>
     </div>
   )
 }
