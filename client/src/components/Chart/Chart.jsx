@@ -27,12 +27,12 @@ const Chart = ({ aspect, title, data }) => {
               <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" stroke="gray" />
+          <XAxis dataKey="month" stroke="gray" />
           <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="Total"
+            dataKey="amount"
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#total)"
@@ -45,4 +45,9 @@ const Chart = ({ aspect, title, data }) => {
 
 export default Chart
 
-// const myArr = [{ company: 'Apple', month: 'January', value: 150 }, { month: 'January', value: 150 }, { month: 'February', value: 200 }, { month: 'August', value: 450 }]
+// const myArr = [
+//   { company: 'Apple', month: 'January', value: 150 },
+//   { month: 'January', value: 150 },
+//   { month: 'February', value: 200 },
+//   { month: 'August', value: 450 }
+// ]

@@ -6,6 +6,9 @@ const loanSchema = new mongoose.Schema(
 			type: String,
 			// required: true
 		},
+		month: {
+			type: String
+		},
 		amount: {
 			type: Number,
 			// required: true,

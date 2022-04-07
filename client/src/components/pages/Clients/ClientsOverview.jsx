@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
 import './Client.scss'
+import Chart from '../../Chart/Chart'
 // import { indexLoans } from '../../../api/loans'
 
 const ClientsOverview = ({ clients }) => {
@@ -59,8 +60,6 @@ const ClientsOverview = ({ clients }) => {
       return selectLoans
     }
 
-    // to add after cumulate arr loanExtractor(arr)
-
     function cumulate (arr) {
       const res = Array.from(arr.reduce(
         (m, { month, amount }) => m.set(month, (m.get(month) || 0) + amount), new Map()
@@ -69,7 +68,9 @@ const ClientsOverview = ({ clients }) => {
     }
     // need to reformat month and value to the array of data (add month to the model and value change to amount)
     const formattedData = loanExtractor(clients)
+    console.log('formattedData is', formattedData)
     const data = cumulate(formattedData)
+    console.log('cumulated data is', data)
     // const selectArray = array => {
     //   const sum = []
     //   for (let i = 0; i < array.length; i++) {
@@ -119,7 +120,8 @@ const ClientsOverview = ({ clients }) => {
             ))}
           </ul>
         ))}</p>
-        <ListTable rows={clients} data={data}/>
+        <ListTable rows={clients} />
+        <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={data}/>
       </div>
     )
   }
