@@ -1,7 +1,8 @@
 import './Dashboard.scss'
 import React from 'react'
-import Chart from '../../Chart/Chart'
-
+// import Chart from '../../Chart/Chart'
+// import { result } from '../../../dataManipulation'
+import ChartTest from '../../Chart/ChartTest'
 export const Dashboard = ({ clients }) => {
   function grandTotal (array) {
     let sum = 0
@@ -18,7 +19,8 @@ export const Dashboard = ({ clients }) => {
   return (
     <div className='dashboard'>
       <p>Revenues: {grandTotal(clients)}</p>
-      <Chart title="Last 6 Months (Revenue)" aspect={3 / 1}/>
+      {/* <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={result(clients)}/> */}
+      <ChartTest />
     </div>
   )
 }
