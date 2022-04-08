@@ -23,6 +23,8 @@ import LoansOverview from './components/pages/Loans/LoansOverview'
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [RevChartData, setRevChartData] = useState([])
+
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
@@ -89,7 +91,7 @@ const App = () => {
           </Route>
 
           <Route path='/clients/'>
-            <Route index element={<ClientsOverview clients={clients}/>} />
+            <Route index element={<ClientsOverview clients={clients} />} />
             <Route path=':borrowerId' element={<ClientDetail />} />
             <Route path='create' element={<ClientCreate user={user} />} />
           </Route>
@@ -97,7 +99,16 @@ const App = () => {
             <Route index element={<LoansOverview />} />
           </Route>
 
-          <Route path='/' element={<Dashboard clients={clients}/>} />
+          <Route
+            path='/'
+            element={
+              <Dashboard
+                clients={clients}
+                RevChartData={RevChartData}
+                setRevChartData={setRevChartData}
+              />
+            }
+          />
         </Routes>
       </div>
     </div>

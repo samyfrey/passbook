@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
 import './Client.scss'
-import Chart from '../../Chart/Chart'
-import ChartTest from '../../Chart/ChartTest'
+// import Chart from '../../Chart/Chart'
 
-const ClientsOverview = ({ clients }) => {
+const ClientsOverview = ({ clients, setChartData }) => {
   if (!clients) {
     return (
       <Spinner animation='border' role='status'>
@@ -39,72 +38,6 @@ const ClientsOverview = ({ clients }) => {
       return sum
     }
 
-    const actualRevData = [
-      {
-        month: 'January',
-        pastYearRev: 50
-      },
-      {
-        month: 'February',
-        pastYearRev: 40
-      },
-      { month: 'March', pastYearRev: 100 }
-    ]
-
-    function loanExtractor (array) {
-      const selectLoans = []
-      for (let i = 0; i < array.length; i++) {
-        const selectBorrower = array[i].loans
-        for (let j = 0; j < selectBorrower.length; j++) {
-          const eachLoan = selectBorrower[j]
-          selectLoans.push(eachLoan)
-        }
-      }
-      return selectLoans
-    }
-
-    const loans = loanExtractor(clients)
-
-    function grouping (arr) {
-      const res = Array.from(
-        arr.reduce(
-          (accumulator, { month, revenue }) =>
-            accumulator.set(month, (accumulator.get(month) || 0) + revenue),
-          new Map()
-        ),
-        ([month, revenue]) => ({ month, revenue })
-      )
-      return res
-    }
-
-    const groupedLoans = grouping(loans)
-
-    function cumulator (arr) {
-      const newArray = arr.map((obj, index, self) => {
-        if (index === 0) return obj
-
-        const prevO = self[index - 1]
-        obj.revenue += prevO.revenue
-        return obj
-      })
-      return newArray
-    }
-
-    const finalArray = cumulator(groupedLoans)
-    console.log('final used to push to actual data is', finalArray)
-    function pushDataToActual (arr) {
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i].month === actualRevData[i].month) {
-          actualRevData[i].thisYearRev = arr[i].revenue
-        }
-      }
-      return actualRevData
-    }
-    console.log(actualRevData)
-
-    const finalChartData = pushDataToActual(finalArray)
-    console.log('final chart data is', finalChartData)
-
     return (
       <div className='container'>
         <h1>Clients List</h1>
@@ -130,8 +63,7 @@ const ClientsOverview = ({ clients }) => {
           </ul>
         ))}</div>
         <ListTable rows={clients} />
-        <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={finalChartData}/>
-        <ChartTest title="Last 6 Months (Revenue)" aspect={3 / 1} data={finalChartData}/>
+        {/* <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={chartData}/> */}
       </div>
     )
   }
