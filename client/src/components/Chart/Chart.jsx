@@ -32,7 +32,7 @@ const Chart = ({ aspect, title, data }) => {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="amount"
+            dataKey="revenue"
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#total)"
