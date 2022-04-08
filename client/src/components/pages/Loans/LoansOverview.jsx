@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { indexLoans } from '../../../api/loans'
 import { Spinner } from 'react-bootstrap'
 
-const LoansOverview = () => {
+const LoansOverview = ({ clients }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
@@ -27,19 +27,40 @@ const LoansOverview = () => {
         <span className='visually-hidden'>Loading...</span>
       </Spinner>
     )
-  }
+  } else {
+    function loanTotal (array) {
+      let sum = 0
+      for (let i = 0; i < array.length; i++) {
+        const selectBorrower = array[i].loans
+        for (let j = 0; j < selectBorrower.length; j++) {
+          const result = selectBorrower[j].amount
+          sum += result
+        }
+      }
+      return sum
+    }
 
-  return (
-    <div>
-      {/* <p>LoansOverview</p>
+    return (
+      <div>
+        {/* <p>LoansOverview</p>
       {loans.loans.map(loan => (
         <ul key={loan._id}>
           <li>{loan.description}</li>
         </ul>
       ))} */}
-      <>Loan component is on each client</>
-    </div>
-  )
-}
+        <p>Total loans: {loanTotal(clients)}</p>
 
+        <div>Loan table {clients.map(client => (
+          <ul key={client._id}>
+            {/* <li>{client.name}</li> */}
+            {client.loans.map(loan => (
+              <ul key={loan._id}>
+                <li>{loan.amount}</li>
+              </ul>
+            ))}
+          </ul>
+        ))}</div>      </div>
+    )
+  }
+}
 export default LoansOverview

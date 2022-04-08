@@ -96,7 +96,7 @@ const App = () => {
             <Route path='create' element={<ClientCreate user={user} />} />
           </Route>
           <Route path='/loans/'>
-            <Route index element={<LoansOverview />} />
+            <Route index element={<LoansOverview clients={clients}/>} />
           </Route>
 
           <Route
