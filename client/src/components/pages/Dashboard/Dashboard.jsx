@@ -6,6 +6,7 @@ import React, { useEffect } from 'react'
 import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
+import ProgressChart from '../../Table/ProgressChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   const actualRevData = [
@@ -22,6 +23,19 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
     { month: 'November', pastYearRev: 240 },
     { month: 'December', pastYearRev: 250 }
   ]
+
+  const budgetData = {
+    thisYearBudget: 250,
+    ytdRev: grandTotalRev(clients)
+
+  }
+
+  const progress = (budgetData.ytdRev * 100) / budgetData.thisYearBudget
+
+  console.log(typeof budgetData.ytdRev)
+  console.log(typeof budgetData.thisYearBudget)
+  console.log(progress)
+
   useEffect(() => {
     function loanExtractor (array) {
       const selectLoans = []
@@ -91,7 +105,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   }, []
 
   )
-  function grandTotal (array) {
+  function grandTotalRev (array) {
     let sum = 0
     for (let i = 0; i < array.length; i++) {
       const selectBorrower = array[i].loans
@@ -111,9 +125,11 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   }
   return (
     <div className='dashboard'>
-      <p>Revenues: {grandTotal(clients)}</p>
+      {/* <p>Revenues: {grandTotalRev(clients)}</p> */}
+      <p>Revenues: {budgetData.ytdRev}</p>
       <Chart title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
       <LoansTable clients={clients}/>
+      <ProgressChart title="YTD Revenue to Budget" aspect={2 / 1} progress={progress} />
 
     </div>
   )

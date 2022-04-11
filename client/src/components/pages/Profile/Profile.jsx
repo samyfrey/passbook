@@ -9,14 +9,18 @@ const Profile = ({ msgAlert, user, setUser }) => {
 
       <div>
 
-        <SignIn msgAlert={msgAlert} setUser={setUser}/>
         <Link to='/account/change-password'>Change password</Link>
 
       </div>
     )
   }
   return (
-    <SignUp msgAlert={msgAlert} setUser={setUser}/>
+    <>
+      <SignIn msgAlert={msgAlert} setUser={setUser}/>
+
+      <SignUp msgAlert={msgAlert} setUser={setUser}/>
+
+    </>
   )
 }
 
