@@ -1,19 +1,32 @@
 import './Loan.scss'
 
 import React, { useEffect, useState } from 'react'
-import { indexLoans } from '../../../api/loans'
+// import { indexLoans } from '../../../api/loans'
 import { Spinner } from 'react-bootstrap'
-import LoanTable from '../../Table/LoanTable'
+import LoansTable from '../../Table/LoansTable'
+import { indexClients } from '../../../api/clients'
 
 const LoansOverview = ({ clients }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
+    // const fetchLoans = async () => {
+    //   try {
+    //     const res = await indexLoans()
+    //     setLoans(res.data.loans)
+    //     await console.log('loans variable is', loans)
+    //     // await console.log('loan res is:', res)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
+    // fetchLoans()
     const fetchLoans = async () => {
       try {
-        const res = await indexLoans()
-        setLoans(res.data.loans)
-        await console.log('loans variable is', loans)
+        const res = await indexClients()
+        console.log('res from indexclients is', res)
+        setLoans(res.data.clients)
+
         // await console.log('loan res is:', res)
       } catch (error) {
         console.log(error)
@@ -21,6 +34,7 @@ const LoansOverview = ({ clients }) => {
     }
     fetchLoans()
   }, [])
+  console.log('loans variable is', loans)
 
   if (!loans) {
     return (
@@ -42,8 +56,7 @@ const LoansOverview = ({ clients }) => {
     }
     return (
       <div>
-        <div>The Loan table component</div>
-        <LoanTable clients={clients}/>
+        <LoansTable clients={clients}/>
         {/* <p>LoansOverview</p>
       {loans.loans.map(loan => (
         <ul key={loan._id}>
@@ -52,16 +65,6 @@ const LoansOverview = ({ clients }) => {
       ))} */}
         <p>Total loans: {loanTotal(clients)}</p>
 
-        <div>Loan table {clients.map(client => (
-          <ul key={client._id}>
-            {/* <li>{client.name}</li> */}
-            {client.loans.map(loan => (
-              <ul key={loan._id}>
-                <li>{loan.amount}</li>
-              </ul>
-            ))}
-          </ul>
-        ))}</div>
       </div>
     )
   }

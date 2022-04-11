@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 // import Chart from '../../Chart/Chart'
 // import { result } from '../../../dataManipulation'
 // import ChartTest from '../../Chart/ChartTest'
+import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 
@@ -111,6 +112,9 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   return (
     <div className='dashboard'>
       <p>Revenues: {grandTotal(clients)}</p>
-      <Chart title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>    </div>
+      <Chart title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
+      <LoansTable clients={clients}/>
+
+    </div>
   )
 }

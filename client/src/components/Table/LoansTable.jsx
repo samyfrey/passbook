@@ -9,27 +9,30 @@ import Paper from '@mui/material/Paper'
 import './listTable.scss'
 // import { Link } from 'react-router-dom'
 
-export default function LoanTable ({ loans }) {
+export default function LoansTable ({ clients }) {
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Loan Description</TableCell>
+            <TableCell className="tableCell">Company Name</TableCell>
+            <TableCell className="tableCell">Description Name</TableCell>
             <TableCell className="tableCell" align="right">Amount</TableCell>
 
           </TableRow>
         </TableHead>
         <TableBody>
-          { loans.map(loan =>
-            <TableRow key={loan._id}>
-              <TableCell >{loan.description}</TableCell>
-              <TableCell align="right">{loan.amount}</TableCell>
+          {clients.map(client => (
+            client.loans.map(loan =>
+              <TableRow key={loan._id}>
+                <TableCell >{client.name}</TableCell>
+                <TableCell >{loan.description}</TableCell>
+                <TableCell align="right">{loan.amount}</TableCell>
 
-            </TableRow>
-          )
+              </TableRow>
+            )
 
-          }
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

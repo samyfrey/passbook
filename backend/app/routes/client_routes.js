@@ -17,18 +17,15 @@ const router = express.Router()
 // GET /clients
 router.get('/clients', (req, res, next) => {
 	Client.find()
+		.then(handle404)
+
 		.then(clients => res.status(200).json({ clients }))
 		.catch(next)
 })
 
 // SHOW
 // GET /clients/5a7db6c74d55bc51bdf39793
-// router.get('/clients/:borrowerId', requireToken, (req, res, next) => {
-// 	Client.findById(req.params.borrowerId)
-// 		.then(handle404)
-// 		.then(client => res.status(200).json({ client }))
-// 		.catch(next)
-// })
+
 router.get('/clients/:borrowerId', (req, res, next) => {
 	Client.findById(req.params.borrowerId)
 		.then(handle404)

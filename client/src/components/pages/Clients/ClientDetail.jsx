@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { showClient } from '../../../api/clients'
 import './Client.scss'
 import { Spinner } from 'react-bootstrap'
+import LoanTable from '../../Table/LoanTable'
 
 const ClientDetail = () => {
   const [borrower, setBorrower] = useState(null)
@@ -42,6 +43,8 @@ const ClientDetail = () => {
           </ul>
         ))}</p>
         <p>Total loans: {totalAmount}</p>
+        <LoanTable key={borrower._id} loans={borrower.loans}/>
+
       </>
 
     )
