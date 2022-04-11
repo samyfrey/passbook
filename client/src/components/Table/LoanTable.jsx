@@ -16,6 +16,7 @@ export default function LoanTable ({ loans }) {
         <TableHead>
           <TableRow>
             <TableCell className="tableCell">Loan Description</TableCell>
+            <TableCell className="tableCell" align="right">Closing Date</TableCell>
             <TableCell className="tableCell" align="right">Amount</TableCell>
 
           </TableRow>
@@ -24,6 +25,7 @@ export default function LoanTable ({ loans }) {
           { loans.map(loan =>
             <TableRow key={loan._id}>
               <TableCell >{loan.description}</TableCell>
+              <TableCell align="right">{loan.month}</TableCell>
               <TableCell align="right">{loan.amount}</TableCell>
 
             </TableRow>

@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import './listTable.scss'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function LoansTable ({ clients }) {
   return (
@@ -25,8 +25,12 @@ export default function LoansTable ({ clients }) {
           {clients.map(client => (
             client.loans.map(loan =>
               <TableRow key={loan._id}>
-                <TableCell >{client.name}</TableCell>
-                <TableCell >{loan.description}</TableCell>
+                <Link to={`/clients/${client._id}`}>
+                  <TableCell>
+                    {client.name}
+                  </TableCell>
+
+                </Link>                <TableCell >{loan.description}</TableCell>
                 <TableCell align="right">{loan.amount}</TableCell>
 
               </TableRow>

@@ -43,7 +43,7 @@ router.get('/loans/:loanId', (req, res, next) => {
 
 // CREATE
 // POST /loans
-router.post('/loans', requireToken, (req, res, next) => {
+router.post('/loans/create', requireToken, (req, res, next) => {
 	const loanData = req.body.loan
 	const borrowerId = loanData.borrowerId
 

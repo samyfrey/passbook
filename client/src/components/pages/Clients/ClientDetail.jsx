@@ -36,12 +36,6 @@ const ClientDetail = () => {
       <>
         <p>{borrower.name}</p>
         <p>Industry: {borrower.industry}</p>
-        <p>Loan table {borrower.loans.map(loan => (
-          <ul key={loan._id}>
-            <li>{loan.description}</li>
-            <li>{loan.amount}</li>
-          </ul>
-        ))}</p>
         <p>Total loans: {totalAmount}</p>
         <LoanTable key={borrower._id} loans={borrower.loans}/>
 

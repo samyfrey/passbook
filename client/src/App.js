@@ -19,6 +19,7 @@ import ClientDetail from './components/pages/Clients/ClientDetail'
 import { ClientCreate } from './components/pages/Clients/ClientCreate'
 import Profile from './components/pages/Profile/Profile'
 import LoansOverview from './components/pages/Loans/LoansOverview'
+import LoanCreate from './components/pages/Loans/LoanCreate'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -96,7 +97,8 @@ const App = () => {
             <Route path='create' element={<ClientCreate user={user} />} />
           </Route>
           <Route path='/loans/'>
-            <Route index element={<LoansOverview clients={clients}/>} />
+            <Route index element={<LoansOverview clients={clients} />} />
+            <Route path='create' element={<LoanCreate />} />
           </Route>
 
           <Route

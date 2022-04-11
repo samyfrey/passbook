@@ -5,22 +5,13 @@ import React, { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap'
 import LoansTable from '../../Table/LoansTable'
 import { indexClients } from '../../../api/clients'
+import { Link } from 'react-router-dom'
+// import LoanCreate from './LoanCreate'
 
 const LoansOverview = ({ clients }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
-    // const fetchLoans = async () => {
-    //   try {
-    //     const res = await indexLoans()
-    //     setLoans(res.data.loans)
-    //     await console.log('loans variable is', loans)
-    //     // await console.log('loan res is:', res)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
-    // fetchLoans()
     const fetchLoans = async () => {
       try {
         const res = await indexClients()
@@ -56,14 +47,12 @@ const LoansOverview = ({ clients }) => {
     }
     return (
       <div>
-        <LoansTable clients={clients}/>
-        {/* <p>LoansOverview</p>
-      {loans.loans.map(loan => (
-        <ul key={loan._id}>
-          <li>{loan.description}</li>
-        </ul>
-      ))} */}
         <p>Total loans: {loanTotal(clients)}</p>
+        <Link to='/loans/create'>
+          <button>New loan</button>
+        </Link>
+
+        <LoansTable clients={clients}/>
 
       </div>
     )
