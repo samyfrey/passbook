@@ -4,17 +4,12 @@ import React, { useEffect } from 'react'
 // import { result } from '../../../dataManipulation'
 // import ChartTest from '../../Chart/ChartTest'
 import Chart from '../../Chart/Chart'
+import { Spinner } from 'react-bootstrap'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   const actualRevData = [
-    {
-      month: 'January',
-      pastYearRev: 50
-    },
-    {
-      month: 'February',
-      pastYearRev: 40
-    },
+    { month: 'January', pastYearRev: 50 },
+    { month: 'February', pastYearRev: 40 },
     { month: 'March', pastYearRev: 100 },
     { month: 'April', pastYearRev: 110 },
     { month: 'May', pastYearRev: 130 },
@@ -68,12 +63,23 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
 
     const finalArray = cumulator(groupedLoans)
     console.log('final used to push to actual data is', finalArray)
+
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {
-        if (arr[i].month === actualRevData[i].month) {
+        if (actualRevData[i].month === arr[i].month) {
           actualRevData[i].thisYearRev = arr[i].revenue
         }
+        // else {
+        //   arr[i].revenue = arr[i - 1].revenue
+        //   // arr[i].month = actualRevData[i].month
+        //   actualRevData[i].thisYearRev = arr[i].revenue
       }
+
+      // for (let i = 0; i < arr.length; i++) {
+      //   if (arr[i].month === actualRevData[i].month) {
+      //     actualRevData[i].thisYearRev = arr[i].revenue
+      //   }
+      // }
       return actualRevData
     }
     console.log(actualRevData)
@@ -95,7 +101,13 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
     }
     return sum
   }
-
+  if (!RevChartData) {
+    return (
+      <Spinner animation='border' role='status'>
+        <span className='visually-hidden'>Loading...</span>
+      </Spinner>
+    )
+  }
   return (
     <div className='dashboard'>
       <p>Revenues: {grandTotal(clients)}</p>

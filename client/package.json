@@ -28,6 +28,7 @@
     "react-scripts": "4.0.3",
     "recharts": "^2.1.9",
     "resolve": "^1.18.1",
+    "uuidv4": "^6.2.13",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

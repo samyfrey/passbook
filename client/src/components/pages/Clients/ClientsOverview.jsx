@@ -40,7 +40,7 @@ const ClientsOverview = ({ clients }) => {
         {/* <p>Cumulated {cumulate(clients)}</p> */}
         <p>Total revenue is: {revenueTotal(clients)}</p>
 
-        <ListTable rows={clients} />
+        <ListTable clients={clients} />
         {/* <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={chartData}/> */}
       </div>
     )

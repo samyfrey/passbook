@@ -3,6 +3,7 @@ import './Loan.scss'
 import React, { useEffect, useState } from 'react'
 import { indexLoans } from '../../../api/loans'
 import { Spinner } from 'react-bootstrap'
+import LoanTable from '../../Table/LoanTable'
 
 const LoansOverview = ({ clients }) => {
   const [loans, setLoans] = useState(null)
@@ -39,9 +40,10 @@ const LoansOverview = ({ clients }) => {
       }
       return sum
     }
-
     return (
       <div>
+        <div>The Loan table component</div>
+        <LoanTable clients={clients}/>
         {/* <p>LoansOverview</p>
       {loans.loans.map(loan => (
         <ul key={loan._id}>
@@ -59,7 +61,8 @@ const LoansOverview = ({ clients }) => {
               </ul>
             ))}
           </ul>
-        ))}</div>      </div>
+        ))}</div>
+      </div>
     )
   }
 }
