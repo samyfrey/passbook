@@ -52,7 +52,7 @@ const LoanCreate = ({ user }) => {
       id: 4,
       property: 'borrowerId',
       value: `${loan.borrowerId}`,
-      //   needs to be a dropdown to chose months in format Month not month
+      //   needs to be a dropdown to borrower from list and assign id automatically
       placeholder: 'Input borrower Id'
     }
     // {

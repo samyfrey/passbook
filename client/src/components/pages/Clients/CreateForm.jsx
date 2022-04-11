@@ -41,7 +41,6 @@ export const CreateForm = ({ data, handleChange, handleCreate }) => {
 
           ))}
         </div>
-
         <button className="create-client-btn" type="submit">Create</button>
 
       </form>
