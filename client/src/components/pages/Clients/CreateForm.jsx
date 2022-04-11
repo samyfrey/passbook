@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
-import { createClient } from '../../../api/clients'
+import React from 'react'
+// import { Navigate } from 'react-router-dom'
+// import { createClient } from '../../../api/clients'
 import './Client.scss'
 
-export const CreateForm = ({ user, data }) => {
-  const [client, setClient] = useState(
-    { name: '', industry: '' }
-  )
-  const [isNewClient, setIsNewClient] = useState(false)
+export const CreateForm = ({ data, handleChange, handleCreate }) => {
+  // const [client, setClient] = useState(
+  //   { name: '', industry: '' }
+  // )
+  // const [isNewClient, setIsNewClient] = useState(false)
 
-  const handleChange = (event) => {
-    setClient({ ...client, [event.target.name]: event.target.value })
-  }
+  // const handleChange = (event) => {
+  //   setClient({ ...client, [event.target.name]: event.target.value })
+  // }
 
-  const handleCreate = async event => {
-    event.preventDefault()
-    try {
-      console.log('user is', user)
-      await createClient(user, client)
-      setIsNewClient(true)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const handleCreate = async event => {
+  //   event.preventDefault()
+  //   try {
+  //     console.log('user is', user)
+  //     await createClient(user, client)
+  //     setIsNewClient(true)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  if (isNewClient) {
-    return <Navigate to={'/clients'} />
-  }
+  // if (isNewClient) {
+  //   return <Navigate to={'/clients'} />
+  // }
 
   return (
     <>
