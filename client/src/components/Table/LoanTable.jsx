@@ -15,6 +15,7 @@ export default function LoanTable ({ clients }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
+            <TableCell className="tableCell">Company Name</TableCell>
             <TableCell className="tableCell">Description Name</TableCell>
             <TableCell className="tableCell" align="right">Amount</TableCell>
 
@@ -24,6 +25,7 @@ export default function LoanTable ({ clients }) {
           {clients.map(client => (
             client.loans.map(loan =>
               <TableRow key={loan._id}>
+                <TableCell >{client.name}</TableCell>
                 <TableCell >{loan.description}</TableCell>
                 <TableCell align="right">{loan.amount}</TableCell>
 
