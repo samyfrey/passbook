@@ -23,17 +23,15 @@ router.get('/loans', (req, res, next) => {
 
 // SHOW
 // GET /loans/5a7db6c74d55bc51bdf39793
-router.get('/loans/:loanId', requireToken, (req, res, next) => {
+router.get('/loans/:loanId', (req, res, next) => {
 	const loanId = req.params.loanId
 	const loanData = req.body.loan
 	const borrowerId = loanData.borrowerId
 
 	Client.findById(borrowerId)
 		.then(handle404)
-		.then((client) => {
-			return client
-		})
-		.then(client => res.status(200).json({ client }))
+
+		// .then(client => res.status(200).json({ client }))
 
 		.then((client) => {
 			const loan = client.loans.id(loanId)
