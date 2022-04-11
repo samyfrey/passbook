@@ -5,7 +5,7 @@ import { CreateForm } from '../Clients/CreateForm'
 
 const LoanCreate = ({ user }) => {
   const [loan, setLoan] = useState(
-    { description: '', amount: '', month: '' }
+    { description: '', amount: '', month: '', borrowerId: '' }
   )
   const [isNewLoan, setIsNewLoan] = useState(false)
 
@@ -47,6 +47,13 @@ const LoanCreate = ({ user }) => {
       value: `${loan.month}`,
       //   needs to be a dropdown to chose months in format Month not month
       placeholder: 'Closing Month'
+    },
+    {
+      id: 4,
+      property: 'borrowerId',
+      value: `${loan.borrowerId}`,
+      //   needs to be a dropdown to chose months in format Month not month
+      placeholder: 'Input borrower Id'
     }
     // {
     //   id: 1,

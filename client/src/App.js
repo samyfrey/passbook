@@ -66,7 +66,10 @@ const App = () => {
 				container
         <Routes>
           <Route path='/account/'>
-            <Route index element={<Profile />} />
+            <Route
+              index
+              element={<Profile msgAlert={msgAlert} setUser={setUser} />}
+            />
             <Route
               path='sign-up'
               element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
@@ -98,7 +101,7 @@ const App = () => {
           </Route>
           <Route path='/loans/'>
             <Route index element={<LoansOverview clients={clients} />} />
-            <Route path='create' element={<LoanCreate user={user}/>} />
+            <Route path='create' element={<LoanCreate user={user} />} />
           </Route>
 
           <Route
