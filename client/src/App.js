@@ -63,7 +63,6 @@ const App = () => {
             id={msgAlert.id}
           />
         ))}
-				container
         <Routes>
           <Route path='/account/'>
             <Route

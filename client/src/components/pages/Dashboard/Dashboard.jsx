@@ -7,6 +7,7 @@ import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
+import News from '../../News/News'
 // import BarChart from '../../Table/BarChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
@@ -91,17 +92,8 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
         if (actualRevData[i].month === arr[i].month) {
           actualRevData[i].thisYearRev = arr[i].revenue
         }
-        // else {
-        //   arr[i].revenue = arr[i - 1].revenue
-        //   // arr[i].month = actualRevData[i].month
-        //   actualRevData[i].thisYearRev = arr[i].revenue
       }
 
-      // for (let i = 0; i < arr.length; i++) {
-      //   if (arr[i].month === actualRevData[i].month) {
-      //     actualRevData[i].thisYearRev = arr[i].revenue
-      //   }
-      // }
       return actualRevData
     }
     console.log(actualRevData)
@@ -143,6 +135,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
         <div className="table">
           <LoansTable clients={clients}/>
         </div>
+        <News/>
 
       </div>
 
