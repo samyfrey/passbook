@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import ListTableTemp from '../Table/ListTableTemp'
+import { Spinner } from 'react-bootstrap'
 
 const News = () => {
   const [news, setNews] = useState([])
@@ -13,14 +15,38 @@ const News = () => {
 
     fetchNews()
   }, [])
-
   console.log('news state is', news)
+
+  if (!news) {
+    return (
+      <Spinner animation='border' role='status'>
+        <span className='visually-hidden'>Loading...</span>
+      </Spinner>
+    )
+  }
+
+  const header = [
+    'Headline', 'Published'
+  ]
+  const newsData = [{
+    id: 1,
+    header: 'Headline',
+    row: 'title'
+  },
+  {
+    id: 2,
+    header: 'Published',
+    row: 'publishedAt'
+  }]
+
+  console.log('newsData var is', newsData)
   return (
     <>
+      <ListTableTemp data={header} news={news}/>
       {news.map(article => (
         <ul key={article.id}>
 
-          <h3>{article.title}</h3>
+          <h3>{article.publishedAt}</h3>
         </ul>
       )
 
