@@ -15,8 +15,8 @@ export default function LoansTable ({ clients }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Company Name</TableCell>
             <TableCell className="tableCell">Description Name</TableCell>
+            <TableCell className="tableCell">Company Name</TableCell>
             <TableCell className="tableCell" align="right">Amount</TableCell>
 
           </TableRow>
@@ -25,12 +25,12 @@ export default function LoansTable ({ clients }) {
           {clients.map(client => (
             client.loans.map(loan =>
               <TableRow key={loan._id}>
+                <TableCell >{loan.description}</TableCell>
                 <Link to={`/clients/${client._id}`}>
                   <TableCell>
                     {client.name}
                   </TableCell>
-
-                </Link>                <TableCell >{loan.description}</TableCell>
+                </Link>
                 <TableCell align="right">{loan.amount}</TableCell>
 
               </TableRow>

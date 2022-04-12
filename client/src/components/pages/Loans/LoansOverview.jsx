@@ -6,6 +6,8 @@ import { Spinner } from 'react-bootstrap'
 import LoansTable from '../../Table/LoansTable'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
+import { ChartBar } from '../../Table/ChartBar'
+// import { BarChart } from '../../Table/BarChart'
 // import LoanCreate from './LoanCreate'
 
 const LoansOverview = ({ clients }) => {
@@ -53,6 +55,7 @@ const LoansOverview = ({ clients }) => {
         </Link>
 
         <LoansTable clients={clients}/>
+        <ChartBar />
 
       </div>
     )

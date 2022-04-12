@@ -7,6 +7,7 @@ import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
+// import BarChart from '../../Table/BarChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   const actualRevData = [
