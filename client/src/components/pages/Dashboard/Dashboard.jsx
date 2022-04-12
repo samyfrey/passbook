@@ -11,31 +11,37 @@ import ProgressChart from '../../Table/ProgressChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   const actualRevData = [
-    { month: 'January', pastYearRev: 50 },
-    { month: 'February', pastYearRev: 40 },
-    { month: 'March', pastYearRev: 100 },
-    { month: 'April', pastYearRev: 110 },
+    { month: 'Jan', pastYearRev: 50 },
+    { month: 'Feb', pastYearRev: 40 },
+    { month: 'Mar', pastYearRev: 100 },
+    { month: 'Apr', pastYearRev: 110 },
     { month: 'May', pastYearRev: 130 },
-    { month: 'June', pastYearRev: 145 },
-    { month: 'July', pastYearRev: 200 },
-    { month: 'August', pastYearRev: 200 },
-    { month: 'September', pastYearRev: 210 },
-    { month: 'October', pastYearRev: 230 },
-    { month: 'November', pastYearRev: 240 },
-    { month: 'December', pastYearRev: 250 }
+    { month: 'Jun', pastYearRev: 145 },
+    { month: 'Jul', pastYearRev: 200 },
+    { month: 'Aug', pastYearRev: 200 },
+    { month: 'Sep', pastYearRev: 210 },
+    { month: 'Oct', pastYearRev: 230 },
+    { month: 'Nov', pastYearRev: 240 },
+    { month: 'Dec', pastYearRev: 250 }
   ]
 
   const budgetData = {
     thisYearBudget: 250,
-    ytdRev: grandTotalRev(clients)
+    ytdRev: grandTotalRev(clients),
+    lastYearBudget: 230
 
   }
 
   const progress = (budgetData.ytdRev * 100) / budgetData.thisYearBudget
+  const differenceYTD = budgetData.thisYearBudget - budgetData.ytdRev
 
+  const budgetStat = {
+    progress: progress,
+    differenceYTD: differenceYTD
+  }
   console.log(typeof budgetData.ytdRev)
   console.log(typeof budgetData.thisYearBudget)
-  console.log(progress)
+  console.log(budgetStat)
 
   useEffect(() => {
     function loanExtractor (array) {
@@ -124,13 +130,21 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
       </Spinner>
     )
   }
+
+  console.log('revChart data is:', RevChartData)
   return (
     <div className='dashboard'>
-      {/* <p>Revenues: {grandTotalRev(clients)}</p> */}
-      <p>Revenues: {budgetData.ytdRev}</p>
-      <Chart title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
-      <LoansTable clients={clients}/>
-      <ProgressChart title="YTD Revenue to Budget" aspect={2 / 1} progress={progress} />
+      {/* <p>Revenues: {budgetData.ytdRev}</p> */}
+      <div className="dashboardContainer">
+        <div className="charts">
+          <Chart className="revChart" title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
+          <ProgressChart className="progressChart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
+        </div>
+        <div className="table">
+          <LoansTable clients={clients}/>
+        </div>
+
+      </div>
 
     </div>
   )

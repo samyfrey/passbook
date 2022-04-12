@@ -17,8 +17,7 @@ const clientSchema = new mongoose.Schema(
 			ref: 'User',
 		},
 		creditLimit: {
-			type: Number,
-			required: true
+			type: Number
 		},
 		loans: [loanSchema]
 	},
