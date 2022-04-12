@@ -4,6 +4,7 @@ import { showClient } from '../../../api/clients'
 import './Client.scss'
 import { Spinner } from 'react-bootstrap'
 import LoanTable from '../../Table/LoanTable'
+import { ChartBar } from '../../Table/ChartBar'
 
 const ClientDetail = () => {
   const [borrower, setBorrower] = useState(null)
@@ -32,12 +33,21 @@ const ClientDetail = () => {
     const totalAmount = borrower.loans.reduce((total, loan) => {
       return total + loan.amount
     }, 0)
+
+    const loanData = [{
+      name: 'Total Credit Limits',
+      YTD: totalAmount,
+      Budget: borrower.creditLimit
+
+    }]
     return (
       <>
         <p>{borrower.name}</p>
         <p>Industry: {borrower.industry}</p>
-        <p>Total loans: {totalAmount}</p>
+        <p>Total outstanding loans: {totalAmount}</p>
+        <p>Max credit limit: {borrower.creditLimit}</p>
         <LoanTable key={borrower._id} loans={borrower.loans}/>
+        <ChartBar data={loanData}/>
 
       </>
 

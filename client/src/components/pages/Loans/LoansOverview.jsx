@@ -47,6 +47,13 @@ const LoansOverview = ({ clients }) => {
       }
       return sum
     }
+    const loanData = [{
+      name: 'Total Credit Limits',
+      YTD: loanTotal(clients),
+      Budget: 1500
+
+    }]
+
     return (
       <div>
         <p>Total loans: {loanTotal(clients)}</p>
@@ -55,7 +62,8 @@ const LoansOverview = ({ clients }) => {
         </Link>
 
         <LoansTable clients={clients}/>
-        <ChartBar />
+
+        {loanData && <ChartBar data={loanData} />}
 
       </div>
     )

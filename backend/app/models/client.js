@@ -16,7 +16,7 @@ const clientSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
-		budget: {
+		creditLimit: {
 			type: Number,
 			required: true
 		},
