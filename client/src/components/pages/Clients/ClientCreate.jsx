@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { createClient } from '../../../api/clients'
 import './Client.scss'
 
-export const ClientCreate = ({ user }) => {
+export const ClientCreate = ({ user, setRender, msgAlert }) => {
   const [client, setClient] = useState(
     { name: '', industry: '' }
   )
@@ -16,11 +16,24 @@ export const ClientCreate = ({ user }) => {
   const handleCreate = async event => {
     event.preventDefault()
     try {
+      setRender(false)
+      setIsNewClient(false)
+
       console.log('user is', user)
       await createClient(user, client)
       setIsNewClient(true)
+      setRender(true)
+      msgAlert({
+        heading: 'Client created',
+        variant: 'success'
+      })
     } catch (error) {
       console.log(error)
+      msgAlert({
+        heading: 'Failed',
+        message: error.message,
+        variant: 'danger'
+      })
     }
   }
 

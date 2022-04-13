@@ -15,6 +15,7 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
     const res = confirm('Are you sure you want to delete?')
     if (res) {
       try {
+        setRender(false)
         const clientId = client._id
         await deleteClient(user, clientId)
         setRender(true)

@@ -106,7 +106,16 @@ const App = () => {
               }
             />
             <Route path=':borrowerId' element={<ClientDetail />} />
-            <Route path='create' element={<ClientCreate user={user} />} />
+            <Route
+              path='create'
+              element={
+                <ClientCreate
+                  user={user}
+                  setRender={setRender}
+                  msgAlert={msgAlert}
+                />
+              }
+            />
           </Route>
           <Route path='/loans/'>
             <Route index element={<LoansOverview clients={clients} />} />
