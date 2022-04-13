@@ -126,6 +126,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   console.log('revChart data is:', RevChartData)
   return (
     <div className='dashboard'>
+
       {/* <p>Revenues: {budgetData.ytdRev}</p> */}
       <div className="dashboardContainer">
         <div className="charts">

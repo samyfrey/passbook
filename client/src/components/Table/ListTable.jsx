@@ -27,7 +27,10 @@ export default function ListTable ({ clients }) {
               key={client._id}
             ><Link to={`/clients/${client._id}`}>
                 <TableCell>
-                  {client.name}
+                  <div className="cellWrapper">
+                    <img src={`https://logo.clearbit.com/${client.name}.com`} alt="" className="image" />
+                    {client.name}
+                  </div>
                 </TableCell>
 
               </Link>

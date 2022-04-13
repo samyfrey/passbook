@@ -1,4 +1,12 @@
 .table {
+  .tableRow{
+// // background-color: blue;
+// height: 10px;
+}
+
+.amountStyle {
+  font-size: 0.8em
+}
   .cellWrapper {
     display: flex;
     align-items: center;
@@ -12,6 +20,7 @@
     }
   }
 
+ 
   .status {
     padding: 5px;
     border-radius: 5px;

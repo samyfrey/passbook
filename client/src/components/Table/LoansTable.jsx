@@ -17,7 +17,8 @@ export default function LoansTable ({ clients }) {
           <TableRow>
             <TableCell className="tableCell">Description Name</TableCell>
             <TableCell className="tableCell">Company Name</TableCell>
-            <TableCell className="tableCell" align="right">Amount</TableCell>
+            <TableCell className="tableCell" align="right">Amount <span className='amountStyle'>($MM)</span></TableCell>
+            <TableCell className="tableCell" align="right">Status</TableCell>
 
           </TableRow>
         </TableHead>
@@ -27,11 +28,18 @@ export default function LoansTable ({ clients }) {
               <TableRow key={loan._id}>
                 <TableCell >{loan.description}</TableCell>
                 <Link to={`/clients/${client._id}`}>
-                  <TableCell>
-                    {client.name}
+                  <TableCell >
+                    <div className="cellWrapper">
+                      <img src={`https://logo.clearbit.com/${client.name}.com`} alt="" className="image" />
+                      {client.name}
+                    </div>
                   </TableCell>
                 </Link>
-                <TableCell align="right">{loan.amount}</TableCell>
+                <TableCell size="small"align="right">{loan.amount}</TableCell>
+                <TableCell size="small"align="right">
+                  <span className={`status ${loan.status}`}>{loan.status}</span>
+
+                </TableCell>
 
               </TableRow>
             )

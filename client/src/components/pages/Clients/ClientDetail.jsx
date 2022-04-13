@@ -41,13 +41,15 @@ const ClientDetail = () => {
       Budget: borrower.creditLimit
 
     }]
+
     return (
       <>
         <p>{borrower.name}</p>
+        <img src={`https://logo.clearbit.com/${borrower.name}.com`} alt="" className="image" />
         <p>Industry: {borrower.industry}</p>
         <p>Total outstanding loans: {totalAmount}</p>
         <p>Max credit limit: {borrower.creditLimit}</p>
-        <LoanTable key={borrower._id} loans={borrower.loans}/>
+        <LoanTable key={borrower._id} loans={borrower.loans} />
         <ChartBar data={loanData}/>
         <ClientNewsFeed borrower={borrower} />
 

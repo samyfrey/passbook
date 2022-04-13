@@ -12,27 +12,26 @@ import './listTable.scss'
 export default function NewsTable ({ data }) {
   return (
     <TableContainer component={Paper} className="table">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" >
         <TableHead>
-          <TableRow >
-            <TableCell className="tableCell">Headline</TableCell>
-            <TableCell className="tableCell">Published</TableCell>
-
-            {/* {data.map(item => (
-              <TableCell key={item.id}className="tableCell">{item}</TableCell>
-
-            ))} */}
+          <TableRow className='tableRow'>
+            <TableCell className="tableCell"size="small">Headline</TableCell>
+            <TableCell className="tableCell" size="small">Published</TableCell>
           </TableRow>
 
         </TableHead>
         <TableBody>
           {data.map(news => (
-            <TableRow
-              key={news.id}
-            >
-
-              <TableCell className="tableCell">{news.title}</TableCell>
-              <TableCell className="tableCell">{news.publishedAt}</TableCell>
+            <TableRow key={news.id}>
+              <TableCell className="tableCell" size="small">
+                <a
+                  href={news.url}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  {news.title}
+                </a>
+              </TableCell>
+              <TableCell alight="right"className="tableCell" size="small">{news.publishedAt}</TableCell>
 
             </TableRow>
           ))}
