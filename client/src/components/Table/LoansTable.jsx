@@ -15,10 +15,10 @@ export default function LoansTable ({ clients }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Description Name</TableCell>
-            <TableCell className="tableCell">Company Name</TableCell>
-            <TableCell className="tableCell" align="right">Amount <span className='amountStyle'>($MM)</span></TableCell>
-            <TableCell className="tableCell" align="right">Status</TableCell>
+            <TableCell className="tableCell" size="small">Description Name</TableCell>
+            <TableCell className="tableCell" size="small">Company Name</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Amount <span className='amountStyle' >($MM)</span></TableCell>
+            <TableCell className="tableCell" align="right" size="small">Status</TableCell>
 
           </TableRow>
         </TableHead>

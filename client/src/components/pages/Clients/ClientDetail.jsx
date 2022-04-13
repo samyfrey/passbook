@@ -51,8 +51,10 @@ const ClientDetail = () => {
         <p>Max credit limit: {borrower.creditLimit}</p>
         <LoanTable loans={borrower.loans} />
         <ChartBar data={loanData}/>
-        <ClientNewsFeed borrower={borrower} />
-
+        <div className="listContainer">
+          <div className="title">Latest News</div>
+          <ClientNewsFeed borrower={borrower} />
+        </div>
       </>
 
     )

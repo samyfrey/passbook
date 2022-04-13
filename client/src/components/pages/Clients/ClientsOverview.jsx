@@ -6,7 +6,7 @@ import ListTable from '../../Table/ListTable'
 import './Client.scss'
 // import Chart from '../../Chart/Chart'
 
-const ClientsOverview = ({ clients }) => {
+const ClientsOverview = ({ clients, user, setRender, msgAlert }) => {
   if (!clients) {
     return (
       <Spinner animation='border' role='status'>
@@ -40,7 +40,7 @@ const ClientsOverview = ({ clients }) => {
         {/* <p>Cumulated {cumulate(clients)}</p> */}
         <p>Total revenue is: {revenueTotal(clients)}</p>
 
-        <ListTable clients={clients} />
+        <ListTable user={user} clients={clients} setRender={setRender} msgAlert={msgAlert}/>
         {/* <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={chartData}/> */}
       </div>
     )

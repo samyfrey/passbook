@@ -18,3 +18,11 @@ export const createClient = (user, client) => {
       }
     })
 }
+
+export const deleteClient = (user, clientId) => {
+  return axios.delete(`${apiUrl}/clients/${clientId}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

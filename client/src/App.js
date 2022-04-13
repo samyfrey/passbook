@@ -34,7 +34,7 @@ const App = () => {
   }
 
   const [clients, setClients] = useState([])
-  // const [loans, setLoans] = useState([])
+  const [render, setRender] = useState(false)
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -46,7 +46,7 @@ const App = () => {
       }
     }
     fetchClients()
-  }, [])
+  }, [render])
   console.log('clients state is', clients)
 
   return (
@@ -94,7 +94,17 @@ const App = () => {
           </Route>
 
           <Route path='/clients/'>
-            <Route index element={<ClientsOverview clients={clients} />} />
+            <Route
+              index
+              element={
+                <ClientsOverview
+                  msgAlert={msgAlert}
+                  clients={clients}
+                  user={user}
+                  setRender={setRender}
+                />
+              }
+            />
             <Route path=':borrowerId' element={<ClientDetail />} />
             <Route path='create' element={<ClientCreate user={user} />} />
           </Route>

@@ -3,17 +3,13 @@ import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
+// import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import './listTable.scss'
 // import { Link } from 'react-router-dom'
 
 export default function NewsTable ({ data }) {
-  const dataNews = data.map(news => {
-    return news.publishedAt
-  })
-
   function dataFormatter (input) {
     const newsApiDate = input
     const timestamp = new Date(newsApiDate).getTime()
@@ -25,17 +21,15 @@ export default function NewsTable ({ data }) {
   }
   return (
     <div>
-      <p>{dataNews}</p>
-
       <TableContainer component={Paper} className="table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-          <TableHead>
+          {/* <TableHead>
             <TableRow className='tableRow'>
-              <TableCell className="tableCell"size="small">Headline</TableCell>
-              <TableCell className="tableCell" size="small">Published</TableCell>
+              <TableCell className="header"size="small">Headline</TableCell>
+              <TableCell className="header" align="right" size="small"></TableCell>
             </TableRow>
 
-          </TableHead>
+          </TableHead> */}
           <TableBody>
             {data.map(news => (
               <TableRow key={news.id}>
@@ -47,7 +41,7 @@ export default function NewsTable ({ data }) {
                     {news.title}
                   </a>
                 </TableCell>
-                <TableCell alight="right"className="tableCell" size="small">{dataFormatter(news.publishedAt)}</TableCell>
+                <TableCell align="right"className="tableCell" size="small">{dataFormatter(news.publishedAt)}</TableCell>
 
               </TableRow>
             ))}
