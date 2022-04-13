@@ -130,14 +130,21 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
       {/* <p>Revenues: {budgetData.ytdRev}</p> */}
       <div className="dashboardContainer">
         <div className="charts">
+
           <Chart className="revChart" title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
           <ProgressChart className="progressChart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
         </div>
-        <div className="table">
+        <div className="listContainer">
+          <div className="title">Latest Transactions</div>
+
           <LoansTable clients={clients}/>
         </div>
-        <NewsFeed/>
+        <div className="listContainer">
 
+          <div className="title">U.S. Markets Latest News</div>
+
+          <NewsFeed/>
+        </div>
       </div>
 
     </div>

@@ -10,35 +10,52 @@ import './listTable.scss'
 // import { Link } from 'react-router-dom'
 
 export default function NewsTable ({ data }) {
+  const dataNews = data.map(news => {
+    return news.publishedAt
+  })
+
+  function dataFormatter (input) {
+    const newsApiDate = input
+    const timestamp = new Date(newsApiDate).getTime()
+    const Day = new Date(timestamp).getDate()
+    const Month = new Date(timestamp).toLocaleString('default', { month: 'short' })
+    const Year = new Date(timestamp).getFullYear()
+    const newDateFormat = `${Month} ${Day}, ${Year}`
+    return newDateFormat
+  }
   return (
-    <TableContainer component={Paper} className="table">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-        <TableHead>
-          <TableRow className='tableRow'>
-            <TableCell className="tableCell"size="small">Headline</TableCell>
-            <TableCell className="tableCell" size="small">Published</TableCell>
-          </TableRow>
+    <div>
+      <p>{dataNews}</p>
 
-        </TableHead>
-        <TableBody>
-          {data.map(news => (
-            <TableRow key={news.id}>
-              <TableCell className="tableCell" size="small">
-                <a
-                  href={news.url}
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  {news.title}
-                </a>
-              </TableCell>
-              <TableCell alight="right"className="tableCell" size="small">{news.publishedAt}</TableCell>
-
+      <TableContainer component={Paper} className="table">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+          <TableHead>
+            <TableRow className='tableRow'>
+              <TableCell className="tableCell"size="small">Headline</TableCell>
+              <TableCell className="tableCell" size="small">Published</TableCell>
             </TableRow>
-          ))}
 
-        </TableBody>
+          </TableHead>
+          <TableBody>
+            {data.map(news => (
+              <TableRow key={news.id}>
+                <TableCell className="tableCell" size="small">
+                  <a
+                    href={news.url}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    {news.title}
+                  </a>
+                </TableCell>
+                <TableCell alight="right"className="tableCell" size="small">{dataFormatter(news.publishedAt)}</TableCell>
 
-      </Table>
-    </TableContainer>
+              </TableRow>
+            ))}
+
+          </TableBody>
+
+        </Table>
+      </TableContainer>
+    </div>
   )
 }
