@@ -7,7 +7,7 @@ import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
-import News from '../../News/News'
+import NewsFeed from '../../News/NewsFeed'
 // import BarChart from '../../Table/BarChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
@@ -135,7 +135,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
         <div className="table">
           <LoansTable clients={clients}/>
         </div>
-        <News/>
+        <NewsFeed/>
 
       </div>
 

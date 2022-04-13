@@ -5,7 +5,8 @@ import './Client.scss'
 import { Spinner } from 'react-bootstrap'
 import LoanTable from '../../Table/LoanTable'
 import { ChartBar } from '../../Table/ChartBar'
-
+import ClientNewsFeed from '../../News/ClientNewsFeed'
+// import { NewsTable } from '../../Table/NewsTable'
 const ClientDetail = () => {
   const [borrower, setBorrower] = useState(null)
   const { borrowerId } = useParams()
@@ -48,6 +49,7 @@ const ClientDetail = () => {
         <p>Max credit limit: {borrower.creditLimit}</p>
         <LoanTable key={borrower._id} loans={borrower.loans}/>
         <ChartBar data={loanData}/>
+        <ClientNewsFeed borrower={borrower} />
 
       </>
 
