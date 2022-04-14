@@ -3,10 +3,11 @@ import { Navigate } from 'react-router-dom'
 import { createLoan } from '../../../api/loans'
 import { CreateForm } from '../Clients/CreateForm'
 
-const LoanCreate = ({ user }) => {
+const LoanCreate = ({ user, clients }) => {
   const [loan, setLoan] = useState(
     { description: '', amount: '', month: '', borrowerId: '' }
   )
+  const [borrowerId, setBorrowerId] = useState('')
   const [isNewLoan, setIsNewLoan] = useState(false)
 
   const handleChange = (event) => {
@@ -25,7 +26,7 @@ const LoanCreate = ({ user }) => {
   }
 
   if (isNewLoan) {
-    return <Navigate to={'/clients'} />
+    return <Navigate to={'/loans'} />
   }
   const loanFormData = [
     {
@@ -51,10 +52,18 @@ const LoanCreate = ({ user }) => {
     {
       id: 4,
       property: 'borrowerId',
-      value: `${loan.borrowerId}`,
+      value: `${borrowerId}`,
       //   needs to be a dropdown to borrower from list and assign id automatic
       placeholder: 'Input borrower Id'
     }
+
+    // {
+    //   id: 4,
+    //   property: 'borrowerId',
+    //   value: `${loan.borrowerId}`,
+    //   //   needs to be a dropdown to borrower from list and assign id automatic
+    //   placeholder: 'Input borrower Id'
+    // }
     // {
     //   id: 1,
     //   property: 'name',
@@ -70,9 +79,13 @@ const LoanCreate = ({ user }) => {
     // }
 
   ]
+  console.log('borrower id is', borrowerId)
+  console.log('borrower id typeof is', typeof borrowerId)
+  console.log('loan state is', loan)
+
   return (
     <div>LoanCreate
-      <CreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate}/>
+      <CreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setBorrowerId={setBorrowerId} setLoan={setLoan} loan={loan} clients={clients}/>
     </div>
   )
 }

@@ -2,31 +2,19 @@ import React from 'react'
 // import { Navigate } from 'react-router-dom'
 // import { createClient } from '../../../api/clients'
 import './Client.scss'
+import Select from 'react-select'
 
-export const CreateForm = ({ data, handleChange, handleCreate }) => {
-  // const [client, setClient] = useState(
-  //   { name: '', industry: '' }
-  // )
-  // const [isNewClient, setIsNewClient] = useState(false)
+export const CreateForm = ({ data, handleChange, handleCreate, loan, setLoan, clients }) => {
+  const options = clients.map((client) => (
+    // [{ value: 'banana', label: 'banana' }]
+    { value: `${client._id}`, label: `${client.name}` }
 
-  // const handleChange = (event) => {
-  //   setClient({ ...client, [event.target.name]: event.target.value })
-  // }
-
-  // const handleCreate = async event => {
-  //   event.preventDefault()
-  //   try {
-  //     console.log('user is', user)
-  //     await createClient(user, client)
-  //     setIsNewClient(true)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // if (isNewClient) {
-  //   return <Navigate to={'/clients'} />
-  // }
+  ))
+  console.log('options is', options)
+  console.log('clients is', clients)
+  const onChange = (selectedBorrower) => {
+    setLoan({ ...loan, borrowerId: selectedBorrower.value })
+  }
 
   return (
     <>
@@ -40,8 +28,9 @@ export const CreateForm = ({ data, handleChange, handleCreate }) => {
             </div>
 
           ))}
+          <Select options={options} onChange={onChange} />
+          <button className="create-client-btn" type="submit">Create</button>
         </div>
-        <button className="create-client-btn" type="submit">Create</button>
 
       </form>
 

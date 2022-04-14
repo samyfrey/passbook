@@ -52,12 +52,14 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
         for (let j = 0; j < selectBorrower.length; j++) {
           const eachLoan = selectBorrower[j]
           selectLoans.push(eachLoan)
+          console.log('select loan is', selectLoans)
         }
       }
       return selectLoans
     }
 
     const loans = loanExtractor(clients)
+    console.log('loans is', loans)
 
     function grouping (arr) {
       const res = Array.from(
@@ -72,7 +74,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
     }
 
     const groupedLoans = grouping(loans)
-
+    console.log('groupedLoan is', groupedLoans)
     function cumulator (arr) {
       const newArray = arr.map((obj, index, self) => {
         if (index === 0) return obj

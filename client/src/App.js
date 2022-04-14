@@ -119,7 +119,7 @@ const App = () => {
           </Route>
           <Route path='/loans/'>
             <Route index element={<LoansOverview clients={clients} />} />
-            <Route path='create' element={<LoanCreate user={user} />} />
+            <Route path='create' element={<LoanCreate user={user} clients={clients} />} />
           </Route>
 
           <Route
