@@ -7,7 +7,7 @@ const LoanCreate = ({ user, clients }) => {
   const [loan, setLoan] = useState(
     { description: '', amount: '', month: '', borrowerId: '' }
   )
-  const [borrowerId, setBorrowerId] = useState('')
+  // const [borrowerId, setBorrowerId] = useState('')
   const [isNewLoan, setIsNewLoan] = useState(false)
 
   const handleChange = (event) => {
@@ -41,51 +41,14 @@ const LoanCreate = ({ user, clients }) => {
       property: 'amount',
       value: `${loan.amount}`,
       placeholder: 'Loan Amount'
-    },
-    {
-      id: 3,
-      property: 'month',
-      value: `${loan.month}`,
-      //   needs to be a dropdown to chose months in format Month not month
-      placeholder: 'Closing Month'
-    },
-    {
-      id: 4,
-      property: 'borrowerId',
-      value: `${borrowerId}`,
-      //   needs to be a dropdown to borrower from list and assign id automatic
-      placeholder: 'Input borrower Id'
     }
 
-    // {
-    //   id: 4,
-    //   property: 'borrowerId',
-    //   value: `${loan.borrowerId}`,
-    //   //   needs to be a dropdown to borrower from list and assign id automatic
-    //   placeholder: 'Input borrower Id'
-    // }
-    // {
-    //   id: 1,
-    //   property: 'name',
-    //   value: `${client.name}`,
-    //   placeholder: 'Company Name'
-
-    // },
-    // {
-    //   id: 2,
-    //   property: 'industry',
-    //   value: `${client.industry}`,
-    //   placeholder: 'Industry'
-    // }
-
   ]
-  console.log('borrower id is', borrowerId)
-  console.log('borrower id typeof is', typeof borrowerId)
-  console.log('loan state is', loan)
+  console.log('loan is', loan)
 
   return (
     <div>LoanCreate
-      <CreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setBorrowerId={setBorrowerId} setLoan={setLoan} loan={loan} clients={clients}/>
+      <CreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients}/>
     </div>
   )
 }
