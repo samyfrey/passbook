@@ -20,4 +20,4 @@ const budgetSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model('Client', clientSchema)
+module.exports = mongoose.model('Budget', budgetSchema)
