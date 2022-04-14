@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
 import './Client.scss'
-// import Chart from '../../Chart/Chart'
+import { thisYearBudget } from '../../../globalData'
+import { ChartBar } from '../../Table/ChartBar'
 
 const ClientsOverview = ({ clients, user, setRender, msgAlert }) => {
   if (!clients) {
@@ -26,23 +27,35 @@ const ClientsOverview = ({ clients, user, setRender, msgAlert }) => {
       return sum
     }
 
-    return (
-      <div className='container'>
-        <h1>Clients List</h1>
-        <Link to='/clients/create'>
-          <button>Add a client</button>
-        </Link>
-        {/* {clients.map(client => (
-        <ul key={client._id}>
-          <Link to={`/clients/${client._id}`}>{client.name}</Link>
-        </ul>
-      ))} */}
-        {/* <p>Cumulated {cumulate(clients)}</p> */}
-        <p>Total revenue is: {revenueTotal(clients)}</p>
+    const revenueData = [{
+      YTD: revenueTotal(clients),
+      Budget: thisYearBudget
 
-        <ListTable user={user} clients={clients} setRender={setRender} msgAlert={msgAlert}/>
-        {/* <Chart title="Last 6 Months (Revenue)" aspect={3 / 1} data={chartData}/> */}
+    }]
+
+    return (
+      <div className='overview'>
+        <div className="overview-container">
+          <div className="overview-top">
+            <div className="header-box">
+              <Link to='/clients/create'>
+                <button>Add a client</button>
+              </Link>
+              <p>Total revenue is: {revenueTotal(clients)}</p>
+            </div>
+            <div className="chart">
+              <div className="title">YTD Revenue vs Budget ($MM)</div>
+              {revenueData && <ChartBar data={revenueData} />}
+
+            </div>
+          </div>
+          <div className="overview-table">
+            <div className="title">Clients List </div>
+            <ListTable user={user} clients={clients} setRender={setRender} msgAlert={msgAlert}/>
+          </div>
+        </div>
       </div>
+
     )
   }
 }

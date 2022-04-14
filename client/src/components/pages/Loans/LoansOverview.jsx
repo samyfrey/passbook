@@ -7,6 +7,7 @@ import LoansTable from './LoansTable'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
+import { totalCreditLimit } from '../../../globalData'
 
 const LoansOverview = ({ clients, user, render, setRender }) => {
   const [loans, setLoans] = useState(null)
@@ -48,7 +49,7 @@ const LoansOverview = ({ clients, user, render, setRender }) => {
     }
     const loanData = [{
       YTD: loanTotal(clients),
-      Budget: 1500
+      Budget: totalCreditLimit
 
     }]
 

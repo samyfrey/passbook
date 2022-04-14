@@ -1,39 +1,5 @@
 
-.overview{
-    display: flex;
-    .overview-container{
-        flex: 6;
-    
-    .overview-top{
-        display: flex;
-     gap: 20px;
-            padding: 5px 20px;
-        .header-box{
-            flex: 4;
-             -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-                padding: 10px;
-                color: blue;
-            
-        }
-        .chart{
-            flex: 2;
-             -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-                padding: 10px;
-                color: blue;
-        }
-    }
-}
-    .overview-table{
--webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-      padding: 20px;
-      margin: 20px;
-            
-            
-    }
-}
+
 .create {
     display: flex;
 

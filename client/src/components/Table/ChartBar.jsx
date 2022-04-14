@@ -5,6 +5,7 @@ import {
   BarChart,
   XAxis,
   CartesianGrid,
+  LabelList,
   Tooltip,
   YAxis
 } from 'recharts'
@@ -25,8 +26,14 @@ export const ChartBar = ({ data }) => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey='YTD' fill="#8884d8" />
-      <Bar dataKey='Budget' fill="#82ca9d" />
+      <Bar dataKey='YTD' fill="#8884d8">
+        <LabelList dataKey="YTD" position="top" />
+
+      </Bar>
+      <Bar dataKey='Budget' fill="#82ca9d">
+        <LabelList className="legendChart" dataKey="Budget" position="top" />
+
+      </Bar>
     </BarChart>
 
   )
