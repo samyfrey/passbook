@@ -1,0 +1,32 @@
+
+
+.create {
+    display: flex;
+
+    // .dashboardContainer{        
+        flex: 6;
+
+        // .charts{
+        //     display: flex;
+            gap: 20px;
+            padding: 5px 20px;
+            // }
+            > div {
+
+                -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+            }
+            .form {
+                flex: 4;
+               
+                padding: 30px 10px;
+                color: blue;
+                height: 100%;
+            }
+            .snapshot {
+            flex: 2;
+
+            }
+                
+
+}

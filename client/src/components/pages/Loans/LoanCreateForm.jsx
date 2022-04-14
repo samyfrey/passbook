@@ -1,10 +1,7 @@
 import React from 'react'
-// import { Navigate } from 'react-router-dom'
-// import { createClient } from '../../../api/clients'
-import './Client.scss'
 import Select from 'react-select'
 
-export const CreateForm = ({ data, handleChange, handleCreate, loan, setLoan, clients }) => {
+export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan, clients }) => {
   const idOptions = clients.map((client) => (
     // [{ value: 'banana', label: 'banana' }]
     { value: `${client._id}`, label: `${client.name}` }
@@ -26,9 +23,9 @@ export const CreateForm = ({ data, handleChange, handleCreate, loan, setLoan, cl
     { value: 'Dec', label: 'December' }
 
   ]
-
   console.log('options is', idOptions)
   console.log('clients is', clients)
+
   const handleBorrowerId = (selectedBorrower) => {
     setLoan({ ...loan, borrowerId: selectedBorrower.value })
   }
@@ -40,7 +37,6 @@ export const CreateForm = ({ data, handleChange, handleCreate, loan, setLoan, cl
     <>
       <form className='create-client-form' onSubmit={handleCreate}>
         <div className="create-client-item">
-          {/* <label>Company Name</label> */}
           {data.map(dataPoint => (
             <div key={dataPoint.id}>
               <input type='text' placeholder={dataPoint.placeholder} name={dataPoint.property} value={dataPoint.value} onChange={handleChange}/>
@@ -48,9 +44,12 @@ export const CreateForm = ({ data, handleChange, handleCreate, loan, setLoan, cl
             </div>
 
           ))}
+
           <Select placeholder='Select Borrower'options={idOptions} onChange={handleBorrowerId} />
           <Select placeholder='Select Closing Month'options={monthOptions} onChange={handleMonth} />
-          <button className="create-client-btn" type="submit">Create</button>
+
+          <button className="button" type="submit">Create</button>
+
         </div>
 
       </form>

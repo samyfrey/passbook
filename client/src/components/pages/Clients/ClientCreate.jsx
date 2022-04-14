@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { createClient } from '../../../api/clients'
 import './Client.scss'
-import { CreateForm } from './CreateForm'
+import { ClientCreateForm } from '../Clients/ClientCreateForm'
 
 export const ClientCreate = ({ user, setRender, msgAlert }) => {
   const [client, setClient] = useState(
@@ -63,19 +63,7 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
   ]
   return (
 
-    <CreateForm data={clientFormData} handleChange={handleChange} handleCreate={handleCreate} />
-    // <form className='create-client-form' onSubmit={ handleCreate}>
-    //   <div className="create-client-item">
-    //     <label>Company Name</label>
-    //     <input type='text' placeholder='Type Company Name' name='name' value={client.name} onChange={handleChange}/>
-    //   </div>
-    //   <div className="create-client-item">
-    //     <label>Industry</label>
-    //     <input type='text' placeholder='Type Company Industry' name='industry' value={client.industry} onChange={handleChange}/>
-    //   </div>
-    //   <button className="create-client-btn" type="submit">Create</button>
-
-  // </form>
+    <ClientCreateForm data={clientFormData} handleChange={handleChange} handleCreate={handleCreate} />
 
   )
 }

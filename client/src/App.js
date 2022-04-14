@@ -25,6 +25,8 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [RevChartData, setRevChartData] = useState([])
+  const [clients, setClients] = useState([])
+  const [render, setRender] = useState(false)
 
   const clearUser = () => setUser(null)
 
@@ -33,8 +35,6 @@ const App = () => {
     setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant, id }]))
   }
 
-  const [clients, setClients] = useState([])
-  const [render, setRender] = useState(false)
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -118,8 +118,29 @@ const App = () => {
             />
           </Route>
           <Route path='/loans/'>
-            <Route index element={<LoansOverview clients={clients} />} />
-            <Route path='create' element={<LoanCreate user={user} clients={clients} />} />
+            <Route
+              index
+              element={
+                <LoansOverview
+                  clients={clients}
+                  user={user}
+                  setRender={setRender}
+                  render={render}
+                />
+              }
+            />
+            <Route
+              path='create'
+              element={
+                <LoanCreate
+                  user={user}
+                  clients={clients}
+                  msgAlert={msgAlert}
+                  setRender={setRender}
+
+                />
+              }
+            />
           </Route>
 
           <Route

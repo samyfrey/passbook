@@ -1,14 +1,11 @@
 import './Dashboard.scss'
 import React, { useEffect } from 'react'
-// import Chart from '../../Chart/Chart'
-// import { result } from '../../../dataManipulation'
-// import ChartTest from '../../Chart/ChartTest'
+
 import LoansTable from '../../Table/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
-// import BarChart from '../../Table/BarChart'
 
 export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
   const actualRevData = [
@@ -143,7 +140,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
         </div>
         <div className="listContainer">
 
-          <div className="title">U.S. Markets Latest News</div>
+          <div className="title">Latest News</div>
 
           <NewsFeed/>
         </div>

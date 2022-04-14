@@ -1,16 +1,14 @@
-import './Loan.scss'
 
 import React, { useEffect, useState } from 'react'
 // import { indexLoans } from '../../../api/loans'
+import './Loan.scss'
 import { Spinner } from 'react-bootstrap'
 import LoansTable from '../../Table/LoansTable'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
-// import { BarChart } from '../../Table/BarChart'
-// import LoanCreate from './LoanCreate'
 
-const LoansOverview = ({ clients }) => {
+const LoansOverview = ({ clients, user, render, setRender }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
@@ -26,8 +24,9 @@ const LoansOverview = ({ clients }) => {
       }
     }
     fetchLoans()
-  }, [])
+  }, [render])
   console.log('loans variable is', loans)
+  console.log('render is', render)
 
   if (!loans) {
     return (
@@ -55,7 +54,7 @@ const LoansOverview = ({ clients }) => {
     }]
 
     return (
-      <div>
+      <div className='overview'>
         <p>Total loans: {loanTotal(clients)}</p>
         <Link to='/loans/create'>
           <button>New loan</button>
