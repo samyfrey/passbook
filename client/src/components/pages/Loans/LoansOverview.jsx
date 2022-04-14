@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import { indexLoans } from '../../../api/loans'
 import './Loan.scss'
 import { Spinner } from 'react-bootstrap'
-import LoansTable from '../../Table/LoansTable'
+import LoansTable from './LoansTable'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
@@ -47,7 +47,6 @@ const LoansOverview = ({ clients, user, render, setRender }) => {
       return sum
     }
     const loanData = [{
-      name: 'Total Credit Limits',
       YTD: loanTotal(clients),
       Budget: 1500
 
@@ -55,15 +54,26 @@ const LoansOverview = ({ clients, user, render, setRender }) => {
 
     return (
       <div className='overview'>
-        <p>Total loans: {loanTotal(clients)}</p>
-        <Link to='/loans/create'>
-          <button>New loan</button>
-        </Link>
+        <div className="overview-container">
+          <div className="overview-top">
+            <div className="header-box">
+              <p>Total loans: {loanTotal(clients)}</p>
+              <Link to='/loans/create'>
+                <button>New loan</button>
+              </Link>
 
-        <LoansTable clients={clients}/>
+            </div>
+            <div className="chart">
+              <div className="title">Current Limits vs Budget ($MM)</div>
+              {loanData && <ChartBar data={loanData} />}
 
-        {loanData && <ChartBar data={loanData} />}
-
+            </div>
+          </div>
+          <div className="overview-table">
+            <div className="title">Transactions List </div>
+            <LoansTable clients={clients}/>
+          </div>
+        </div>
       </div>
     )
   }

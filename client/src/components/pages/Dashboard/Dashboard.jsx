@@ -1,7 +1,7 @@
 import './Dashboard.scss'
 import React, { useEffect } from 'react'
 
-import LoansTable from '../../Table/LoansTable'
+import LoansTable from '../Loans/LoansTable'
 import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
@@ -130,7 +130,7 @@ export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
       <div className="dashboardContainer">
         <div className="charts">
 
-          <Chart className="revChart" title="Year-over-Year(Revenue)" aspect={3 / 1} data={RevChartData}/>
+          <Chart className="revChart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={RevChartData}/>
           <ProgressChart className="progressChart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
         </div>
         <div className="listContainer">
