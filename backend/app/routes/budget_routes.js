@@ -27,7 +27,7 @@ router.get('/budget', (req, res, next) => {
 // CREATE
 // POST /budget
 router.post('/budget', requireToken, (req, res, next) => {
-	req.body.budget.owner = req.user.id
+	req.body.owner = req.user.id
 
 	Budget.create(req.body.budget)
 		.then((budget) => {
@@ -57,7 +57,7 @@ router.delete(
 	requireToken,
 	removeBlanks,
 	(req, res, next) => {
-		budget.findById(req.params.budgetId)
+		Budget.findById(req.params.budgetId)
 			.then(handle404)
 			.then(budget => requireOwnership(req, budget))
 			.then(budget => budget.deleteOne())

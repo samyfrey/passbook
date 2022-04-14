@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
 import './Client.scss'
-import { thisYearBudget } from '../../../globalData'
 import { ChartBar } from '../../Table/ChartBar'
 
-const ClientsOverview = ({ clients, user, setRender, msgAlert }) => {
+const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) => {
   if (!clients) {
     return (
       <Spinner animation='border' role='status'>
@@ -29,7 +28,7 @@ const ClientsOverview = ({ clients, user, setRender, msgAlert }) => {
 
     const revenueData = [{
       YTD: revenueTotal(clients),
-      Budget: thisYearBudget
+      Budget: revenueBudget
 
     }]
 

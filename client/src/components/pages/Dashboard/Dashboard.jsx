@@ -6,25 +6,10 @@ import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
-
-export const Dashboard = ({ clients, RevChartData, setRevChartData }) => {
-  const actualRevData = [
-    { month: 'Jan', pastYearRev: 50 },
-    { month: 'Feb', pastYearRev: 40 },
-    { month: 'Mar', pastYearRev: 100 },
-    { month: 'Apr', pastYearRev: 110 },
-    { month: 'May', pastYearRev: 130 },
-    { month: 'Jun', pastYearRev: 145 },
-    { month: 'Jul', pastYearRev: 200 },
-    { month: 'Aug', pastYearRev: 200 },
-    { month: 'Sep', pastYearRev: 210 },
-    { month: 'Oct', pastYearRev: 230 },
-    { month: 'Nov', pastYearRev: 240 },
-    { month: 'Dec', pastYearRev: 250 }
-  ]
-
+import { actualRevData } from '../../../globalData'
+export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, setRevChartData }) => {
   const budgetData = {
-    thisYearBudget: 250,
+    thisYearBudget: revenueBudget,
     ytdRev: grandTotalRev(clients),
     lastYearBudget: 230
 

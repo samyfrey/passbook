@@ -20,7 +20,7 @@ import { ClientCreate } from './components/pages/Clients/ClientCreate'
 import Profile from './components/pages/Profile/Profile'
 import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
-import Budget from './components/pages/Budget'
+import Budget from './components/pages/Budget/Budget'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -28,8 +28,8 @@ const App = () => {
   const [RevChartData, setRevChartData] = useState([])
   const [clients, setClients] = useState([])
   const [render, setRender] = useState(false)
-  const [revenueBudget, setRevenueBudget] = useState(0)
-  const [creditBudget, setCreditBudget] = useState(0)
+  const [revenueBudget, setRevenueBudget] = useState(null)
+  const [creditBudget, setCreditBudget] = useState(null)
 
   const clearUser = () => setUser(null)
 
@@ -43,7 +43,7 @@ const App = () => {
       try {
         const res = await indexClients()
         setClients(res.data.clients)
-        // await console.log('index clients is', res)
+        console.log('res from dashboard all clients is', res)
       } catch (error) {
         console.log('error is', error)
       }
@@ -105,6 +105,7 @@ const App = () => {
                   clients={clients}
                   user={user}
                   setRender={setRender}
+                  revenueBudget={revenueBudget}
                 />
               }
             />
@@ -129,6 +130,7 @@ const App = () => {
                   user={user}
                   setRender={setRender}
                   render={render}
+                  creditBudget={creditBudget}
                 />
               }
             />
@@ -153,6 +155,7 @@ const App = () => {
                 clients={clients}
                 RevChartData={RevChartData}
                 setRevChartData={setRevChartData}
+                revenueBudget={revenueBudget}
               />
             }
           />
