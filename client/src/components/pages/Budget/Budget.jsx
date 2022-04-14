@@ -8,12 +8,15 @@ const Budget = ({ revenueBudget, creditBudget, budgets }) => {
   // ]
   console.log('revenuebudget is', revenueBudget)
   return (
-    <div>
-      <h1>Revenue Budget: {revenueBudget}</h1>
-      <h1>Credit Limits Budget: {creditBudget}</h1>
-      <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
-      {/* <BudgetTable data={data}/> */}
+    <div className='overview'>
+      <div className="overview-container">
+        <div className="overview-table">
+          <div className="title">Transactions List </div>
+          <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
+        </div>
+      </div>
     </div>
+
   )
 }
 

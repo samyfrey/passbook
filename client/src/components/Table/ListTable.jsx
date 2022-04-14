@@ -38,9 +38,9 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Company Name</TableCell>
-            <TableCell className="tableCell" align="right">Industry</TableCell>
-            <TableCell className="tableCell" align="right">Actions</TableCell>
+            <TableCell className="tableCell" size="small">Company Name</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Industry</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Actions</TableCell>
 
           </TableRow>
         </TableHead>
