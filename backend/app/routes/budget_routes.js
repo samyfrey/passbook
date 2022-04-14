@@ -59,7 +59,7 @@ router.delete(
 	(req, res, next) => {
 		Budget.findById(req.params.budgetId)
 			.then(handle404)
-			.then(budget => requireOwnership(req, budget))
+			// .then(budget => requireOwnership(req, budget))
 			.then(budget => budget.deleteOne())
 			.then(() => res.sendStatus(204))
 			.catch(next)

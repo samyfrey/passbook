@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 const budgetSchema = new mongoose.Schema(
 	{
-		creditBudget: {
-			type: Number,
+		type: {
+			type: String,
 
 		},
-		revenueBudget: {
+		amount: {
 			type: Number,
 		},
 		owner: {

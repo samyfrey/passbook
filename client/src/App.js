@@ -21,6 +21,7 @@ import Profile from './components/pages/Profile/Profile'
 import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
+import { indexBudgets } from './api/budget'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -39,18 +40,19 @@ const App = () => {
   }
 
   useEffect(() => {
-    const fetchClients = async () => {
+    const fetchData = async () => {
       try {
-        const res = await indexClients()
-        setClients(res.data.clients)
-        console.log('res from dashboard all clients is', res)
+        const resClients = await indexClients()
+        setClients(resClients.data.clients)
+        const resBudget = await indexBudgets()
+        setRevenueBudget(resBudget.data.budget[0].revenueBudget)
+        setCreditBudget(resBudget.data.budget[0].creditBudget)
       } catch (error) {
         console.log('error is', error)
       }
     }
-    fetchClients()
+    fetchData()
   }, [render])
-  console.log('clients state is', clients)
 
   return (
     <div className='app'>

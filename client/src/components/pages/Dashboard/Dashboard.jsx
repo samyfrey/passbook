@@ -6,12 +6,12 @@ import Chart from '../../Chart/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
-import { actualRevData } from '../../../globalData'
+import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, setRevChartData }) => {
   const budgetData = {
     thisYearBudget: revenueBudget,
     ytdRev: grandTotalRev(clients),
-    lastYearBudget: 230
+    lastYearBudget: lastYearRevenueBudget
 
   }
 
@@ -99,7 +99,7 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     }
     return sum
   }
-  if (!RevChartData) {
+  if (!RevChartData && budgetData) {
     return (
       <Spinner animation='border' role='status'>
         <span className='visually-hidden'>Loading...</span>

@@ -1,6 +1,4 @@
-export const thisYearBudget = 500
-export const totalCreditLimit = 850
-
+export const lastYearRevenueBudget = 25
 export const actualRevData = [
   { month: 'Jan', pastYearRev: 1 },
   { month: 'Feb', pastYearRev: 2 },
