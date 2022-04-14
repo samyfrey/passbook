@@ -31,6 +31,7 @@ const App = () => {
   const [render, setRender] = useState(false)
   const [revenueBudget, setRevenueBudget] = useState(null)
   const [creditBudget, setCreditBudget] = useState(null)
+  const [budgets, setBudgets] = useState(null)
 
   const clearUser = () => setUser(null)
 
@@ -45,7 +46,7 @@ const App = () => {
         const resClients = await indexClients()
         setClients(resClients.data.clients)
         const resBudget = await indexBudgets()
-        console.log('indexbudget api res is', resBudget)
+        setBudgets(resBudget.data.budget)
         setCreditBudget(resBudget.data.budget[0].amount)
         setRevenueBudget(resBudget.data.budget[1].amount)
       } catch (error) {
@@ -55,6 +56,7 @@ const App = () => {
     fetchData()
   }, [render])
 
+  console.log('budgets is', budgets)
   return (
     <div className='app'>
       <Sidebar />
@@ -171,6 +173,7 @@ const App = () => {
                 setRevenueBudget={setRevenueBudget}
                 creditBudget={creditBudget}
                 setCreditBudget={setCreditBudget}
+                budgets={budgets}
               />
             }
           />

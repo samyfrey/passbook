@@ -1,7 +1,7 @@
 import React from 'react'
-import { BudgetTable } from '../../Table/CreditBudgetTable'
+import { BudgetTable } from '../../Table/BudgetTable'
 
-const Budget = ({ revenueBudget, creditBudget, setRevenueBudget, setCreditBudget }) => {
+const Budget = ({ revenueBudget, creditBudget, budgets }) => {
   // const data = [
   //   { 'Credit Limits': creditBudget },
   //   { Revenues: revenueBudget }
@@ -11,7 +11,7 @@ const Budget = ({ revenueBudget, creditBudget, setRevenueBudget, setCreditBudget
     <div>
       <h1>Revenue Budget: {revenueBudget}</h1>
       <h1>Credit Limits Budget: {creditBudget}</h1>
-      <BudgetTable revenueBudget={revenueBudget} creditBudget={creditBudget}/>
+      <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
       {/* <BudgetTable data={data}/> */}
     </div>
   )
