@@ -45,8 +45,9 @@ const App = () => {
         const resClients = await indexClients()
         setClients(resClients.data.clients)
         const resBudget = await indexBudgets()
-        setRevenueBudget(resBudget.data.budget[0].revenueBudget)
-        setCreditBudget(resBudget.data.budget[0].creditBudget)
+        console.log('indexbudget api res is', resBudget)
+        setCreditBudget(resBudget.data.budget[0].amount)
+        setRevenueBudget(resBudget.data.budget[1].amount)
       } catch (error) {
         console.log('error is', error)
       }
