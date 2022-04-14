@@ -14,9 +14,10 @@ export default function LoanTable ({ loans }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Loan Description</TableCell>
-            <TableCell className="tableCell" align="right">Closing Date</TableCell>
-            <TableCell className="tableCell" align="right">Amount</TableCell>
+            <TableCell className="tableCell" size="small">Loan Type</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Closing Date</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Credit Limit <span className='amountStyle' >($MM)</span></TableCell>
+            <TableCell className="tableCell" align="right" size="small">Status</TableCell>
 
           </TableRow>
         </TableHead>
@@ -26,7 +27,10 @@ export default function LoanTable ({ loans }) {
               <TableCell >{loan.description}</TableCell>
               <TableCell align="right">{loan.month}</TableCell>
               <TableCell align="right">{loan.amount}</TableCell>
+              <TableCell size="small"align="right">
+                <span className={`status ${loan.status}`}>{loan.status}</span>
 
+              </TableCell>
             </TableRow>
           )
 

@@ -16,7 +16,7 @@ export default function LoansTable ({ clients }) {
           <TableRow>
             <TableCell className="tableCell" size="small">Description Name</TableCell>
             <TableCell className="tableCell" size="small">Company Name</TableCell>
-            <TableCell className="tableCell" align="right" size="small">Amount <span className='amountStyle' >($MM)</span></TableCell>
+            <TableCell className="tableCell" align="right" size="small">Credit Limit <span className='amountStyle' >($MM)</span></TableCell>
             <TableCell className="tableCell" align="right" size="small">Status</TableCell>
 
           </TableRow>

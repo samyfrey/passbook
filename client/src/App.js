@@ -20,6 +20,7 @@ import { ClientCreate } from './components/pages/Clients/ClientCreate'
 import Profile from './components/pages/Profile/Profile'
 import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
+import Budget from './components/pages/Budget'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -27,6 +28,8 @@ const App = () => {
   const [RevChartData, setRevChartData] = useState([])
   const [clients, setClients] = useState([])
   const [render, setRender] = useState(false)
+  const [revenueBudget, setRevenueBudget] = useState(0)
+  const [creditBudget, setCreditBudget] = useState(0)
 
   const clearUser = () => setUser(null)
 
@@ -150,6 +153,18 @@ const App = () => {
                 clients={clients}
                 RevChartData={RevChartData}
                 setRevChartData={setRevChartData}
+              />
+            }
+          />
+          <Route
+            path='/budget/'
+            element={
+              <Budget
+                user={user}
+                revenueBudget={revenueBudget}
+                setRevenueBudget={setRevenueBudget}
+                creditBudget={creditBudget}
+                setCreditBudget={setCreditBudget}
               />
             }
           />
