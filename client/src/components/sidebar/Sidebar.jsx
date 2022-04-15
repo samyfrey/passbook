@@ -1,4 +1,4 @@
-import './sidebar.scss'
+import './navbar.scss'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
@@ -14,8 +14,8 @@ export function Sidebar () {
       {/* <GridViewIcon/> */}
 
       <div className='top'><span className="logo">passbook</span></div>
-      <hr/>
-      <div className='center'>
+      {/* <hr/> */}
+      <div className='links'>
         <ul>
           <NavLink to='/'>
             <li>

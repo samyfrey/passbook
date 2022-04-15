@@ -25,17 +25,17 @@ export default function LoansTable ({ clients, user, setRender, msgAlert }) {
         console.log('borrower id is', borrowerId)
         await deleteLoan(user, loanId, borrowerId)
         setRender(true)
-        // msgAlert({
-        //   heading: 'Transaction deleted',
-        //   variant: 'success'
-        // })
+        msgAlert({
+          heading: 'Transaction deleted',
+          variant: 'success'
+        })
       } catch (error) {
         console.log('error is', error)
-        // msgAlert({
-        //   heading: 'Failed to load',
-        //   message: error.message,
-        //   variant: 'danger'
-        // })
+        msgAlert({
+          heading: 'Failed to load',
+          message: error.message,
+          variant: 'danger'
+        })
       }
     }
   }

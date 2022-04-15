@@ -22,6 +22,7 @@ import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
 import { indexBudgets } from './api/budget'
+import TopBar from './components/sidebar/TopBar'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -61,6 +62,7 @@ const App = () => {
     <div className='app'>
       <Sidebar />
       <div className='appContainer'>
+        <TopBar user={user}/>
         {/* <Header user={user} /> */}
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
