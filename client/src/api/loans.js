@@ -18,3 +18,31 @@ export const createLoan = (user, loan) => {
     }
   )
 }
+
+// export const deleteLoan = (user, loanId) => {
+//   return axios.delete(`${apiUrl}/loans/${loanId}`, {
+//     headers: {
+//       Authorization: `Bearer ${user.token}`
+//     }
+//   })
+// }
+
+export const deleteLoan = (user, loanId, borrowerId) => {
+  return axios.delete(
+    `${apiUrl}/loans/${loanId}`,
+
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`
+      },
+
+      data: {
+        loan: {
+
+          borrowerId: borrowerId
+        }
+      }
+    }
+
+  )
+}

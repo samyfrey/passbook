@@ -7,7 +7,7 @@ import { LoanCreateForm } from '../Loans/LoanCreateForm'
 
 const LoanCreate = ({ user, clients, setRender, msgAlert }) => {
   const [loan, setLoan] = useState(
-    { description: '', amount: '', month: '', borrowerId: '', revenue: '' }
+    { description: '', amount: '', month: '', borrowerId: '', revenue: '', status: '' }
   )
   const [isNewLoan, setIsNewLoan] = useState(false)
 
@@ -59,6 +59,12 @@ const LoanCreate = ({ user, clients, setRender, msgAlert }) => {
       property: 'revenue',
       value: `${loan.revenue}`,
       placeholder: 'Revenue ($MM)'
+    },
+    {
+      id: 4,
+      property: 'status',
+      value: `${loan.status}`,
+      placeholder: 'Status'
     }
 
   ]

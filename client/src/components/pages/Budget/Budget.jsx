@@ -11,7 +11,7 @@ const Budget = ({ revenueBudget, creditBudget, budgets }) => {
     <div className='overview'>
       <div className="overview-container">
         <div className="overview-table">
-          <div className="title">Transactions List </div>
+          <div className="title">Budget List </div>
           <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
         </div>
       </div>

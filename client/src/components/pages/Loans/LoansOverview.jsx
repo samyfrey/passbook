@@ -8,7 +8,7 @@ import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
 
-const LoansOverview = ({ clients, user, render, creditBudget, setRender }) => {
+const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
@@ -27,6 +27,8 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender }) => {
   }, [render])
   console.log('loans variable is', loans)
   console.log('render is', render)
+
+  console.log('user from loans overview is', user)
 
   if (!loans) {
     return (
@@ -71,7 +73,7 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender }) => {
           </div>
           <div className="overview-table">
             <div className="title">Transactions List </div>
-            <LoansTable clients={clients}/>
+            <LoansTable clients={clients} user={user} setRender={setRender} msgAlert={msgAlert}/>
           </div>
         </div>
       </div>

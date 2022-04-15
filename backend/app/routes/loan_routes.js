@@ -79,13 +79,14 @@ router.patch('/loans/:loanId', (req, res, next) => {
 
 // DESTROY
 // DELETE /loan/id
-router.delete('/loans/:loanId', requireToken, (req, res, next) => {
+router.delete('/loans/:loanId', (req, res, next) => {
 	const loanId = req.params.loanId
-	const borrowerId = req.body.loan.borrowerId
-
+	const loanData = req.body.loan
+	const borrowerId = loanData.borrowerId
+	console.log('req body is', req)
 	Client.findById(borrowerId)
 		.then(handle404)
-		// .then((loan) => requireOwnership(req, loan))
+		// .then((client) => requireOwnership(req, client))
 		.then((client) => {
 			client.loans.id(loanId).remove()
 			return client.save()
@@ -93,5 +94,19 @@ router.delete('/loans/:loanId', requireToken, (req, res, next) => {
 		.then(() => res.sendStatus(204))
 		.catch(next)
 })
+// router.delete('/loans/:loanId', (req, res, next) => {
+// 	const loanId = req.params.loanId
+// 	const borrowerId = req.body.loan.borrowerId
+
+// 	Client.findById(borrowerId)
+// 		.then(handle404)
+// 		// .then((client) => requireOwnership(req, client))
+// 		.then((client) => {
+// 			client.loans.id(loanId).remove()
+// 			return client.save()
+// 		})
+// 		.then(() => res.sendStatus(204))
+// 		.catch(next)
+// })
 
 module.exports = router

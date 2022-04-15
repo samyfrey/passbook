@@ -35,7 +35,7 @@ export const BudgetTable = ({ creditBudget, budgets }) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell" size="small">Budget</TableCell>
+            <TableCell className="tableCell" size="small">Budget Category</TableCell>
             <TableCell className="tableCell" align="right" size="small">Amount  <span className='amountStyle' >($MM)</span></TableCell>
             <TableCell className="tableCell" align="right" size="small">Actions</TableCell>
 

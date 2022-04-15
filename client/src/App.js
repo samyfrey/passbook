@@ -136,6 +136,7 @@ const App = () => {
                   setRender={setRender}
                   render={render}
                   creditBudget={creditBudget}
+                  msgAlert={msgAlert}
                 />
               }
             />
@@ -161,6 +162,9 @@ const App = () => {
                 RevChartData={RevChartData}
                 setRevChartData={setRevChartData}
                 revenueBudget={revenueBudget}
+                user={user}
+                msgAlert={msgAlert}
+                setRender={setRender}
               />
             }
           />
