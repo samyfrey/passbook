@@ -7,6 +7,7 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
     { value: `${client._id}`, label: `${client.name}` }
 
   ))
+
   const monthOptions = [
 
     { value: 'Jan', label: 'January' },

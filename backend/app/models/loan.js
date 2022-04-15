@@ -20,14 +20,6 @@ const loanSchema = new mongoose.Schema(
 		status: {
 			type: String
 		},
-        startDate: {
-            type: Date,
-            // required: true
-        },
-        maturityDate: {
-            type: Date,
-            // required: true
-        },
         borrower: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Client',

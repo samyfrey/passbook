@@ -5,10 +5,13 @@ import { Navigate } from 'react-router-dom'
 import { createLoan } from '../../../api/loans'
 import { LoanCreateForm } from '../Loans/LoanCreateForm'
 
-const LoanCreate = ({ user, clients, setRender, msgAlert }) => {
+const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAlert }) => {
   const [loan, setLoan] = useState(
     { description: '', amount: '', month: '', borrowerId: '', revenue: '', status: '' }
   )
+  if (updateMode) {
+    setLoan(selectClient)
+  }
   const [isNewLoan, setIsNewLoan] = useState(false)
 
   const handleChange = (event) => {
@@ -74,7 +77,7 @@ const LoanCreate = ({ user, clients, setRender, msgAlert }) => {
     <div className='create'>
       <div className="form">
         <div className="title">Add a New Loan </div>
-        <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients}/>
+        <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
       </div>
       <div className="snapshot">
         <p>Loan:{loan.description}</p>

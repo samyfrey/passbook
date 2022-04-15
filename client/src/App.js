@@ -23,6 +23,7 @@ import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
 import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
+import LoanEdit from './components/pages/Loans/LoanEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -33,7 +34,7 @@ const App = () => {
   const [revenueBudget, setRevenueBudget] = useState(null)
   const [creditBudget, setCreditBudget] = useState(null)
   const [budgets, setBudgets] = useState(null)
-
+  const [selectClient, setSelectClient] = useState(null)
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
@@ -57,12 +58,12 @@ const App = () => {
     fetchData()
   }, [render])
 
-  console.log('budgets is', budgets)
+  // console.log('budgets is', budgets)
   return (
     <div className='app'>
       <Sidebar />
       <div className='appContainer'>
-        <TopBar user={user}/>
+        <TopBar user={user} />
         {/* <Header user={user} /> */}
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
@@ -139,6 +140,8 @@ const App = () => {
                   render={render}
                   creditBudget={creditBudget}
                   msgAlert={msgAlert}
+                  selectClient={selectClient}
+                  setSelectClient={setSelectClient}
                 />
               }
             />
@@ -150,7 +153,19 @@ const App = () => {
                   clients={clients}
                   msgAlert={msgAlert}
                   setRender={setRender}
-
+                />
+              }
+            />
+            <Route
+              path=':loanId'
+              element={
+                <LoanEdit
+                  user={user}
+                  clients={clients}
+                  msgAlert={msgAlert}
+                  setRender={setRender}
+                  selectClient={selectClient}
+                  setSelectClient={setSelectClient}
                 />
               }
             />
@@ -167,6 +182,7 @@ const App = () => {
                 user={user}
                 msgAlert={msgAlert}
                 setRender={setRender}
+                setSelectClient={setSelectClient}
               />
             }
           />

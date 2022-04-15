@@ -6,23 +6,18 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { deleteLoan } from '../../../api/loans'
 
-export default function LoansTable ({ clients, user, setRender, msgAlert }) {
+export default function LoansTable ({ clients, user, setRender, msgAlert, selectClient, setSelectClient }) {
   async function handleDelete (user, loan, client) {
     const res = confirm('Are you sure you want to delete?')
     if (res) {
       try {
-        console.log('loan is', loan)
         setRender(false)
         const loanId = loan._id
         const borrowerId = client._id
-        console.log('loan id is', loanId)
-        console.log('user is', user)
-        console.log('client is', client)
-        console.log('client id is', client._id)
-        console.log('borrower id is', borrowerId)
+
         await deleteLoan(user, loanId, borrowerId)
         setRender(true)
         msgAlert({
@@ -38,6 +33,16 @@ export default function LoansTable ({ clients, user, setRender, msgAlert }) {
         })
       }
     }
+  }
+
+  const navigate = useNavigate()
+  const editRender = (client, loan) => {
+    // console.log('client from loans table is', client)
+    setSelectClient(client)
+    // console.log('select client from loanstable is', selectClient)
+    // console.log('loan id is', loan._id)
+    // <Navigate to={`/loans/${loan._id}`}/>
+    navigate(`/loans/${loan._id}`)
   }
   return (
     <TableContainer component={Paper} className="table">
@@ -71,8 +76,14 @@ export default function LoansTable ({ clients, user, setRender, msgAlert }) {
                 </TableCell>
                 <TableCell align="right">
                   <div className="cellAction">
-                    <div className="viewButton">Edit</div>
+                    {/* <Link to={`/loans/${loan._id}`}>
+                      <div className="viewButton" >Edit</div>
+                    </Link> */}
+                    {/* <Link to={`/loans/${loan._id}`}>
+                      <div className="viewButton" onClick={() => handleUpdate(user, loan, client)}>Edit</div>
+                    </Link> */}
                     <div className="deleteButton" onClick={() => handleDelete(user, loan, client)}>Delete</div>
+                    <div className="deleteButton" onClick={() => editRender(user, loan, client)}>Edit2</div>
                   </div>
                 </TableCell>
 

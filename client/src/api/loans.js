@@ -23,14 +23,16 @@ export const createLoan = (user, loan) => {
 // authenticated
 export const showLoan = (user, loanId, borrowerId) => {
   return axios.get(`${apiUrl}/loans/${loanId}`, {
-    headers: {
-      Authorization: `Bearer ${user.token}`
-    },
+
     data: {
       loan: {
         borrowerId: borrowerId
       }
+    },
+    headers: {
+      Authorization: `Bearer ${user.token}`
     }
+
   })
 }
 
@@ -65,16 +67,10 @@ export const deleteLoan = (user, loanId, borrowerId) => {
   return axios.delete(
     `${apiUrl}/loans/${loanId}`,
 
+    { data: borrowerId },
     {
       headers: {
         Authorization: `Bearer ${user.token}`
-      },
-
-      data: {
-        loan: {
-
-          borrowerId: borrowerId
-        }
       }
     }
 

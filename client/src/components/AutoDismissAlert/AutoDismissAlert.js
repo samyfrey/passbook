@@ -11,7 +11,7 @@ function AutoDismissAlert ({ variant, heading, message }) {
   // We are going to create a timer that will stop showing the alert after 5 seconds
   // We store the timeoutId, incase we need to cancel the timer early (because the AutoDismissAlert was unmounted)
   const [timeoutId, setTimeoutId] = useState(null)
-  console.log(timeoutId)
+  // console.log(timeoutId)
 
   // this will run once, when the component is mounted (added) to the screen
   // it runs once, because it has an empty dependency array as the second argument

@@ -8,14 +8,14 @@ import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
 
-const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert }) => {
+const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert, selectClient, setSelectClient }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
     const fetchLoans = async () => {
       try {
         const res = await indexClients()
-        console.log('res from indexclients is', res)
+        // console.log('res from indexclients is', res)
         setLoans(res.data.clients)
 
         // await console.log('loan res is:', res)
@@ -25,10 +25,10 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
     }
     fetchLoans()
   }, [render])
-  console.log('loans variable is', loans)
-  console.log('render is', render)
+  // console.log('loans variable is', loans)
+  // console.log('render is', render)
 
-  console.log('user from loans overview is', user)
+  // console.log('user from loans overview is', user)
 
   if (!loans) {
     return (
@@ -73,7 +73,7 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
           </div>
           <div className="overview-table">
             <div className="title">Transactions List </div>
-            <LoansTable clients={clients} user={user} setRender={setRender} msgAlert={msgAlert}/>
+            <LoansTable clients={clients} user={user} setRender={setRender} msgAlert={msgAlert} selectClient={selectClient} setSelectClient={setSelectClient}/>
           </div>
         </div>
       </div>
