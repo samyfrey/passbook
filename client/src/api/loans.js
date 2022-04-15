@@ -19,6 +19,40 @@ export const createLoan = (user, loan) => {
   )
 }
 
+// SHOW one loan based on ID
+// authenticated
+export const showLoan = (user, loanId, borrowerId) => {
+  return axios.get(`${apiUrl}/loans/${loanId}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    },
+    data: {
+      loan: {
+        borrowerId: borrowerId
+      }
+    }
+  })
+}
+
+// PATCH
+// Update a loan
+// authenticated
+
+export const updateLoan = (user, loanId, borrowerId, loan) => {
+  return axios.patch(`${apiUrl}/loans/${loanId}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    },
+
+    data: {
+      loan: {
+        borrowerId: borrowerId,
+        revenue: loan.revenue
+      }
+    }
+  })
+}
+
 // export const deleteLoan = (user, loanId) => {
 //   return axios.delete(`${apiUrl}/loans/${loanId}`, {
 //     headers: {
