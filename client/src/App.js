@@ -23,7 +23,8 @@ import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
 import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
-import LoanEdit from './components/pages/Loans/LoanEdit'
+// import LoanEdit from './components/pages/Loans/LoanEdit'
+import ShowLoan from './components/pages/Loans/ShowLoan'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -159,14 +160,15 @@ const App = () => {
             <Route
               path=':loanId'
               element={
-                <LoanEdit
-                  user={user}
-                  clients={clients}
-                  msgAlert={msgAlert}
-                  setRender={setRender}
-                  selectClient={selectClient}
-                  setSelectClient={setSelectClient}
-                />
+                // <LoanEdit
+                //   user={user}
+                //   clients={clients}
+                //   msgAlert={msgAlert}
+                //   setRender={setRender}
+                //   selectClient={selectClient}
+                //   setSelectClient={setSelectClient}
+                // />
+                <ShowLoan user={user} selectClient={selectClient} />
               }
             />
           </Route>

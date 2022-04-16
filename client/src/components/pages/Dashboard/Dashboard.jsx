@@ -7,6 +7,7 @@ import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
+// import ShowLoan from '../Loans/ShowLoan'
 export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, setRevChartData, user, msgAlert, setRender, setSelectClient }) => {
   const budgetData = {
     thisYearBudget: revenueBudget,

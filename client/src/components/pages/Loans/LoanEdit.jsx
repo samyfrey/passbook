@@ -11,7 +11,7 @@ const LoanEdit = ({ user, client, msgAlert, setRender, selectClient, setSelectCl
   if (!user) {
     return <Navigate to='/' />
   }
-  const borrowerId = selectClient._id
+  // API CALL SHOULD WORK, PB COULD BE IN LOAN EDIT HERE
 
   // fetch the loan based on id
   // feed the loancreate with loan fetched which feeds the create form
@@ -20,6 +20,7 @@ const LoanEdit = ({ user, client, msgAlert, setRender, selectClient, setSelectCl
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const borrowerId = selectClient._id
         console.log('loan id is', loanId)
         console.log('user is', user)
         console.log('borrower id is', borrowerId)
