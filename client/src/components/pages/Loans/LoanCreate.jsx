@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Loan.scss'
+import './loan.scss'
 
 import { Navigate } from 'react-router-dom'
 import { createLoan } from '../../../api/loans'
@@ -48,40 +48,39 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
       id: 1,
       property: 'description',
       value: `${loan.description}`,
-      placeholder: 'Loan Description'
+      placeholder: 'Loan Type'
 
     },
     {
       id: 2,
       property: 'amount',
       value: `${loan.amount}`,
-      placeholder: 'Loan Amount'
+      placeholder: 'Loan Amount ($MM)'
     },
     {
       id: 3,
       property: 'revenue',
       value: `${loan.revenue}`,
       placeholder: 'Revenue ($MM)'
-    },
-    {
-      id: 4,
-      property: 'status',
-      value: `${loan.status}`,
-      placeholder: 'Status'
     }
 
   ]
   console.log('loan is', loan)
 
   return (
-    <div className='create'>
-      <div className="form">
-        <div className="title">Add a New Loan </div>
-        <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
+    <div className='overview'>
+      <div className="overview-container create">
+        <div className="overview-table">
+          <div className="title">Add a new loan</div>
+          <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
+        </div>
+        <div className="snapshot">
+
+        </div>
       </div>
-      <div className="snapshot">
+      {/* <div className="snapshot">
         <p>Loan:{loan.description}</p>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -1,12 +1,18 @@
 import React from 'react'
 import Select from 'react-select'
-
+import './loan.scss'
 export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan, clients }) => {
   const idOptions = clients.map((client) => (
     // [{ value: 'banana', label: 'banana' }]
     { value: `${client._id}`, label: `${client.name}` }
 
   ))
+
+  const statusOptions = [
+    { value: 'Approved', label: 'Approved' },
+    { value: 'Pending', label: 'Pending' },
+    { value: 'Declined', label: 'Declined' }
+  ]
 
   const monthOptions = [
 
@@ -33,11 +39,15 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
   const handleMonth = (selectedBorrower) => {
     setLoan({ ...loan, month: selectedBorrower.value })
   }
+  const handleStatus = (selectedBorrower) => {
+    setLoan({ ...loan, status: selectedBorrower.value })
+  }
 
   return (
     <>
-      <form className='create-client-form' onSubmit={handleCreate}>
+      <form onSubmit={handleCreate}>
         <div className="create-client-item">
+          <Select placeholder='Select Borrower'options={idOptions} onChange={handleBorrowerId} />
           {data.map(dataPoint => (
             <div key={dataPoint.id}>
               <input type='text' placeholder={dataPoint.placeholder} name={dataPoint.property} value={dataPoint.value} onChange={handleChange}/>
@@ -46,8 +56,8 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
 
           ))}
 
-          <Select placeholder='Select Borrower'options={idOptions} onChange={handleBorrowerId} />
-          <Select placeholder='Select Closing Month'options={monthOptions} onChange={handleMonth} />
+          <Select placeholder='Approval Status'options={statusOptions} onChange={handleStatus} />
+          <Select placeholder='Closing Month'options={monthOptions} onChange={handleMonth} />
 
           <button className="button" type="submit">Create</button>
 
