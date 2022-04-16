@@ -45,7 +45,7 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
       id: 1,
       property: 'name',
       value: `${client.name}`,
-      placeholder: 'Company Legal Name'
+      placeholder: 'Company  Name'
 
     },
     {

@@ -74,13 +74,9 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
           <div className="title">Add a new loan</div>
           <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
         </div>
-        <div className="snapshot">
 
-        </div>
       </div>
-      {/* <div className="snapshot">
-        <p>Loan:{loan.description}</p>
-      </div> */}
+
     </div>
   )
 }

@@ -43,13 +43,18 @@
     }
 }
     .overview-table{
--webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-      padding: 20px;
+      padding: 40px;
       margin: 20px;
             
             
     }
 }
     
+button {
+    background-color: grey;
+    max-width: 100px;
+    border-radius: 5px;
+}
 }

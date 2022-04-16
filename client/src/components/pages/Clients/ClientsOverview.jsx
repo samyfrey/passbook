@@ -38,7 +38,7 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
           <div className="overview-top">
             <div className="header-box">
               <Link to='/clients/create'>
-                <button>Add a client</button>
+                <button>New client</button>
               </Link>
               <p>Total revenue is: {revenueTotal(clients)}</p>
             </div>

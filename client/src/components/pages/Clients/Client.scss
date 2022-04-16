@@ -24,11 +24,12 @@
 }
 
 .create-client-item{
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     margin-right: 20px;
+  
 
     label {
         margin-bottom: 10px;
@@ -42,7 +43,8 @@
         padding: 10px;
         border: 1px solid gray;
         border-radius: 5px;
-        width: 100%
+        width: 100%;
+        margin: 10px 0px 10px
 
     }
 }
