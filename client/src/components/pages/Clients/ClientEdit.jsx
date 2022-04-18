@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { editClient } from '../../../api/clients'
 
-const ClientEdit = () => {
+const ClientEdit = ({ user, msgAlert }) => {
   const { borrowerId } = useParams()
+  const [name, setName] = useState('')
+  const [industry, setIndustry] = useState('')
+  const [creditLimit, setCreditLimit] = useState('')
 
   console.log('clientId is', borrowerId)
+  console.log('user is', user)
+  const handleSubmit = async event => {
+    event.preventDefault()
+    // console.log('updated amount is', updatedAmount)
+    try {
+      await editClient(borrowerId, user, name, industry, creditLimit)
+      msgAlert({
+        heading: 'Updated',
+        variant: 'success'
+      })
+    } catch (error) {
+    //   console.log(error)
+      msgAlert({
+        heading: 'Failed to load',
+        message: error.message,
+        variant: 'danger'
+      })
+    }
+  }
+  console.log('borrowerId is', borrowerId)
   return (
     <div className='overview'>
       <div className="overview-container create">
@@ -13,7 +37,9 @@ const ClientEdit = () => {
 
           <form className='create-client-form' onSubmit={handleSubmit} >
 
-            <input type='text' placeholder='Type new amount' name='amount' value={updatedAmount} onChange={event => setUpdatedAmount(event.target.value)}/>
+            <input type='text' placeholder='Edit name' name='amount' value={name} onChange={event => setName(event.target.value)}/>
+            <input type='text' placeholder='Edit industry' name='amount' value={industry} onChange={event => setIndustry(event.target.value)}/>
+            <input type='text' placeholder='Edit credit limit' name='amount' value={creditLimit} onChange={event => setCreditLimit(event.target.value)}/>
             <button className="button" type="submit">Update</button>
 
           </form>

@@ -47,13 +47,13 @@ router.post('/clients', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /examples/
-router.patch('/clients/:borrowerId/edit', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/clients/:borrowerId/edit',  removeBlanks, (req, res, next) => {
 
 	// delete req.body.client.owner
 
 	Client.findById(req.params.borrowerId)
 		.then(handle404)
-		.then(client => requireOwnership(req, client))
+		// .then(client => requireOwnership(req, client))
 		.then(client => client.updateOne(req.body.client))
 		.then(() => res.sendStatus(204))
 		.catch(next)

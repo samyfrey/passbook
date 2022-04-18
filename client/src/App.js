@@ -121,7 +121,7 @@ const App = () => {
               }
             />
             <Route path=':borrowerId' element={<ClientDetail />} />
-            <Route path=':borrowerId/edit' element={<ClientEdit />} />
+            <Route path=':borrowerId/edit' element={<ClientEdit user={user} msgAlert={msgAlert} />} />
             <Route
               path='create'
               element={
