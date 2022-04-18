@@ -47,7 +47,7 @@ router.post('/clients', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /examples/
-router.patch('/clients/:borrowerId', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/clients/:borrowerId/edit', requireToken, removeBlanks, (req, res, next) => {
 
 	// delete req.body.client.owner
 

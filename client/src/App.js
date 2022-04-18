@@ -26,6 +26,7 @@ import TopBar from './components/sidebar/TopBar'
 // import LoanEdit from './components/pages/Loans/LoanEdit'
 import ShowLoan from './components/pages/Loans/ShowLoan'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
+import ClientEdit from './components/pages/Clients/ClientEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -120,6 +121,7 @@ const App = () => {
               }
             />
             <Route path=':borrowerId' element={<ClientDetail />} />
+            <Route path=':borrowerId/edit' element={<ClientEdit />} />
             <Route
               path='create'
               element={

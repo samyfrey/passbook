@@ -60,7 +60,9 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
               <TableCell align="right">{client.industry}</TableCell>
               <TableCell align="right">
                 <div className="cellAction">
-                  <div className="viewButton">Edit</div>
+                  <Link to={`/clients/${client._id}/edit`}>
+                    <div className="viewButton">Edit</div>
+                  </Link>
                   <div className="deleteButton" onClick={() => handleDelete(client)}>Delete</div>
                 </div>
               </TableCell>

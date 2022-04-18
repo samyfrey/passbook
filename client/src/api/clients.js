@@ -19,6 +19,15 @@ export const createClient = (user, client) => {
     })
 }
 
+// PATCH Request
+// clients/:borrowerId
+// authenticated
+
+export const editBudget = (user, borrowerId, updatedClient) => {
+  return axios.patch(`${apiUrl}/clients/${borrowerId}/edit`, {
+    budget: { amount: updatedAmount }
+  })
+}
 export const deleteClient = (user, clientId) => {
   return axios.delete(`${apiUrl}/clients/${clientId}`, {
     headers: {

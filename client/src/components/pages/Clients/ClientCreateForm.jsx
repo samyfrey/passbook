@@ -8,7 +8,7 @@ export const ClientCreateForm = ({ data, handleChange, handleCreate }) => {
       <div className='overview'>
         <div className="overview-container create">
           <div className="overview-table">
-            <div className="title">Create a new client</div>
+            <div className="title">Add a new client</div>
 
             <form className='create-client-form' onSubmit={handleCreate}>
               <div className="create-client-item">
