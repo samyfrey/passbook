@@ -6,7 +6,7 @@ const Budget = ({ revenueBudget, creditBudget, budgets }) => {
   //   { 'Credit Limits': creditBudget },
   //   { Revenues: revenueBudget }
   // ]
-  console.log('revenuebudget is', revenueBudget)
+  // console.log('revenuebudget is', revenueBudget)
   return (
     <div className='overview'>
       <div className="overview-container">

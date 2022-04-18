@@ -23,6 +23,16 @@ router.get('/budget', (req, res, next) => {
 		.catch(next)
 })
 
+// SHOW
+// GET /budget/:budgetId
+router.get('/budget/:budgetId', (req, res, next) => {
+	Budget.findById(req.params.budgetId)
+		.then(handle404)
+
+		.then((budget) => res.status(200).json({ budget }))
+		.catch(next)
+})
+
 
 // CREATE
 // POST /budget
@@ -39,11 +49,11 @@ router.post('/budget', requireToken, (req, res, next) => {
 // UPDATE
 // PATCH /budget/
 router.patch('/budget/:budgetId', (req, res, next) => {
- delete req.body.budget.owner
+//  delete req.body.budget.owner
 
- Budget.findById(req.params.id)
+ Budget.findById(req.params.budgetId)
 		.then(handle404)
-		.then(budget=> requireOwnership(req, budget))
+		// .then(budget=> requireOwnership(req, budget))
 		.then(budget=> budget.updateOne(req.body.budget))
 		.then(() => res.sendStatus(204))
 		.catch(next)

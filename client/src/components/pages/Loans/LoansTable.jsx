@@ -37,9 +37,11 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
 
   const navigate = useNavigate()
   const editRender = (client, loan) => {
-    // console.log('client from loans table is', client)
+    console.log('client from loans table is', client)
+    console.log('loan from loans table is', loan)
     setSelectClient(client)
-    // console.log('select client from loanstable is', selectClient)
+
+    console.log('select client from loanstable is', selectClient)
     // console.log('loan id is', loan._id)
     // <Navigate to={`/loans/${loan._id}`}/>
     navigate(`/loans/${loan._id}`)
@@ -83,7 +85,7 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
                       <div className="viewButton" onClick={() => handleUpdate(user, loan, client)}>Edit</div>
                     </Link> */}
                     <div className="deleteButton" onClick={() => handleDelete(user, loan, client)}>Delete</div>
-                    <div className="deleteButton" onClick={() => editRender(user, loan, client)}>Edit2</div>
+                    <div className="deleteButton" onClick={() => editRender(user, client, loan)}>{client.name}</div>
                   </div>
                 </TableCell>
 

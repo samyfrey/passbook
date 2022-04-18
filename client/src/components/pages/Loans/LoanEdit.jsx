@@ -20,6 +20,7 @@ const LoanEdit = ({ user, client, msgAlert, setRender, selectClient, setSelectCl
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setSelectClient(client)
         const borrowerId = selectClient._id
         console.log('loan id is', loanId)
         console.log('user is', user)

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 // import { indexLoans } from '../../../api/loans'
-import './Loan.scss'
+import './loan.scss'
 import { Spinner } from 'react-bootstrap'
 import LoansTable from './LoansTable'
 import { indexClients } from '../../../api/clients'

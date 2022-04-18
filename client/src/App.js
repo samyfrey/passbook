@@ -25,6 +25,7 @@ import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
 // import LoanEdit from './components/pages/Loans/LoanEdit'
 import ShowLoan from './components/pages/Loans/ShowLoan'
+import BudgetEdit from './components/pages/Budget/BudgetEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -188,19 +189,24 @@ const App = () => {
               />
             }
           />
-          <Route
-            path='/budget/'
-            element={
-              <Budget
-                user={user}
-                revenueBudget={revenueBudget}
-                setRevenueBudget={setRevenueBudget}
-                creditBudget={creditBudget}
-                setCreditBudget={setCreditBudget}
-                budgets={budgets}
-              />
-            }
-          />
+          <Route path='/budget/'>
+            <Route
+              index
+              element={
+                <Budget
+                  user={user}
+                  revenueBudget={revenueBudget}
+                  setRevenueBudget={setRevenueBudget}
+                  creditBudget={creditBudget}
+                  setCreditBudget={setCreditBudget}
+                  budgets={budgets}
+                />
+              }
+            />
+
+            <Route path=':budgetId' element={<BudgetEdit />} />
+          </Route>
+
         </Routes>
       </div>
     </div>

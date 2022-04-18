@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import './listTable.scss'
+import { Link } from 'react-router-dom'
 
 export const BudgetTable = ({ creditBudget, budgets }) => {
   // async function handleDelete (client) {
@@ -50,7 +51,9 @@ export const BudgetTable = ({ creditBudget, budgets }) => {
               <TableCell align="right">{budget.amount}</TableCell>
               <TableCell align="right">
                 <div className="cellAction">
-                  <div className="viewButton">Edit</div>
+                  <Link to={`/budget/${budget._id}`}>
+                    <div className="viewButton">Edit</div>
+                  </Link>
                   {/* <div className="deleteButton" onClick={() => handleDelete(budget)}>Delete</div> */}
                 </div>
               </TableCell>
