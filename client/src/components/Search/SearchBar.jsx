@@ -4,12 +4,11 @@ import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 import { Link } from 'react-router-dom'
 
-function SearchBar ({ placeholder, data, render }) {
+function SearchBar ({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([])
   const [wordEntered, setWordEntered] = useState('')
 
   const handleFilter = (event) => {
-    console.log('data is', data)
     const searchWord = event.target.value
     setWordEntered(searchWord)
     const newFilter = data.filter((value) => {
@@ -33,10 +32,9 @@ function SearchBar ({ placeholder, data, render }) {
       <div className="searchInputs">
         <input
           type="text"
-          placeholder={placeholder}
+          placeholder='Search client...'
           value={wordEntered}
           onChange={handleFilter}
-          onClick={render}
         />
         <div className="searchIcon">
           {filteredData.length === 0

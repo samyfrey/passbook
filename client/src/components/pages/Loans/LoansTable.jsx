@@ -37,15 +37,8 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
 
   const navigate = useNavigate()
   const editRender = (client, loan) => {
-    // console.log('client from loans table is', client)
-    // console.log('loan from loans table is', loan)
-    // e.preventDefault()
-
     setSelectClient(client)
 
-    console.log('select client from loanstable is', selectClient)
-    // console.log('loan id is', loan._id)
-    // <Navigate to={`/loans/${loan._id}`}/>
     navigate(`/loans/${loan._id}`)
   }
   return (

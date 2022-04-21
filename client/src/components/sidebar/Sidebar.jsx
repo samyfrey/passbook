@@ -1,7 +1,7 @@
 import './navbar.scss'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import logo from '../../images/passbook.png'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PeopleIcon from '@mui/icons-material/People'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
@@ -13,7 +13,11 @@ export function Sidebar () {
     <div className='sidebar'>
       {/* <GridViewIcon/> */}
 
-      <div className='top'><span className="logo">passbook</span></div>
+      <div className="logo">
+
+        <img src={logo} alt='' />
+      </div>
+      {/* <div className='top'><span className="logo">passbook</span></div> */}
       {/* <hr/> */}
       <div className='links'>
         <ul>
@@ -45,7 +49,6 @@ export function Sidebar () {
           </NavLink>
         </ul>
       </div>
-      <div className='bottom'>color options</div>
     </div>
   )
 }
