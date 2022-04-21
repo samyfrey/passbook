@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/bankbook/static/css/main.292f9b43.chunk.css",
+    "main.js": "/bankbook/static/js/main.44bb0953.chunk.js",
+    "main.js.map": "/bankbook/static/js/main.44bb0953.chunk.js.map",
+    "runtime-main.js": "/bankbook/static/js/runtime-main.74ef2bd9.js",
+    "runtime-main.js.map": "/bankbook/static/js/runtime-main.74ef2bd9.js.map",
+    "static/css/2.6c0f60ba.chunk.css": "/bankbook/static/css/2.6c0f60ba.chunk.css",
+    "static/js/2.a88a6a29.chunk.js": "/bankbook/static/js/2.a88a6a29.chunk.js",
+    "static/js/2.a88a6a29.chunk.js.map": "/bankbook/static/js/2.a88a6a29.chunk.js.map",
+    "index.html": "/bankbook/index.html",
+    "static/css/2.6c0f60ba.chunk.css.map": "/bankbook/static/css/2.6c0f60ba.chunk.css.map",
+    "static/css/main.292f9b43.chunk.css.map": "/bankbook/static/css/main.292f9b43.chunk.css.map",
+    "static/js/2.a88a6a29.chunk.js.LICENSE.txt": "/bankbook/static/js/2.a88a6a29.chunk.js.LICENSE.txt",
+    "static/media/passbook.2f07c5aa.png": "/bankbook/static/media/passbook.2f07c5aa.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74ef2bd9.js",
+    "static/css/2.6c0f60ba.chunk.css",
+    "static/js/2.a88a6a29.chunk.js",
+    "static/css/main.292f9b43.chunk.css",
+    "static/js/main.44bb0953.chunk.js"
+  ]
+}
