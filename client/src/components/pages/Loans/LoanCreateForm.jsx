@@ -10,8 +10,7 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
 
   const statusOptions = [
     { value: 'Approved', label: 'Approved' },
-    { value: 'Pending', label: 'Pending' },
-    { value: 'Declined', label: 'Declined' }
+    { value: 'Pending', label: 'Pending' }
   ]
 
   const monthOptions = [

@@ -35,7 +35,6 @@ const SignIn = ({ msgAlert, setUser }) => {
       })
     }
   }
-
   if (shouldNavigate) {
     return <Navigate to='/' />
   }

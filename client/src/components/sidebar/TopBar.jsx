@@ -8,10 +8,12 @@ import './navbar.scss'
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined'
 import VpnKeyIcon from '@mui/icons-material/VpnKey'
 import { Link } from 'react-router-dom'
-const TopBar = ({ user }) => {
+import SearchBar from '../Search/SearchBar'
+const TopBar = ({ user, clients, render }) => {
+  console.log('data is', clients)
   return (
     <div className='navigationBar'>
-
+      <SearchBar data={clients} render={render}/>
       {user &&
       <p>{user.email}</p>
       }

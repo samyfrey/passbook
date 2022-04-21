@@ -24,9 +24,10 @@ import Budget from './components/pages/Budget/Budget'
 import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
 // import LoanEdit from './components/pages/Loans/LoanEdit'
-import ShowLoan from './components/pages/Loans/ShowLoan'
+// import ShowLoan from './components/pages/Loans/ShowLoan'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
 import ClientEdit from './components/pages/Clients/ClientEdit'
+import LoanEdit from './components/pages/Loans/LoanEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -66,7 +67,7 @@ const App = () => {
     <div className='app'>
       <Sidebar />
       <div className='appContainer'>
-        <TopBar user={user} />
+        <TopBar user={user} clients={clients} render={render} />
         {/* <Header user={user} /> */}
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
@@ -81,7 +82,7 @@ const App = () => {
           <Route path='/account/'>
             <Route
               index
-              element={<Profile msgAlert={msgAlert} setUser={setUser} />}
+              element={<Profile msgAlert={msgAlert} user={user} setUser={setUser} />}
             />
             <Route
               path='sign-up'
@@ -120,7 +121,7 @@ const App = () => {
                 />
               }
             />
-            <Route path=':borrowerId' element={<ClientDetail />} />
+            <Route path=':borrowerId' element={<ClientDetail user={user} render={render} setRender={setRender} msgAlert={msgAlert}/>} />
             <Route path=':borrowerId/edit' element={<ClientEdit user={user} msgAlert={msgAlert} />} />
             <Route
               path='create'
@@ -163,15 +164,15 @@ const App = () => {
             <Route
               path=':loanId'
               element={
-                // <LoanEdit
-                //   user={user}
-                //   clients={clients}
-                //   msgAlert={msgAlert}
-                //   setRender={setRender}
-                //   selectClient={selectClient}
-                //   setSelectClient={setSelectClient}
-                // />
-                <ShowLoan user={user} selectClient={selectClient} />
+                <LoanEdit
+                  user={user}
+                  clients={clients}
+                  msgAlert={msgAlert}
+                  setRender={setRender}
+                  selectClient={selectClient}
+                  setSelectClient={setSelectClient}
+                />
+                // <ShowLoan user={user} selectClient={selectClient} />
               }
             />
           </Route>

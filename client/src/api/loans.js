@@ -40,19 +40,16 @@ export const createLoan = (user, loan) => {
 // Update a loan
 // authenticated
 
-export const updateLoan = (user, loanId, borrowerId, loan) => {
-  return axios.patch(`${apiUrl}/loans/${loanId}`, {
-    headers: {
-      Authorization: `Bearer ${user.token}`
-    },
+export const updateLoan = (loanId, borrowerId, loan) => {
+  return axios.patch(`${apiUrl}/loans/${loanId}`,
+    {
 
-    data: {
       loan: {
         borrowerId: borrowerId,
         revenue: loan.revenue
       }
-    }
-  })
+
+    })
 }
 
 // export const deleteLoan = (user, loanId) => {
@@ -82,22 +79,31 @@ export const deleteLoan = (user, loanId, borrowerId) => {
 
   )
 }
-export const showLoan = (user, loanId, borrowerId) => {
+
+export const showLoan = (loanId, borrowerId) => {
+  // const params = {
+  //   borrowerId: borrowerId
+  // }
+  // console.log('params is', params)
   return axios.get(
-    `${apiUrl}/loans/${loanId}`,
-
-    {
-      headers: {
-        Authorization: `Bearer ${user.token}`
-      },
-
-      data: {
-        loan: {
-
-          borrowerId: borrowerId
-        }
+    `${apiUrl}/loans/`, {
+      params: {
+        loanId,
+        borrowerId
       }
     }
 
   )
 }
+// export const showLoan = (loanId, borrowerId) => {
+//   console.log('borrowerId is from api', borrowerId)
+//   return axios.get(
+//     `${apiUrl}/loans/${loanId}`,
+//     {
+//       loan: {
+//         borrowerId
+//       }
+//     }
+
+//   )
+// }

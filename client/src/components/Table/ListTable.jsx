@@ -8,30 +8,31 @@ import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import './listTable.scss'
 import { Link } from 'react-router-dom'
-import { deleteClient } from '../../api/clients'
+// import { deleteClient } from '../../api/clients'
+import ClientDelete from '../pages/Clients/ClientDelete'
 
 export default function ListTable ({ user, clients, setRender, msgAlert }) {
-  async function handleDelete (client) {
-    const res = confirm('Are you sure you want to delete?')
-    if (res) {
-      try {
-        setRender(false)
-        const clientId = client._id
-        await deleteClient(user, clientId)
-        setRender(true)
-        msgAlert({
-          heading: 'Post deleted',
-          variant: 'success'
-        })
-      } catch (error) {
-        msgAlert({
-          heading: 'Failed to load',
-          message: error.message,
-          variant: 'danger'
-        })
-      }
-    }
-  }
+  // async function handleDelete (client) {
+  //   const res = confirm('Are you sure you want to delete?')
+  //   if (res) {
+  //     try {
+  //       setRender(false)
+  //       const clientId = client._id
+  //       await deleteClient(user, clientId)
+  //       setRender(true)
+  //       msgAlert({
+  //         heading: 'Post deleted',
+  //         variant: 'success'
+  //       })
+  //     } catch (error) {
+  //       msgAlert({
+  //         heading: 'Failed to load',
+  //         message: error.message,
+  //         variant: 'danger'
+  //       })
+  //     }
+  //   }
+  // }
 
   return (
     <TableContainer component={Paper} className="table">
@@ -63,7 +64,8 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
                   <Link to={`/clients/${client._id}/edit`}>
                     <div className="viewButton">Edit</div>
                   </Link>
-                  <div className="deleteButton" onClick={() => handleDelete(client)}>Delete</div>
+                  {/* <div className="deleteButton" onClick={() => handleDelete(client)}>Delete</div> */}
+                  <ClientDelete user={user} client={client} msgAlert={msgAlert} setRender={setRender}/>
                 </div>
               </TableCell>
 

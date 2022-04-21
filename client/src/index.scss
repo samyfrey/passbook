@@ -16,36 +16,85 @@
         margin-bottom: 15px;
     }
 
+    
 .overview{
     display: flex;
     .overview-container{
-        flex: 6;
-    
+    flex: 6;
+        
+    .overview-title{
+         flex: 6;
+         display: flex;
+         gap: 20px;
+         padding: 5px 20px;
+         .title-box{
+            display: flex; 
+            flex: 6;
+            justify-content: space-between;
+            align-items: center;
+
+            -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+               box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+               padding: 3px;
+
+        }
+                .headerTitle {
+                 display: flex;
+                
+             }
+    }
     .overview-top{
         display: flex;
-     gap: 20px;
-            padding: 5px 20px;
+        gap: 20px;
+        padding: 5px 20px;
+
         .header-box{
             flex: 4;
              -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
                 box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
                 padding: 10px;
-                color: blue;
-            
+                // color: blue;
+            .companyHeader{
+                display: flex;
+                margin-bottom: 10px;
+                
+                h1{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .companyMetrics{
+                display: flex;
+                // justify-content: center;
+                // align-items: center;
+                width: 100%;
+                border: 1px solid black;
+                justify-content: space-between;
+                ul {
+                    margin: 0;
+                    // padding: 0;
+                    border: none;
+                    list-style-type: none;
+                }
+
+
+            }
         }
         .chart{
             flex: 2;
              -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-                padding: 10px;
-                color: blue;
+            box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+            padding: 10px;
+            color: blue;
+            max-height: 430px ;
         }
     }
 }
     .overview-table{
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-      padding: 40px;
+      padding: 20px;
       margin: 20px;
             
             

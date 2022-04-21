@@ -16,9 +16,9 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
       try {
         setRender(false)
         const loanId = loan._id
-        const borrowerId = client._id
+        const transactionId = client._id
 
-        await deleteLoan(user, loanId, borrowerId)
+        await deleteLoan(user, loanId, transactionId)
         setRender(true)
         msgAlert({
           heading: 'Transaction deleted',
@@ -37,8 +37,10 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
 
   const navigate = useNavigate()
   const editRender = (client, loan) => {
-    console.log('client from loans table is', client)
-    console.log('loan from loans table is', loan)
+    // console.log('client from loans table is', client)
+    // console.log('loan from loans table is', loan)
+    // e.preventDefault()
+
     setSelectClient(client)
 
     console.log('select client from loanstable is', selectClient)
@@ -84,8 +86,8 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
                     {/* <Link to={`/loans/${loan._id}`}>
                       <div className="viewButton" onClick={() => handleUpdate(user, loan, client)}>Edit</div>
                     </Link> */}
+                    <div className="viewButton" onClick={() => editRender(client, loan)}>Edit</div>
                     <div className="deleteButton" onClick={() => handleDelete(user, loan, client)}>Delete</div>
-                    <div className="deleteButton" onClick={() => editRender(user, client, loan)}>{client.name}</div>
                   </div>
                 </TableCell>
 

@@ -8,7 +8,7 @@ const LoanEdit = ({ user, client, msgAlert, setRender, selectClient, setSelectCl
   const { loanId } = useParams()
 
   console.log('loanId is', loanId)
-  if (!user) {
+  if (!selectClient) {
     return <Navigate to='/' />
   }
   // API CALL SHOULD WORK, PB COULD BE IN LOAN EDIT HERE
@@ -17,17 +17,18 @@ const LoanEdit = ({ user, client, msgAlert, setRender, selectClient, setSelectCl
   // feed the loancreate with loan fetched which feeds the create form
   // set a state to updateMode (so can have updateMode? create btn : update btn in the form)
   //   //
+  const borrowerId = selectClient._id
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setSelectClient(client)
-        const borrowerId = selectClient._id
+        // setSelectClient(client)
         console.log('loan id is', loanId)
-        console.log('user is', user)
+        // console.log('user is', user)
         console.log('borrower id is', borrowerId)
-        const res = await showLoan(user, loanId, borrowerId)
+        const res = await showLoan(loanId, borrowerId)
         setLoanToUpdate(res.data.loan)
         console.log('res is', res)
+        console.log('loan to update is', loanToUpdate)
       } catch (error) {
         msgAlert({
           heading: 'Failed to load',

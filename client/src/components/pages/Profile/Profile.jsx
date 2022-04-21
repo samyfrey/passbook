@@ -4,6 +4,7 @@ import SignIn from '../../auth/SignIn'
 import SignUp from '../../auth/SignUp'
 
 const Profile = ({ msgAlert, user, setUser }) => {
+  console.log('the user from the profile component is', user)
   if (user) {
     return (
 
