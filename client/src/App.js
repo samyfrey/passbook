@@ -23,8 +23,6 @@ import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
 import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
-// import LoanEdit from './components/pages/Loans/LoanEdit'
-// import ShowLoan from './components/pages/Loans/ShowLoan'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
 import ClientEdit from './components/pages/Clients/ClientEdit'
 import LoanEdit from './components/pages/Loans/LoanEdit'
@@ -52,6 +50,7 @@ const App = () => {
         const resClients = await indexClients()
         setClients(resClients.data.clients)
         const resBudget = await indexBudgets()
+        console.log('budget res is', resBudget)
         setBudgets(resBudget.data.budget)
         setCreditBudget(resBudget.data.budget[0].amount)
         setRevenueBudget(resBudget.data.budget[1].amount)
@@ -203,6 +202,7 @@ const App = () => {
                   creditBudget={creditBudget}
                   setCreditBudget={setCreditBudget}
                   budgets={budgets}
+                  setBudgets={setBudgets}
                 />
               }
             />
