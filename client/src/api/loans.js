@@ -5,7 +5,7 @@ import axios from 'axios'
 
 // POST
 // loans/create
-// authenticated and needs the borrower Id (from drop down ideally)
+// authenticated
 
 export const createLoan = (user, loan) => {
   return axios.post(
@@ -18,23 +18,6 @@ export const createLoan = (user, loan) => {
     }
   )
 }
-
-// SHOW one loan based on ID
-// authenticated
-// export const showLoan = (user, loanId, borrowerId) => {
-//   return axios.get(`${apiUrl}/loans/${loanId}`, {
-
-//     data: {
-//       loan: {
-//         borrowerId: borrowerId
-//       }
-//     },
-//     headers: {
-//       Authorization: `Bearer ${user.token}`
-//     }
-
-//   })
-// }
 
 // PATCH
 // Update a loan
