@@ -33,7 +33,7 @@ export const BudgetTable = ({ budgets }) => {
                   <Link to={`/budget/${budget._id}`}>
                     <div className="viewButton">Edit</div>
                   </Link>
-                  {/* <div className="deleteButton" onClick={() => handleDelete(budget)}>Delete</div> */}
+
                 </div>
               </TableCell>
 

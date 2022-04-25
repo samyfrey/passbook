@@ -1,25 +1,34 @@
-.navigationBar {
+.top-bar {
     display: flex;
-    // background-color: grey;
+    flex: 6;
     width: 100%;
     height: 40px;
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    // padding: 5px 20px;
+    margin: 5px 5px 10px;
     align-content: space-between;
-
+    // background-color: grey;
+    
     .search-bar{
-      // justify-content: left;
       flex: 4;
-      // align-content: flex-end;
-      
+      display: flex;
+      height: 100%;
+      padding: 0px 15px;
+      ;
     }
+
+    .user-register{
+      padding: 0px 20px;
+
+    }
+
+
     .user-register{
       flex: 2;
       // align-content: right;
       display: flex;
-  align-items: center;
-  justify-content: right;
-  margin-right: 5px;
+      align-items: center;
+      justify-content: right;
+      margin-right: 5px;
     }
 
   }

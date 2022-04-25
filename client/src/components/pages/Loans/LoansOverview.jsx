@@ -15,10 +15,7 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
     const fetchLoans = async () => {
       try {
         const res = await indexClients()
-        // console.log('res from indexclients is', res)
         setLoans(res.data.clients)
-
-        // await console.log('loan res is:', res)
       } catch (error) {
         console.log(error)
       }

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -8,32 +8,9 @@ import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import './listTable.scss'
 import { Link } from 'react-router-dom'
-// import { deleteClient } from '../../api/clients'
 import ClientDelete from '../pages/Clients/ClientDelete'
 
 export default function ListTable ({ user, clients, setRender, msgAlert }) {
-  // async function handleDelete (client) {
-  //   const res = confirm('Are you sure you want to delete?')
-  //   if (res) {
-  //     try {
-  //       setRender(false)
-  //       const clientId = client._id
-  //       await deleteClient(user, clientId)
-  //       setRender(true)
-  //       msgAlert({
-  //         heading: 'Post deleted',
-  //         variant: 'success'
-  //       })
-  //     } catch (error) {
-  //       msgAlert({
-  //         heading: 'Failed to load',
-  //         message: error.message,
-  //         variant: 'danger'
-  //       })
-  //     }
-  //   }
-  // }
-
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

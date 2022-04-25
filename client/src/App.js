@@ -224,7 +224,7 @@ const App = () => {
 
             <Route
               path=':budgetId'
-              element={<BudgetEdit render={render} setRender={setRender} />}
+              element={<BudgetEdit render={render} setRender={setRender} msgAlert={msgAlert} />}
             />
           </Route>
         </Routes>

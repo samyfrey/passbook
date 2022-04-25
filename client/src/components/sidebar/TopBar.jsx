@@ -7,14 +7,13 @@ import SearchBar from '../Search/SearchBar'
 const TopBar = ({ user, clients }) => {
   console.log('data is', clients)
   return (
-    <div className='navigationBar'>
+    <div className='top-bar'>
       <div className="search-bar">
         <SearchBar data={clients}/>
-
       </div>
+
       <div className="user-register">
         {user &&
-
         <p>{user.email}</p>
         }
         {!user &&

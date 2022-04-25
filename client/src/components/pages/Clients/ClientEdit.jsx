@@ -8,24 +8,21 @@ const ClientEdit = ({ user, msgAlert, render, setRender }) => {
   const [industry, setIndustry] = useState('')
   const [creditLimit, setCreditLimit] = useState('')
 
-  console.log('clientId is', borrowerId)
-  console.log('user is', user)
+  setRender(false)
+
   const handleSubmit = async event => {
     event.preventDefault()
-    // console.log('updated amount is', updatedAmount)
-    try {
-      setRender(false)
 
+    try {
       await editClient(borrowerId, user, name, industry, creditLimit)
       msgAlert({
-        heading: 'Updated',
+        heading: 'Done!',
         variant: 'success'
       })
       setRender(true)
     } catch (error) {
-    //   console.log(error)
       msgAlert({
-        heading: 'Failed to load',
+        heading: 'Failed!',
         message: error.message,
         variant: 'danger'
       })
@@ -50,9 +47,6 @@ const ClientEdit = ({ user, msgAlert, render, setRender }) => {
 
           </form>
         </div>
-        {/* <div>
-          <div>Hello</div>
-        </div> */}
       </div>
     </div>
   )

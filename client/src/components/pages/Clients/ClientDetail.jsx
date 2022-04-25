@@ -27,7 +27,6 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
   }, [render])
 
   console.log('borrower state is', borrower)
-  console.log('render post delete is', render)
 
   if (!borrower) {
     return (

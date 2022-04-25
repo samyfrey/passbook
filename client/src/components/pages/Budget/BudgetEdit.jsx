@@ -1,49 +1,51 @@
 import React, { useEffect, useState } from 'react'
-
 import { Navigate, useParams } from 'react-router-dom'
 import { editBudget, showBudget } from '../../../api/budget'
 
-const BudgetEdit = ({ render, setRender }) => {
+const BudgetEdit = ({ render, setRender, msgAlert }) => {
   const { budgetId } = useParams()
   const [selectBudget, setSelectBudget] = useState('')
   const [updatedAmount, setUpdatedAmount] = useState('')
-  // const [updated, setUpdated] = useState(false)
-  console.log('budget id is', budgetId)
+
   useEffect(() => {
     const fetchData = async () => {
       setRender(false)
       try {
         const res = await showBudget(budgetId)
         setSelectBudget(res.data.budget)
-        console.log('res is', res)
       } catch (error) {
-        console.log(error)
+        msgAlert({
+          heading: 'Failed!',
+          message: 'Please try again',
+          variant: 'danger'
+        })
       }
     }
+
     fetchData()
   }, [])
 
   const handleSubmit = async event => {
     event.preventDefault()
     try {
+      setRender(false)
       await editBudget(budgetId, updatedAmount)
       setRender(true)
-        msgAlert({
+      msgAlert({
         heading: 'Done!',
         variant: 'success'
       })
     } catch (error) {
       msgAlert({
         heading: 'Failed!',
-        message: error.message,
+        message: 'Please try again',
         variant: 'danger'
       })
+    }
   }
-
   if (render) {
     return <Navigate to={'/budget'} />
   }
-  //   const amount = selectBudget.amount
   return (
     <div className='overview'>
       <div className="overview-container create">

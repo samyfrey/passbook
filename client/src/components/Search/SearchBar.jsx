@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './searchBar.css'
+import './searchBar.scss'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 import { Link } from 'react-router-dom'
@@ -29,14 +29,14 @@ function SearchBar ({ placeholder, data }) {
 
   return (
     <div className="search">
-      <div className="searchInputs">
+      <div className="input-container">
         <input
           type="text"
           placeholder='Search client...'
           value={wordEntered}
           onChange={handleFilter}
         />
-        <div className="searchIcon">
+        <div className="search-icon">
           {filteredData.length === 0
             ? (
               <SearchIcon />
