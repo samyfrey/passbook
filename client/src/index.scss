@@ -15,7 +15,13 @@
         margin-bottom: 15px;
     }
 
-    
+    .container-box{
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+         padding: 5px 20px;
+        gap: 20px;
+
+    }
 .overview{
     display: flex;
     .overview-container{
@@ -82,6 +88,20 @@
     }
 }
     .overview-table{
+    
+        .form-box{
+        display: flex;
+        // max-height: 50vh;
+        width: 100%;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+
+        }
+        }
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
       padding: 20px;

@@ -2,14 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SignIn from '../../auth/SignIn'
 import SignUp from '../../auth/SignUp'
-
+import '../../../index.scss'
 const Profile = ({ msgAlert, user, setUser }) => {
-  console.log('the user from the profile component is', user)
   if (user) {
     return (
 
       <div>
-
         <Link to='/account/change-password'>Change password</Link>
 
       </div>
@@ -17,9 +15,15 @@ const Profile = ({ msgAlert, user, setUser }) => {
   }
   return (
     <>
-      <SignIn msgAlert={msgAlert} setUser={setUser}/>
+      <div className="overview-top">
+        <div className="container-box">
+          <SignIn msgAlert={msgAlert} setUser={setUser}/>
+        </div>
+        <div className="container-box">
+          <SignUp msgAlert={msgAlert} setUser={setUser}/>
+        </div>
 
-      <SignUp msgAlert={msgAlert} setUser={setUser}/>
+      </div>
 
     </>
   )

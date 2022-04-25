@@ -5,7 +5,13 @@ import { Link } from 'react-router-dom'
 import SearchBar from '../Search/SearchBar'
 
 const TopBar = ({ user, clients }) => {
-  console.log('data is', clients)
+  const signedInOptions = (
+    <div className='signed-in-menu'>
+      <Link to='/account/sign-out'><VpnKeyIcon className="icon"/> Sign Out</Link>
+
+    </div>
+  )
+
   return (
     <div className='top-bar'>
       <div className="search-bar">
@@ -13,8 +19,12 @@ const TopBar = ({ user, clients }) => {
       </div>
 
       <div className="user-register">
+
         {user &&
-        <p>{user.email}</p>
+          <span>{user.email}</span>
+        }
+        {user &&
+          signedInOptions
         }
         {!user &&
         <Link to='/account'><VpnKeyIcon className="icon"/> Register/Log in</Link>

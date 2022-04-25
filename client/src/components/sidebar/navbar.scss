@@ -9,7 +9,7 @@
     // background-color: grey;
     
     .search-bar{
-      flex: 4;
+      flex: 3;
       display: flex;
       height: 100%;
       padding: 0px 15px;
@@ -17,13 +17,15 @@
     }
 
     .user-register{
-      flex: 2;
+      flex: 3;
       padding: 0px 20px;
+      gap: 10px;
       display: flex;
       align-items: center;
       justify-content: right;
       margin-right: 5px;
     }
+
 
   }
   

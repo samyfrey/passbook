@@ -26,8 +26,6 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
     fetchClient()
   }, [render])
 
-  console.log('borrower state is', borrower)
-
   if (!borrower) {
     return (
       <Spinner animation='border' role='status'>

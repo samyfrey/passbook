@@ -7,13 +7,8 @@ import { signOutSuccess } from '../AutoDismissAlert/messages'
 const SignOut = ({ msgAlert, clearUser, user }) => {
   const [shouldNavigate, setShouldNavigate] = useState(false)
 
-  // this is like componentDidMount, it will run whenever the SignOut component
-  // is mounted (or added) to the page
   useEffect(() => {
-  // for performance reasons, when using `useEffect`
-  // it's a best practice to create a helper function w/ async/await
     const performSignOut = async () => {
-    // make a signOut axios request
       await signOut(user)
 
       msgAlert({
@@ -22,7 +17,6 @@ const SignOut = ({ msgAlert, clearUser, user }) => {
         variant: 'success'
       })
 
-      // reset the user back to its initial value
       clearUser()
       setShouldNavigate(true)
     }

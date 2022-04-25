@@ -4,8 +4,8 @@ import { Navigate } from 'react-router-dom'
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
 
 const SignIn = ({ msgAlert, setUser }) => {
   const [email, setEmail] = useState('')
@@ -40,37 +40,80 @@ const SignIn = ({ msgAlert, setUser }) => {
   }
 
   return (
-    <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
-        <Form onSubmit={onSignIn}>
-          <Form.Group controlId='email'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              required
-              type='email'
-              name='email'
-              value={email}
-              placeholder='Enter email'
-              onChange={event => setEmail(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              required
-              name='password'
-              value={password}
-              type='password'
-              placeholder='Password'
-              onChange={event => setPassword(event.target.value)
-              }
-            />
-          </Form.Group>
-          <Button className='mt-2' variant='primary' type='submit'>Submit</Button>
-        </Form>
+    <div className='overview'>
+      <div className='overview-container'>
+        <div className='overview-table'>
+          <div className='form-box'>
+            <div>
+              <h1 className='title'>Sign In</h1>
+              <form onSubmit={onSignIn}>
+                <div className='email'>
+
+                  <label>Email address</label>
+                  <input
+                    required
+                    type='email'
+                    name='email'
+                    value={email}
+                    placeholder='Enter email'
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+
+                </div>
+
+                <div className='password'>
+
+                  <label>Password</label>
+                  <input
+                    required
+                    name='password'
+                    value={password}
+                    type='password'
+                    placeholder='Password'
+                    onChange={(event) => setPassword(event.target.value)}
+                  />
+
+                </div>
+
+                <button type='submit'>Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+  // <div className='row'>
+  //   <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+  //     <h3>Sign In</h3>
+  //     <Form onSubmit={onSignIn}>
+  //       <Form.Group controlId='email'>
+  //         <Form.Label>Email address</Form.Label>
+  //         <Form.Control
+  //           required
+  //           type='email'
+  //           name='email'
+  //           value={email}
+  //           placeholder='Enter email'
+  //           onChange={event => setEmail(event.target.value)}
+  //         />
+  //       </Form.Group>
+  //       <Form.Group controlId='password'>
+  //         <Form.Label>Password</Form.Label>
+  //         <Form.Control
+  //           required
+  //           name='password'
+  //           value={password}
+  //           type='password'
+  //           placeholder='Password'
+  //           onChange={event => setPassword(event.target.value)
+  //           }
+  //         />
+  //       </Form.Group>
+  //       <Button className='mt-2' variant='primary' type='submit'>Submit</Button>
+  //     </Form>
+  //   </div>
+  // </div>
   )
 }
 
