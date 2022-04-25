@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { editBudget, showBudget } from '../../../api/budget'
 
-const BudgetEdit = () => {
+const BudgetEdit = ({ render, setRender }) => {
   const { budgetId } = useParams()
   const [selectBudget, setSelectBudget] = useState('')
   const [updatedAmount, setUpdatedAmount] = useState('')
+  // const [updated, setUpdated] = useState(false)
   console.log('budget id is', budgetId)
   useEffect(() => {
     const fetchData = async () => {
+      setRender(false)
       try {
         const res = await showBudget(budgetId)
         setSelectBudget(res.data.budget)
@@ -27,7 +29,7 @@ const BudgetEdit = () => {
     console.log('updated amount is', updatedAmount)
     try {
       await editBudget(budgetId, updatedAmount)
-    //   setUpdatedBudget(true)
+      setRender(true)
     } catch (error) {
       console.log(error)
     //   msgAlert({
@@ -38,6 +40,9 @@ const BudgetEdit = () => {
     }
   }
 
+  if (render) {
+    return <Navigate to={'/budget'} />
+  }
   //   const amount = selectBudget.amount
   return (
     <div className='overview'>

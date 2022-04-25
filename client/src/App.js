@@ -80,7 +80,9 @@ const App = () => {
           <Route path='/account/'>
             <Route
               index
-              element={<Profile msgAlert={msgAlert} user={user} setUser={setUser} />}
+              element={
+                <Profile msgAlert={msgAlert} user={user} setUser={setUser} />
+              }
             />
             <Route
               path='sign-up'
@@ -119,8 +121,21 @@ const App = () => {
                 />
               }
             />
-            <Route path=':borrowerId' element={<ClientDetail user={user} render={render} setRender={setRender} msgAlert={msgAlert}/>} />
-            <Route path=':borrowerId/edit' element={<ClientEdit user={user} msgAlert={msgAlert} />} />
+            <Route
+              path=':borrowerId'
+              element={
+                <ClientDetail
+                  user={user}
+                  render={render}
+                  setRender={setRender}
+                  msgAlert={msgAlert}
+                />
+              }
+            />
+            <Route
+              path=':borrowerId/edit'
+              element={<ClientEdit user={user} msgAlert={msgAlert} />}
+            />
             <Route
               path='create'
               element={
@@ -206,9 +221,11 @@ const App = () => {
               }
             />
 
-            <Route path=':budgetId' element={<BudgetEdit />} />
+            <Route
+              path=':budgetId'
+              element={<BudgetEdit render={render} setRender={setRender} />}
+            />
           </Route>
-
         </Routes>
       </div>
     </div>
