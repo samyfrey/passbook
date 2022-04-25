@@ -9,28 +9,7 @@ import Paper from '@mui/material/Paper'
 import './listTable.scss'
 import { Link } from 'react-router-dom'
 
-export const BudgetTable = ({ creditBudget, budgets }) => {
-  // async function handleDelete (client) {
-  //   const res = confirm('Are you sure you want to delete?')
-  //   if (res) {
-  //     try {
-  //       setRender(false)
-  //       const clientId = client._id
-  //       await deleteClient(user, clientId)
-  //       setRender(true)
-  //       msgAlert({
-  //         heading: 'Post deleted',
-  //         variant: 'success'
-  //       })
-  //     } catch (error) {
-  //       msgAlert({
-  //         heading: 'Failed to load',
-  //         message: error.message,
-  //         variant: 'danger'
-  //       })
-  //     }
-  //   }
-  // }
+export const BudgetTable = ({ budgets }) => {
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

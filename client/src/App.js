@@ -212,6 +212,7 @@ const App = () => {
                 <Budget
                   user={user}
                   budgets={budgets}
+                  msgAlert={msgAlert}
                   revenueBudget={revenueBudget}
                   setRevenueBudget={setRevenueBudget}
                   creditBudget={creditBudget}

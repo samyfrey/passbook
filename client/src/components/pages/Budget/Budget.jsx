@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 import { postBudget } from '../../../api/budget'
 import { BudgetTable } from '../../Table/BudgetTable'
 
-const Budget = ({ user, budgets, revenueBudget, creditBudget, setRevenueBudget, setCreditBudget }) => {
+const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
   if (!budgets) {
     return (
       <Navigate to="/" />
@@ -17,11 +17,18 @@ const Budget = ({ user, budgets, revenueBudget, creditBudget, setRevenueBudget, 
     event.preventDefault()
     try {
       await postBudget(type, amount, user)
+      msgAlert({
+        heading: 'Done!',
+        variant: 'success'
+      })
     } catch (error) {
-      console.log(error)
+      msgAlert({
+        heading: 'Failed!',
+        message: error.message,
+        variant: 'danger'
+      })
     }
   }
-  console.log('budgets is', budgets)
   return (
     <div className='overview'>
       <div className="overview-container">

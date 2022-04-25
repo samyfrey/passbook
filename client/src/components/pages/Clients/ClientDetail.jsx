@@ -59,11 +59,20 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
 
                   <img src={`https://logo.clearbit.com/${borrower.name}.com`} alt="" className="image" />
                   <h1>{borrower.name}</h1>
-                  <div className="cellAction">
-                    <Link to={`/clients/${borrower._id}/edit`}>
-                      <div className="viewButton">Edit</div>
+                  <div className="actions">
+
+                    <div className="cellAction">
+                      <Link to={`/clients/${borrower._id}/edit`}>
+                        <div className="viewButton">Edit</div>
+                      </Link>
+                      <ClientDelete user={user} client={borrower} msgAlert={msgAlert} setRender={setRender}/>
+                    </div>
+                  </div>
+
+                  <div className="add-loan">
+                    <Link to='/loans/create'>
+                      <button>New loan</button>
                     </Link>
-                    <ClientDelete user={user} client={borrower} msgAlert={msgAlert} setRender={setRender}/>
                   </div>
                 </div>
 

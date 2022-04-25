@@ -31,7 +31,7 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
       console.log(error)
       msgAlert({
         heading: 'Failed',
-        message: error.message,
+        message: 'Please try again',
         variant: 'danger'
       })
     }
