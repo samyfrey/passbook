@@ -17,7 +17,7 @@ import { Dashboard } from './components/pages/Dashboard/Dashboard'
 import ClientsOverview from './components/pages/Clients/ClientsOverview'
 import ClientDetail from './components/pages/Clients/ClientDetail'
 import { ClientCreate } from './components/pages/Clients/ClientCreate'
-import Profile from './components/pages/Profile/Profile'
+import Account from './components/pages/Account/Account'
 import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
@@ -84,7 +84,7 @@ const App = () => {
             <Route
               index
               element={
-                <Profile msgAlert={msgAlert} user={user} setUser={setUser} />
+                <Account msgAlert={msgAlert} user={user} setUser={setUser} />
               }
             />
             <Route

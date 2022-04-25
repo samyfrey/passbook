@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import SignIn from '../../auth/SignIn'
 import SignUp from '../../auth/SignUp'
 import '../../../index.scss'
-const Profile = ({ msgAlert, user, setUser }) => {
+const Account = ({ msgAlert, user, setUser }) => {
   if (user) {
     return (
 
@@ -29,4 +29,4 @@ const Profile = ({ msgAlert, user, setUser }) => {
   )
 }
 
-export default Profile
+export default Account
