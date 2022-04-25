@@ -60,7 +60,6 @@ const App = () => {
     }
     fetchData()
   }, [render])
-
   // console.log('budgets is', budgets)
   return (
     <div className='app'>

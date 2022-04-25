@@ -15,6 +15,7 @@ const Budget = ({ user, revenueBudget, creditBudget, setRevenueBudget, setCredit
       console.log(error)
     }
   }
+  console.log('budgets is', budgets)
   return (
     <div className='overview'>
       <div className="overview-container">

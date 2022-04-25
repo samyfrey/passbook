@@ -42,7 +42,6 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     }
 
     const loans = loanExtractor(clients)
-    // console.log('loans is', loans)
 
     function grouping (arr) {
       const res = Array.from(
