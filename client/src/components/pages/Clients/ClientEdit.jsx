@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { editClient } from '../../../api/clients'
 
-const ClientEdit = ({ user, msgAlert }) => {
+const ClientEdit = ({ user, msgAlert, render, setRender }) => {
   const { borrowerId } = useParams()
   const [name, setName] = useState('')
   const [industry, setIndustry] = useState('')
@@ -14,11 +14,14 @@ const ClientEdit = ({ user, msgAlert }) => {
     event.preventDefault()
     // console.log('updated amount is', updatedAmount)
     try {
+      setRender(false)
+
       await editClient(borrowerId, user, name, industry, creditLimit)
       msgAlert({
         heading: 'Updated',
         variant: 'success'
       })
+      setRender(true)
     } catch (error) {
     //   console.log(error)
       msgAlert({
@@ -28,7 +31,10 @@ const ClientEdit = ({ user, msgAlert }) => {
       })
     }
   }
-  console.log('borrowerId is', borrowerId)
+
+  if (render) {
+    return <Navigate to={'/clients'} />
+  }
   return (
     <div className='overview'>
       <div className="overview-container create">

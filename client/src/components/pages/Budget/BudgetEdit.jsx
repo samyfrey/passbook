@@ -22,22 +22,22 @@ const BudgetEdit = ({ render, setRender }) => {
     }
     fetchData()
   }, [])
-  console.log('selectBudget is', selectBudget)
 
   const handleSubmit = async event => {
     event.preventDefault()
-    console.log('updated amount is', updatedAmount)
     try {
       await editBudget(budgetId, updatedAmount)
       setRender(true)
+        msgAlert({
+        heading: 'Done!',
+        variant: 'success'
+      })
     } catch (error) {
-      console.log(error)
-    //   msgAlert({
-    //     heading: 'Failed to load',
-    //     message: error.message,
-    //     variant: 'danger'
-    //   })
-    }
+      msgAlert({
+        heading: 'Failed!',
+        message: error.message,
+        variant: 'danger'
+      })
   }
 
   if (render) {

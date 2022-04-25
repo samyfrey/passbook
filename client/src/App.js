@@ -134,7 +134,7 @@ const App = () => {
             />
             <Route
               path=':borrowerId/edit'
-              element={<ClientEdit user={user} msgAlert={msgAlert} />}
+              element={<ClientEdit user={user} render={render} setRender={setRender} msgAlert={msgAlert} />}
             />
             <Route
               path='create'
