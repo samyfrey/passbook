@@ -211,11 +211,11 @@ const App = () => {
               element={
                 <Budget
                   user={user}
+                  budgets={budgets}
                   revenueBudget={revenueBudget}
                   setRevenueBudget={setRevenueBudget}
                   creditBudget={creditBudget}
                   setCreditBudget={setCreditBudget}
-                  budgets={budgets}
                   setBudgets={setBudgets}
                 />
               }

@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 import { postBudget } from '../../../api/budget'
 import { BudgetTable } from '../../Table/BudgetTable'
 
-const Budget = ({ user, revenueBudget, creditBudget, setRevenueBudget, setCreditBudget, budgets }) => {
+const Budget = ({ user, budgets, revenueBudget, creditBudget, setRevenueBudget, setCreditBudget }) => {
+  if (!budgets) {
+    return (
+      <Navigate to="/" />
+    )
+  }
   const [amount, setAmount] = useState()
   const [type, setType] = useState()
 
