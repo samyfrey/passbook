@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 import { Link } from 'react-router-dom'
 
-function SearchBar ({ placeholder, data }) {
+function SearchBar ({ data }) {
   const [filteredData, setFilteredData] = useState([])
   const [wordEntered, setWordEntered] = useState('')
 
@@ -55,9 +55,7 @@ function SearchBar ({ placeholder, data }) {
                 <Link to={`/clients/${value._id}`} target="_blank" rel="noopener noreferrer" onClick={clearInput}>
                   <p>{value.name} </p>
                 </Link>
-                {/* { clearInput()
-                } */}
-                {/* </a> */}
+
               </>
             )
           })}

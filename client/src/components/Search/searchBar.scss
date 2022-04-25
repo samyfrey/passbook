@@ -2,7 +2,7 @@
   // margin-top: 15px;
   display: flex;
   align-items: center;
-  border: 3.5px solid lightgray;
+  border-bottom: 3.5px solid lightgray;
   padding: 3px;
   height: 100%;
 
@@ -28,21 +28,6 @@
   place-items: center;
 }
 }
-
-
-// .search input {
-//   background-color: white;
-//   border: 0;
-//   border-radius: 2px;
-//   border-top-right-radius: 0px;
-//   border-bottom-right-radius: 0px;
-//   font-size: 18px;
-//   padding: 15px;
-//   height: 100%;
-
-//   width: 300px;
-// }
-
 
 
 input:focus {

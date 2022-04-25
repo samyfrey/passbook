@@ -55,18 +55,21 @@ const App = () => {
         setCreditBudget(resBudget.data.budget[0].amount)
         setRevenueBudget(resBudget.data.budget[1].amount)
       } catch (error) {
-        console.log('error is', error)
+        msgAlert({
+          heading: 'Failed to load',
+          message: error.message,
+          variant: 'danger'
+        })
       }
     }
     fetchData()
   }, [render])
-  // console.log('budgets is', budgets)
+
   return (
     <div className='app'>
       <Sidebar />
       <div className='appContainer'>
         <TopBar user={user} clients={clients} render={render} />
-        {/* <Header user={user} /> */}
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
