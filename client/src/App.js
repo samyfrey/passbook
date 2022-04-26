@@ -63,6 +63,7 @@ const App = () => {
     }
     fetchData()
   }, [render])
+  console.log('user after sign in is', user)
 
   return (
     <div className='app'>

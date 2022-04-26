@@ -28,11 +28,9 @@ export const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenue
     const loans = loanExtractor(clients)
     const groupedLoans = grouping(loans)
     const finalArray = cumulator(groupedLoans)
-    console.log('loans dash array is', loans)
     const finalChartData = pushDataToActual(finalArray)
     setRevenueChartData(finalChartData)
 
-    console.log('groupedloans is', groupedLoans)
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {
         if (actualRevData[i].month === arr[i].month) {

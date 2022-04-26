@@ -27,9 +27,7 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
       return sum
     }
 
-    console.log('clientsis', clients)
     const largestCreditLimit = Math.max(...creditLimitsExtractor(clients))
-    console.log('largest limit is', largestCreditLimit)
     const numberClients = creditLimitsExtractor(clients).length
 
     const revenueData = [{

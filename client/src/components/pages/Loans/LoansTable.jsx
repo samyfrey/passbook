@@ -25,7 +25,6 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
           variant: 'success'
         })
       } catch (error) {
-        console.log('error is', error)
         msgAlert({
           heading: 'Failed to load',
           message: error.message,

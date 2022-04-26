@@ -58,7 +58,6 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
 
     }]
 
-    console.log('loans array is', loans)
     return (
       <div className='screen'>
         <div className="screen-container">
