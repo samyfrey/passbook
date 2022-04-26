@@ -26,6 +26,7 @@ import TopBar from './components/sidebar/TopBar'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
 import ClientEdit from './components/pages/Clients/ClientEdit'
 import LoanEdit from './components/pages/Loans/LoanEdit'
+import Register from './components/pages/Account/Register'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -67,7 +68,7 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Sidebar />
+      <Sidebar user={user} />
       <div className='app-container'>
         <TopBar user={user} clients={clients} render={render} />
         {msgAlerts.map((msgAlert) => (
@@ -100,6 +101,12 @@ const App = () => {
               index
               element={
                 <Account msgAlert={msgAlert} user={user} setUser={setUser} />
+              }
+            />
+            <Route
+              path='register'
+              element={
+                <Register msgAlert={msgAlert} user={user} setUser={setUser} />
               }
             />
             <Route

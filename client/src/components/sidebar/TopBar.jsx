@@ -3,7 +3,7 @@ import './navbar.scss'
 import VpnKeyIcon from '@mui/icons-material/VpnKey'
 import { Link } from 'react-router-dom'
 import SearchBar from '../Search/SearchBar'
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 const TopBar = ({ user, clients }) => {
   const signedInOptions = (
     <div className='signed-in-menu'>
@@ -21,19 +21,22 @@ const TopBar = ({ user, clients }) => {
       <div className="user-register">
 
         {user &&
+        <>
+          <AccountCircleIcon className="icon"/>
           <span>{user.email}</span>
+
+        </>
         }
         {user &&
           signedInOptions
         }
         {!user &&
-        <Link to='/account'><VpnKeyIcon className="icon"/> Sign-in/Register</Link>
+        <Link to='/account/register'><VpnKeyIcon className="icon"/> Sign-in/Register</Link>
         }
       </div>
 
-      {/* <div className='links'><VpnKeyIcon className="icon"/><span> Register/Log in</span></div> */}
       <div className="item">
-        {/* <ListOutlinedIcon className="icon" /> */}
+
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { createClient } from '../../../api/clients'
-import './Client.scss'
+import './client.scss'
 import { ClientCreateForm } from '../Clients/ClientCreateForm'
 
 export const ClientCreate = ({ user, setRender, msgAlert }) => {

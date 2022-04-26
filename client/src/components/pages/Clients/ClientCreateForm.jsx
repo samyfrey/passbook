@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Client.scss'
+import './client.scss'
 
 export const ClientCreateForm = ({ data, handleChange, handleCreate }) => {
   return (
