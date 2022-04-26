@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-import { postBudget } from '../../../api/budget'
+// import { postBudget } from '../../../api/budget'
 import { BudgetTable } from '../../Table/BudgetTable'
 
 const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
@@ -10,30 +10,30 @@ const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
       <Navigate to="/" />
     )
   }
-  const [amount, setAmount] = useState()
-  const [type, setType] = useState()
+  // const [amount, setAmount] = useState()
+  // const [type, setType] = useState()
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-    try {
-      await postBudget(type, amount, user)
-      msgAlert({
-        heading: 'Done!',
-        variant: 'success'
-      })
-    } catch (error) {
-      msgAlert({
-        heading: 'Failed!',
-        message: error.message,
-        variant: 'danger'
-      })
-    }
-  }
+  // const handleSubmit = async event => {
+  //   event.preventDefault()
+  //   try {
+  //     await postBudget(type, amount, user)
+  //     msgAlert({
+  //       heading: 'Done!',
+  //       variant: 'success'
+  //     })
+  //   } catch (error) {
+  //     msgAlert({
+  //       heading: 'Failed!',
+  //       message: error.message,
+  //       variant: 'danger'
+  //     })
+  //   }
+  // }
   return (
     <div className='screen'>
       <div className="screen-container">
         <div className="table-box">
-          <div>
+          {/* <div>
             <h1>Add Revenue Budget</h1>
             <form className="fill-form"onSubmit={handleSubmit} >
               <input
@@ -53,7 +53,7 @@ const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
 
               <button type="submit">create</button>
             </form>
-          </div>
+          </div> */}
           <div className="title">Budget List </div>
           <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
         </div>

@@ -46,9 +46,11 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
 
               <div className="title-header">
                 <h1>Clients</h1>
-                <Link className="add-btn" to='/clients/create'>
-                  <button>New client</button>
-                </Link>
+                <div className="add-btn">
+                  <Link to='/clients/create'>
+                    <button>New client</button>
+                  </Link>
+                </div>
               </div>
 
               <div className="widgets">
