@@ -7,7 +7,7 @@ import LoansTable from './LoansTable'
 import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
-// import SortIcon from '@mui/icons-material/Sort'
+
 const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert, selectClient, setSelectClient }) => {
   const [loans, setLoans] = useState(null)
 
