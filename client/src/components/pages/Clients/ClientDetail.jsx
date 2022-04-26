@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { showClient } from '../../../api/clients'
-import './Client.scss'
+import './client.scss'
 import { Spinner } from 'react-bootstrap'
 import LoanTable from '../Loans/LoanTable'
 import { ChartBar } from '../../Table/ChartBar'
@@ -52,9 +52,9 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
         <div className='screen'>
           <div className="screen-container">
             <div className="screen-top">
-              <div className="header-box">
+              <div className="header-box container-box">
 
-                <div className="companyHeader">
+                <div className="title-header">
 
                   <img src={`https://logo.clearbit.com/${borrower.name}.com`} alt="" className="image" />
                   <h1>{borrower.name}</h1>
@@ -68,14 +68,14 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
                     </div>
                   </div>
 
-                  <div className="add-loan">
+                  <div className="add-btn">
                     <Link to='/loans/create'>
                       <button>New loan</button>
                     </Link>
                   </div>
                 </div>
 
-                <div className="companyMetrics">
+                <div className="company-metrics">
 
                   <ul>Industry: {borrower.industry}</ul>
                   <ul>Total loans outstanding: <span>$</span>{totalAmount}<span>MM</span></ul>
@@ -96,7 +96,7 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
 
             </div> */}
 
-            <div className="listContainer">
+            <div className="table-box">
               <div className="title">Latest News</div>
               <ClientNewsFeed borrower={borrower} />
             </div>

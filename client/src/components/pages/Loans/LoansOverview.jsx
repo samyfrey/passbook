@@ -7,6 +7,7 @@ import { indexClients } from '../../../api/clients'
 import { Link } from 'react-router-dom'
 import { ChartBar } from '../../Table/ChartBar'
 import FeatureCard from '../../Features/FeatureCard'
+import { loanAmounts } from '../../../dataManipulation'
 
 const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert, selectClient, setSelectClient }) => {
   const [loans, setLoans] = useState(null)
@@ -45,22 +46,9 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
       }
       return sum
     }
-    function highestLoan (array) {
-      const loansArray = []
-      for (let i = 0; i < array.length; i++) {
-        const selectBorrower = array[i].loans
-        for (let j = 0; j < selectBorrower.length; j++) {
-          const result = selectBorrower[j].amount
 
-          loansArray.push(result)
-        }
-      }
-      return loansArray
-    }
-    const topLoan = Math.max(...highestLoan(clients))
-    console.log('top loan is', topLoan)
-    const numberLoans = highestLoan(clients).length
-    console.log('num of loan is', numberLoans)
+    const topLoan = Math.max(...loanAmounts(clients))
+    const numberLoans = loanAmounts(clients).length
 
     const loanData = [{
       YTD: loanTotal(clients),
@@ -74,14 +62,22 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
     return (
       <div className='screen'>
         <div className="screen-container">
-
           <div className="screen-top">
             <div className="header-box container-box">
-              <h1>Loans</h1>
-              <p>Total loans: {loanTotal(clients)}</p>
-              <Link to='/loans/create'>
-                <button>New loan</button>
-              </Link>
+
+              <div className="title-header">
+
+                <h1>Loans</h1>
+                {/* <p>Total loans: {loanTotal(clients)}</p> */}
+                <div className="add-btn">
+                  <Link to='/loans/create'>
+                    <button>New loan</button>
+                  </Link>
+
+                </div>
+
+              </div>
+
               <div className="widgets">
                 <FeatureCard title='Total Loans Outstanding' data={loanData[0].YTD} isMoney={true}/>
                 <FeatureCard title='Largest Loan' data={loanData[0].topLoan} isMoney={true}/>

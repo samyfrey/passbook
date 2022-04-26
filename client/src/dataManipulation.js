@@ -45,3 +45,29 @@ export function grandTotalRev (array) {
   }
   return sum
 }
+
+export function loanAmounts (array) {
+  const loansArray = []
+  for (let i = 0; i < array.length; i++) {
+    const selectBorrower = array[i].loans
+    for (let j = 0; j < selectBorrower.length; j++) {
+      const result = selectBorrower[j].amount
+
+      loansArray.push(result)
+    }
+  }
+  return loansArray
+}
+
+export function creditLimitsExtractor (array) {
+  const creditLimitsArray = []
+  for (let i = 0; i < array.length; i++) {
+    const result = array[i].creditLimit
+    // for (let j = 0; j < selectBorrower.length; j++) {
+    //   const result = selectBorrower[j].creditLimit
+
+    creditLimitsArray.push(result)
+  }
+
+  return creditLimitsArray
+}

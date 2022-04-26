@@ -62,11 +62,42 @@
 
         .header-box{
             flex: 4;
-            max-height: 430px;
+            max-height: 350px;
+
+            button{
+                justify-content: flex-end
+            }
+
+               .title-header{
+                display: flex;
+                margin-bottom: 10px;
+                border-bottom: 1px solid black;
+
+                
+                
+                h1{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .actions{
+                  display: flex;
+                    align-items: center;
+                    margin-left: 15px;
+                }
+                .add-btn{
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  justify-content: flex-end;
+                  margin-right: 10px;
+
+                }
+            }
         }
         .chart{
             flex: 2;
-            max-height: 430px ;
+            max-height: 350px ;
         }
     }
 

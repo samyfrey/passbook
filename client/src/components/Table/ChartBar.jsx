@@ -10,17 +10,9 @@ import {
   YAxis
 } from 'recharts'
 
-// const data = [
-//   {
-//     name: 'Page A',
-//     YTD: 4000,
-//     Budget: 2400
-//   }
-
-// ]
 export const ChartBar = ({ data }) => {
   return (
-    <BarChart width={330} height={350} data={data}>
+    <BarChart width={330} height={300} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey='name' />
       <YAxis />

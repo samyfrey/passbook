@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import ListTable from '../../Table/ListTable'
-import './Client.scss'
+import './client.scss'
 import { ChartBar } from '../../Table/ChartBar'
+import FeatureCard from '../../Features/FeatureCard'
+import { creditLimitsExtractor } from '../../../dataManipulation'
 
 const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) => {
   if (!clients) {
@@ -25,9 +27,16 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
       return sum
     }
 
+    console.log('clientsis', clients)
+    const largestCreditLimit = Math.max(...creditLimitsExtractor(clients))
+    console.log('largest limit is', largestCreditLimit)
+    const numberClients = creditLimitsExtractor(clients).length
+
     const revenueData = [{
       YTD: revenueTotal(clients),
-      Budget: revenueBudget
+      Budget: revenueBudget,
+      largestCreditLimit: largestCreditLimit,
+      numberClients: numberClients
 
     }]
 
@@ -46,6 +55,12 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
               {revenueData && <ChartBar data={revenueData} />}
 
             </div>
+          </div>
+
+          <div className="widgets">
+            <FeatureCard title='Total Revenues' data={revenueData[0].YTD} isMoney={true}/>
+            <FeatureCard title='Largest Credit Limit' data={revenueData[0].largestCreditLimit} isMoney={true}/>
+            <FeatureCard title='Number of Clients' data={revenueData[0].numberClients} isMoney={false}/>
           </div>
           <div className="table-box">
             <div className="title">Clients List </div>
