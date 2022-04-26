@@ -11,7 +11,7 @@ import {
   YAxis
 } from 'recharts'
 
-const Chart = ({ aspect, title, data }) => {
+const ChartLine = ({ aspect, title, data }) => {
   return (
     <div className="chart">
       <div className="title">{title}</div>
@@ -40,7 +40,7 @@ const Chart = ({ aspect, title, data }) => {
   )
 }
 
-export default Chart
+export default ChartLine
 
 // const myArr = [
 //   { company: 'Apple', month: 'January', value: 150 },

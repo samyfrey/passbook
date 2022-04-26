@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react'
-// import { indexLoans } from '../../../api/loans'
 import './loan.scss'
 import { Spinner } from 'react-bootstrap'
 import LoansTable from './LoansTable'

@@ -1,8 +1,7 @@
 import './Dashboard.scss'
 import React, { useEffect } from 'react'
-
 import LoansTable from '../Loans/LoansTable'
-import Chart from '../../Chart/Chart'
+import ChartLine from '../../Table/Chart'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
@@ -43,7 +42,7 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     }
   }, [])
 
-  if (!RevChartData && budgetData) {
+  if (!RevChartData && !budgetData) {
     return (
       <Spinner animation='border' role='status'>
         <span className='visually-hidden'>Loading...</span>
@@ -54,12 +53,11 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
   return (
     <div className='dashboard'>
 
-      {/* <p>Revenues: {budgetData.ytdRev}</p> */}
-      <div className="dashboardContainer">
+      <div className="dashboard-container">
         <div className="charts">
 
-          <Chart className="revChart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={RevChartData}/>
-          <ProgressChart className="progressChart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
+          <ChartLine className="container-box revenue-chart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={RevChartData}/>
+          <ProgressChart className="progress-chart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
         </div>
         <div className="container-box">
           <div className="title">Latest Transactions</div>
@@ -68,9 +66,7 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
         </div>
 
         <div className="container-box">
-
           <div className="title">Latest News</div>
-
           <NewsFeed/>
         </div>
       </div>
