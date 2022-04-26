@@ -68,7 +68,7 @@ const App = () => {
   return (
     <div className='app'>
       <Sidebar />
-      <div className='appContainer'>
+      <div className='app-container'>
         <TopBar user={user} clients={clients} render={render} />
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert

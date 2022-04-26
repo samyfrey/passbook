@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
-
+import '../pages/Account/Account.scss'
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
@@ -40,46 +40,35 @@ const SignIn = ({ msgAlert, setUser }) => {
   }
 
   return (
-    <div className='overview'>
-      <div className='overview-container'>
-        <div className='overview-table'>
-          <div className='form-box'>
-            <div>
-              <h1 className='title'>Sign In</h1>
-              <form onSubmit={onSignIn}>
-                <div className='email'>
-
-                  <label>Email address</label>
-                  <input
-                    required
-                    type='email'
-                    name='email'
-                    value={email}
-                    placeholder='Enter email'
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
-
-                </div>
-
-                <div className='password'>
-
-                  <label>Password</label>
-                  <input
-                    required
-                    name='password'
-                    value={password}
-                    type='password'
-                    placeholder='Password'
-                    onChange={(event) => setPassword(event.target.value)}
-                  />
-
-                </div>
-
-                <button type='submit'>Submit</button>
-              </form>
-            </div>
+    <div className='container-box'>
+      <div className='auth-form'>
+        <form onSubmit={onSignIn}>
+          <div className='email'>
+            <label>Email address</label>
+            <input
+              required
+              type='email'
+              name='email'
+              value={email}
+              placeholder='Enter email'
+              onChange={(event) => setEmail(event.target.value)}
+            />
           </div>
-        </div>
+
+          <div className='password'>
+            <label>Password</label>
+            <input
+              required
+              name='password'
+              value={password}
+              type='password'
+              placeholder='Password'
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+
+          <button type='submit'>Submit</button>
+        </form>
       </div>
     </div>
 

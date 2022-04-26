@@ -115,12 +115,13 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
           <Chart className="revChart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={RevChartData}/>
           <ProgressChart className="progressChart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
         </div>
-        <div className="listContainer">
+        <div className="container-box">
           <div className="title">Latest Transactions</div>
 
           <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} setSelectClient={setSelectClient}/>
         </div>
-        <div className="listContainer">
+
+        <div className="container-box">
 
           <div className="title">Latest News</div>
 

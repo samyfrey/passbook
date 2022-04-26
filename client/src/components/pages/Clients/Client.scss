@@ -6,6 +6,24 @@
       object-fit: cover;
     }
 
+    .companyMetrics{
+                display: flex;
+                font-size: 14px;
+                color: gray;
+                width: 100%;
+                border-bottom: 1px solid black;
+                margin: 0px 0px 30px;
+                justify-content: space-between;
+                ul {
+                    margin: 0px;
+                    margin-right: 15px;
+                    padding: 0;
+                    border: none;
+                    list-style-type: none;
+                }
+
+
+            }
     .companyHeader{
                 display: flex;
                 margin-bottom: 10px;

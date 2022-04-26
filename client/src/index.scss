@@ -2,12 +2,14 @@
 
 .app {
     display: flex;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
 
-    .appContainer{
+    .app-container{
         flex: 6;
+        height: 100vh;
+
     }
  
-   font-family: "Helvetica Neue", Helvetica, sans-serif;
 
     .title {
         font-weight: 500;
@@ -16,10 +18,14 @@
     }
 
     .container-box{
+        // display: flex;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-         padding: 5px 20px;
-        gap: 20px;
+        padding: 5px 20px;
+        margin: 20px;
+        // max-height: 300px;
+        // width: 100%;
+        // border: #2c5777 solid 1px;
 
     }
 .overview{
@@ -60,22 +66,7 @@
                 padding: 10px;
                 // color: blue;
             
-            .companyMetrics{
-                display: flex;
-                // justify-content: center;
-                // align-items: center;
-                width: 100%;
-                border: 1px solid black;
-                justify-content: space-between;
-                ul {
-                    margin: 0;
-                    // padding: 0;
-                    border: none;
-                    list-style-type: none;
-                }
-
-
-            }
+            
         }
         .chart{
             flex: 2;
@@ -89,19 +80,19 @@
 }
     .overview-table{
     
-        .form-box{
-        display: flex;
-        // max-height: 50vh;
-        width: 100%;
+        // .form-box{
+        // display: flex;
+        // // max-height: 50vh;
+        // width: 100%;
 
-        div {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 15px;
+        // div {
+        //     display: flex;
+        //     flex-direction: column;
+        //     gap: 10px;
+        //     margin-bottom: 15px;
 
-        }
-        }
+        // }
+        // }
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
       padding: 20px;

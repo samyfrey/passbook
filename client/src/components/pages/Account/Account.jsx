@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SignIn from '../../auth/SignIn'
 import SignUp from '../../auth/SignUp'
-import '../../../index.scss'
+
 const Account = ({ msgAlert, user, setUser }) => {
   if (user) {
     return (
@@ -15,16 +15,23 @@ const Account = ({ msgAlert, user, setUser }) => {
   }
   return (
     <>
-      <div className="overview-top">
+      <div className='app-container'>
         <div className="container-box">
-          <SignIn msgAlert={msgAlert} setUser={setUser}/>
+          <div className="auth-form">
+            <div className="title">Sign In</div>
+            <SignIn msgAlert={msgAlert} setUser={setUser}/>
+          </div>
         </div>
+
         <div className="container-box">
-          <SignUp msgAlert={msgAlert} setUser={setUser}/>
+          <div className="auth-form">
+            <div className="title">Sign Up</div>
+
+            <SignUp msgAlert={msgAlert} setUser={setUser}/>
+          </div>
         </div>
 
       </div>
-
     </>
   )
 }
