@@ -28,7 +28,6 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
         variant: 'success'
       })
     } catch (error) {
-      console.log(error)
       msgAlert({
         heading: 'Failed',
         message: 'Please try again',

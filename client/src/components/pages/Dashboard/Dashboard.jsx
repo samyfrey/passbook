@@ -7,6 +7,8 @@ import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
+import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
+
 export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, setRevChartData, user, msgAlert, setRender, setSelectClient }) => {
   const budgetData = {
     thisYearBudget: revenueBudget,
@@ -22,53 +24,13 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     progress: progress,
     differenceYTD: differenceYTD
   }
-  // console.log(typeof budgetData.ytdRev)
-  // console.log(typeof budgetData.thisYearBudget)
-  // console.log(budgetStat)
 
   useEffect(() => {
-    function loanExtractor (array) {
-      const selectLoans = []
-      for (let i = 0; i < array.length; i++) {
-        const selectBorrower = array[i].loans
-        for (let j = 0; j < selectBorrower.length; j++) {
-          const eachLoan = selectBorrower[j]
-          selectLoans.push(eachLoan)
-          // console.log('select loan is', selectLoans)
-        }
-      }
-      return selectLoans
-    }
-
     const loans = loanExtractor(clients)
-
-    function grouping (arr) {
-      const res = Array.from(
-        arr.reduce(
-          (accumulator, { month, revenue }) =>
-            accumulator.set(month, (accumulator.get(month) || 0) + revenue),
-          new Map()
-        ),
-        ([month, revenue]) => ({ month, revenue })
-      )
-      return res
-    }
-
     const groupedLoans = grouping(loans)
-    // console.log('groupedLoan is', groupedLoans)
-    function cumulator (arr) {
-      const newArray = arr.map((obj, index, self) => {
-        if (index === 0) return obj
-
-        const prevO = self[index - 1]
-        obj.revenue += prevO.revenue
-        return obj
-      })
-      return newArray
-    }
-
     const finalArray = cumulator(groupedLoans)
-    // console.log('final used to push to actual data is', finalArray)
+    const finalChartData = pushDataToActual(finalArray)
+    setRevChartData(finalChartData)
 
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {
@@ -79,24 +41,8 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
 
       return actualRevData
     }
-    // console.log(actualRevData)
-
-    const finalChartData = pushDataToActual(finalArray)
-    setRevChartData(finalChartData)
-    // console.log('final chart data is', finalChartData)
   }, [])
 
-  function grandTotalRev (array) {
-    let sum = 0
-    for (let i = 0; i < array.length; i++) {
-      const selectBorrower = array[i].loans
-      for (let j = 0; j < selectBorrower.length; j++) {
-        const result = selectBorrower[j].revenue
-        sum += result
-      }
-    }
-    return sum
-  }
   if (!RevChartData && budgetData) {
     return (
       <Spinner animation='border' role='status'>

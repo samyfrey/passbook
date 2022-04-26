@@ -7,7 +7,7 @@ import LoanTable from '../Loans/LoanTable'
 import { ChartBar } from '../../Table/ChartBar'
 import ClientNewsFeed from '../../News/ClientNewsFeed'
 import ClientDelete from './ClientDelete'
-// import { NewsTable } from '../../Table/NewsTable'
+
 const ClientDetail = ({ user, msgAlert, render, setRender }) => {
   const [borrower, setBorrower] = useState(null)
   const { borrowerId } = useParams()
@@ -18,9 +18,12 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
         const res = await showClient(borrowerId)
         setBorrower(res.data.client)
         setRender(false)
-        console.log('res from client detail is', res)
       } catch (error) {
-        console.log(error)
+        msgAlert({
+          heading: 'Failed!',
+          message: error.message,
+          variant: 'danger'
+        })
       }
     }
     fetchClient()
@@ -31,7 +34,6 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
       <Spinner animation='border' role='status'>
         <span className='visually-hidden'>Loading...</span>
       </Spinner>
-      // <Navigate to='/'/>
     )
   } else {
     const totalAmount = borrower.loans.reduce((total, loan) => {
