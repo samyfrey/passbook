@@ -1,7 +1,7 @@
 import './Dashboard.scss'
 import React, { useEffect } from 'react'
 import LoansTable from '../Loans/LoansTable'
-import ChartLine from '../../Table/Chart'
+import ChartLine from '../../Table/ChartLine'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
 import NewsFeed from '../../News/NewsFeed'

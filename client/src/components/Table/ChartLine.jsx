@@ -41,10 +41,3 @@ const ChartLine = ({ aspect, title, data }) => {
 }
 
 export default ChartLine
-
-// const myArr = [
-//   { company: 'Apple', month: 'January', value: 150 },
-//   { month: 'January', value: 150 },
-//   { month: 'February', value: 200 },
-//   { month: 'August', value: 450 }
-// ]
