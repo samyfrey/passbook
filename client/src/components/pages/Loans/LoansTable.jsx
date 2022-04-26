@@ -58,14 +58,14 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
             client.loans.map(loan =>
               <TableRow key={loan._id}>
                 <TableCell >{loan.description}</TableCell>
-                <Link to={`/clients/${client._id}`}>
-                  <TableCell >
+                <TableCell >
+                  <Link to={`/clients/${client._id}`}>
                     <div className="cellWrapper">
                       <img src={`https://logo.clearbit.com/${client.name}.com`} alt="" className="image" />
-                      {client.name}
+                      <span className="link">{client.name}</span>
                     </div>
-                  </TableCell>
-                </Link>
+                  </Link>
+                </TableCell>
                 <TableCell size="small"align="right">{loan.amount}</TableCell>
                 <TableCell size="small"align="right">
                   <span className={`status ${loan.status}`}>{loan.status}</span>

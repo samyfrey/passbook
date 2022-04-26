@@ -26,19 +26,20 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
           {clients.map(client => (
             <TableRow
               key={client._id}
-            ><Link to={`/clients/${client._id}`}>
-                <TableCell>
+            >
+              <TableCell>
+                <Link to={`/clients/${client._id}`}>
                   <div className="cellWrapper">
                     <img src={`https://logo.clearbit.com/${client.name}.com`} alt="" className="image" />
-                    {client.name}
+                    <span className="link">{client.name}</span>
                   </div>
-                </TableCell>
+                </Link>
+              </TableCell>
 
-              </Link>
               <TableCell align="right">{client.industry}</TableCell>
               <TableCell align="right">
                 <div className="cellAction">
-                  <Link to={`/clients/${client._id}/edit`}>
+                  <Link className="link" to={`/clients/${client._id}/edit`}>
                     <div className="viewButton">Edit</div>
                   </Link>
                   {/* <div className="deleteButton" onClick={() => handleDelete(client)}>Delete</div> */}

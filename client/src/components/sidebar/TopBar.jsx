@@ -35,9 +35,6 @@ const TopBar = ({ user, clients }) => {
         }
       </div>
 
-      <div className="item">
-
-      </div>
     </div>
 
   )

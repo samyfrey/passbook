@@ -114,6 +114,16 @@
     }
 }
 
+.link {
+    color: black;
+    cursor: pointer;
+
+    &:hover {
+          background-color: lightgray;
+          color: #0d6efd
+        }
+
+}
 .overview{
     display: flex;
     .overview-container{
