@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { createLoan } from '../../../api/loans'
 import { LoanCreateForm } from '../Loans/LoanCreateForm'
 
@@ -67,6 +67,7 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
     <div className='screen'>
       <div className="screen-container">
         <div className="table-box">
+          {!user && <Link to='/account/register'>Sign in or Register to add a new loan</Link>}
           <h1>New loan</h1>
           <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
         </div>
