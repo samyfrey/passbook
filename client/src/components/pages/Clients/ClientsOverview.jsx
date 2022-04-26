@@ -45,11 +45,21 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
         <div className="screen-container">
           <div className="screen-top">
             <div className="header-box container-box ">
-              <Link to='/clients/create'>
-                <button>New client</button>
-              </Link>
-              <p>Total revenue is: {revenueTotal(clients)}</p>
+
+              <div className="title-header">
+                <h1>Clients</h1>
+                <Link className="add-btn" to='/clients/create'>
+                  <button>New client</button>
+                </Link>
+              </div>
+
+              <div className="widgets">
+                <FeatureCard title='Total Revenues' data={revenueData[0].YTD} isMoney={true}/>
+                <FeatureCard title='Largest Credit Limit' data={revenueData[0].largestCreditLimit} isMoney={true}/>
+                <FeatureCard title='Number of Clients' data={revenueData[0].numberClients} isMoney={false}/>
+              </div>
             </div>
+
             <div className="chart container-box">
               <div className="title">YTD Revenue vs Budget ($MM)</div>
               {revenueData && <ChartBar data={revenueData} />}
@@ -57,11 +67,6 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
             </div>
           </div>
 
-          <div className="widgets">
-            <FeatureCard title='Total Revenues' data={revenueData[0].YTD} isMoney={true}/>
-            <FeatureCard title='Largest Credit Limit' data={revenueData[0].largestCreditLimit} isMoney={true}/>
-            <FeatureCard title='Number of Clients' data={revenueData[0].numberClients} isMoney={false}/>
-          </div>
           <div className="table-box">
             <div className="title">Clients List </div>
             <ListTable user={user} clients={clients} setRender={setRender} msgAlert={msgAlert}/>
