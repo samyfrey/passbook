@@ -30,12 +30,12 @@ const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
     }
   }
   return (
-    <div className='overview'>
-      <div className="overview-container">
-        <div className="overview-table">
+    <div className='screen'>
+      <div className="screen-container">
+        <div className="table-box">
           <div>
             <h1>Add Revenue Budget</h1>
-            <form onSubmit={handleSubmit} >
+            <form className="fill-form"onSubmit={handleSubmit} >
               <input
                 placeholder="type"
                 name="revenue"

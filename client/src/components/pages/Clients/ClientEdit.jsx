@@ -38,11 +38,29 @@ const ClientEdit = ({ user, msgAlert, render, setRender }) => {
         <div className="overview-table">
           <div className="title">Edit client details</div>
 
-          <form className='create-client-form' onSubmit={handleSubmit} >
+          <form className='fill-form' onSubmit={handleSubmit} >
 
-            <input type='text' placeholder='Edit name' name='amount' value={name} onChange={event => setName(event.target.value)}/>
-            <input type='text' placeholder='Edit industry' name='amount' value={industry} onChange={event => setIndustry(event.target.value)}/>
-            <input type='text' placeholder='Edit credit limit' name='amount' value={creditLimit} onChange={event => setCreditLimit(event.target.value)}/>
+            <div className="name">
+              <label>Company name</label>
+
+              <input type='text' placeholder='Enter name' name='amount' value={name} onChange={event => setName(event.target.value)}/>
+
+            </div>
+
+            <div className="industry">
+              <label>Company Industry</label>
+
+              <input type='text' placeholder='Industry' name='amount' value={industry} onChange={event => setIndustry(event.target.value)}/>
+
+            </div>
+
+            <div className="amount">
+              <label>Total Credit Limit</label>
+
+              <input type='text' placeholder='Credit limit ($MM)' name='amount' value={creditLimit} onChange={event => setCreditLimit(event.target.value)}/>
+
+            </div>
+
             <button className="button" type="submit">Update</button>
 
           </form>

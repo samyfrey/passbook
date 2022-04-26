@@ -1,18 +1,5 @@
-.auth-form{
-    width: 100%;
-
-    label {
-        // font-weight: 400;
-        // color: black;
-        // margin-bottom: 15px;
-    }
-    div {
-        display: flex;
-        flex-direction: column;
-        max-width: 350px;
-        margin: 0px 0px 10px;
-    }
-       
-
-
+.account{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }

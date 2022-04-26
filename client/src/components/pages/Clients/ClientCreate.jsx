@@ -57,12 +57,16 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
       id: 3,
       property: 'creditLimit',
       value: `${client.creditLimit}`,
-      placeholder: 'Credit Limit'
+      placeholder: 'Credit Limit ($MM)'
     }
   ]
   return (
-
-    <ClientCreateForm data={clientFormData} handleChange={handleChange} handleCreate={handleCreate} />
-
+    <div className='screen'>
+      <div className="screen-container">
+        <div className="table-box">
+          <ClientCreateForm data={clientFormData} handleChange={handleChange} handleCreate={handleCreate} />
+        </div>
+      </div>
+    </div>
   )
 }

@@ -3,10 +3,9 @@
     flex: 6;
     width: 100%;
     height: 40px;
-    // padding: 5px 20px;
     margin: 5px 5px 10px;
     align-content: space-between;
-    // background-color: grey;
+
     
     .search-bar{
       flex: 3;
@@ -30,7 +29,6 @@
   }
   
 .sidebar {
-    // background-color: lightblue;
     flex: 1;
     border-right: 0.5px solid rgb(230, 227, 227);
     min-height: 100vh;

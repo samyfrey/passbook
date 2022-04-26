@@ -8,7 +8,7 @@ import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
 
-export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, setRevChartData, user, msgAlert, setRender, setSelectClient }) => {
+export const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, setRender, setSelectClient }) => {
   const budgetData = {
     thisYearBudget: revenueBudget,
     ytdRev: grandTotalRev(clients),
@@ -29,8 +29,9 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     const groupedLoans = grouping(loans)
     const finalArray = cumulator(groupedLoans)
     const finalChartData = pushDataToActual(finalArray)
-    setRevChartData(finalChartData)
+    setRevenueChartData(finalChartData)
 
+    console.log('groupedloans is', groupedLoans)
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {
         if (actualRevData[i].month === arr[i].month) {
@@ -42,7 +43,7 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
     }
   }, [])
 
-  if (!RevChartData && !budgetData) {
+  if (!revenueChartData && !budgetData) {
     return (
       <Spinner animation='border' role='status'>
         <span className='visually-hidden'>Loading...</span>
@@ -51,21 +52,21 @@ export const Dashboard = ({ creditBudget, revenueBudget, clients, RevChartData, 
   }
 
   return (
-    <div className='dashboard'>
+    <div className='screen'>
 
-      <div className="dashboard-container">
-        <div className="charts">
+      <div className="screen-container">
+        <div className="dashboard-charts">
 
-          <ChartLine className="container-box revenue-chart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={RevChartData}/>
+          <ChartLine className="container-box revenue-chart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={revenueChartData}/>
           <ProgressChart className="progress-chart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
         </div>
-        <div className="container-box">
+        <div className="table-box">
           <div className="title">Latest Transactions</div>
 
           <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} setSelectClient={setSelectClient}/>
         </div>
 
-        <div className="container-box">
+        <div className="table-box">
           <div className="title">Latest News</div>
           <NewsFeed/>
         </div>

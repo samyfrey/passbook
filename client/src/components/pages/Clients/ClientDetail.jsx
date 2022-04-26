@@ -49,9 +49,9 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
 
     return (
       <>
-        <div className='overview'>
-          <div className="overview-container">
-            <div className="overview-top">
+        <div className='screen'>
+          <div className="screen-container">
+            <div className="screen-top">
               <div className="header-box">
 
                 <div className="companyHeader">

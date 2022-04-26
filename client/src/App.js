@@ -30,7 +30,7 @@ import LoanEdit from './components/pages/Loans/LoanEdit'
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-  const [RevChartData, setRevChartData] = useState([])
+  const [revenueChartData, setRevenueChartData] = useState([])
   const [clients, setClients] = useState([])
   const [render, setRender] = useState(false)
   const [revenueBudget, setRevenueBudget] = useState(null)
@@ -79,6 +79,21 @@ const App = () => {
           />
         ))}
         <Routes>
+          <Route
+            path='/'
+            element={
+              <Dashboard
+                clients={clients}
+                revenueChartData={revenueChartData}
+                setRevenueChartData={setRevenueChartData}
+                revenueBudget={revenueBudget}
+                user={user}
+                msgAlert={msgAlert}
+                setRender={setRender}
+                setSelectClient={setSelectClient}
+              />
+            }
+          />
           <Route path='/account/'>
             <Route
               index
@@ -136,7 +151,14 @@ const App = () => {
             />
             <Route
               path=':borrowerId/edit'
-              element={<ClientEdit user={user} render={render} setRender={setRender} msgAlert={msgAlert} />}
+              element={
+                <ClientEdit
+                  user={user}
+                  render={render}
+                  setRender={setRender}
+                  msgAlert={msgAlert}
+                />
+              }
             />
             <Route
               path='create'
@@ -192,21 +214,6 @@ const App = () => {
             />
           </Route>
 
-          <Route
-            path='/'
-            element={
-              <Dashboard
-                clients={clients}
-                RevChartData={RevChartData}
-                setRevChartData={setRevChartData}
-                revenueBudget={revenueBudget}
-                user={user}
-                msgAlert={msgAlert}
-                setRender={setRender}
-                setSelectClient={setSelectClient}
-              />
-            }
-          />
           <Route path='/budget/'>
             <Route
               index
@@ -226,7 +233,13 @@ const App = () => {
 
             <Route
               path=':budgetId'
-              element={<BudgetEdit render={render} setRender={setRender} msgAlert={msgAlert} />}
+              element={
+                <BudgetEdit
+                  render={render}
+                  setRender={setRender}
+                  msgAlert={msgAlert}
+                />
+              }
             />
           </Route>
         </Routes>

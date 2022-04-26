@@ -5,30 +5,30 @@ import './Client.scss'
 export const ClientCreateForm = ({ data, handleChange, handleCreate }) => {
   return (
     <>
-      <div className='overview'>
-        <div className="overview-container create">
-          <div className="overview-table">
-            <div className="title">Add a new client</div>
+      {/* <div className='overview'> */}
+      {/* <div className="app-container"> */}
+      {/* <div className="container-box"> */}
+      <h1>New client</h1>
 
-            <form className='create-client-form' onSubmit={handleCreate}>
-              <div className="create-client-item">
-                {/* <label>Company Name</label> */}
-                {data.map(dataPoint => (
-                  <div key={dataPoint.id}>
-                    <input type='text' placeholder={dataPoint.placeholder} name={dataPoint.property} value={dataPoint.value} onChange={handleChange}/>
+      <form onSubmit={handleCreate}>
+        <div className="create-client-item">
+          {/* <label>Company Name</label> */}
+          {data.map(dataPoint => (
+            <div key={dataPoint.id}>
+              <input type='text' placeholder={dataPoint.placeholder} name={dataPoint.property} value={dataPoint.value} onChange={handleChange}/>
 
-                  </div>
+            </div>
 
-                ))}
+          ))}
 
-                <button className="button" type="submit">Create</button>
+          <button className="button" type="submit">Create</button>
 
-              </div>
-
-            </form>
-          </div>
         </div>
-      </div>
+
+      </form>
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
     </>
 
   )

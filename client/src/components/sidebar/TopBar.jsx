@@ -27,7 +27,7 @@ const TopBar = ({ user, clients }) => {
           signedInOptions
         }
         {!user &&
-        <Link to='/account'><VpnKeyIcon className="icon"/> Register/Log in</Link>
+        <Link to='/account'><VpnKeyIcon className="icon"/> Sign-in/Register</Link>
         }
       </div>
 

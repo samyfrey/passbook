@@ -32,22 +32,22 @@ const ClientsOverview = ({ clients, user, revenueBudget, setRender, msgAlert }) 
     }]
 
     return (
-      <div className='overview'>
-        <div className="overview-container">
-          <div className="overview-top">
-            <div className="header-box">
+      <div className='screen'>
+        <div className="screen-container">
+          <div className="screen-top">
+            <div className="header-box container-box ">
               <Link to='/clients/create'>
                 <button>New client</button>
               </Link>
               <p>Total revenue is: {revenueTotal(clients)}</p>
             </div>
-            <div className="chart">
+            <div className="chart container-box">
               <div className="title">YTD Revenue vs Budget ($MM)</div>
               {revenueData && <ChartBar data={revenueData} />}
 
             </div>
           </div>
-          <div className="overview-table">
+          <div className="table-box">
             <div className="title">Clients List </div>
             <ListTable user={user} clients={clients} setRender={setRender} msgAlert={msgAlert}/>
           </div>

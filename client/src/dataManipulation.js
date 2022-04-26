@@ -11,9 +11,9 @@ export function loanExtractor (array) {
   return selectLoans
 }
 
-export function grouping (arr) {
+export function grouping (array) {
   const res = Array.from(
-    arr.reduce(
+    array.reduce(
       (accumulator, { month, revenue }) =>
         accumulator.set(month, (accumulator.get(month) || 0) + revenue),
       new Map()
@@ -23,8 +23,8 @@ export function grouping (arr) {
   return res
 }
 
-export function cumulator (arr) {
-  const newArray = arr.map((obj, index, self) => {
+export function cumulator (array) {
+  const newArray = array.map((obj, index, self) => {
     if (index === 0) return obj
 
     const prevO = self[index - 1]

@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { deleteLoan } from '../../../api/loans'
 
 export default function LoansTable ({ clients, user, setRender, msgAlert, selectClient, setSelectClient }) {
@@ -35,12 +35,12 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
     }
   }
 
-  const navigate = useNavigate()
-  const editRender = (client, loan) => {
-    setSelectClient(client)
+  // const navigate = useNavigate()
+  // const handleEdit = (client, loan) => {
+  //   setSelectClient(client)
 
-    navigate(`/loans/${loan._id}`)
-  }
+  //   navigate(`/loans/${loan._id}`)
+  // }
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -79,7 +79,7 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
                     {/* <Link to={`/loans/${loan._id}`}>
                       <div className="viewButton" onClick={() => handleUpdate(user, loan, client)}>Edit</div>
                     </Link> */}
-                    <div className="viewButton" onClick={() => editRender(client, loan)}>Edit</div>
+                    {/* <div className="viewButton" onClick={() => handleEdit(client, loan)}>Edit</div> */}
                     <div className="deleteButton" onClick={() => handleDelete(user, loan, client)}>Delete</div>
                   </div>
                 </TableCell>

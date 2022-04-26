@@ -1,24 +1,15 @@
-.dashboard {
+.dashboard-charts{
     display: flex;
+    gap: 20px;
+    padding: 5px 20px;
+    
 
-    .dashboard-container{
-        
-        flex: 6;
-
-        .charts{
-            display: flex;
-            gap: 20px;
-            padding: 5px 20px;
-            
-
-            .revenue-chart {
-            flex: 4;
-          
-            }
-            .progress-chart {
-            flex: 2;
-
-            }
-        }      
+    .revenue-chart {
+    flex: 4;
+    
     }
-}
+    .progress-chart {
+    flex: 2;
+
+    }
+}     

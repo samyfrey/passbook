@@ -1,9 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
-import './loan.scss'
 export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan, clients }) => {
   const idOptions = clients.map((client) => (
-    // [{ value: 'banana', label: 'banana' }]
     { value: `${client._id}`, label: `${client.name}` }
 
   ))
@@ -42,6 +40,10 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
 
   return (
     <>
+      {/* <div className='screen'>
+        <div className="screen-container">
+          <div className="table-box"> */}
+
       <form onSubmit={handleCreate}>
         <div className="create-client-item">
           <Select placeholder='Select Borrower'options={idOptions} onChange={handleBorrowerId} />
@@ -61,7 +63,8 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
         </div>
 
       </form>
-
+      {/* </div></div>
+      </div> */}
     </>
 
   )

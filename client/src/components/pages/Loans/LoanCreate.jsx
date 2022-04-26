@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './loan.scss'
 
 import { Navigate } from 'react-router-dom'
 import { createLoan } from '../../../api/loans'
@@ -65,15 +64,13 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
   ]
 
   return (
-    <div className='overview'>
-      <div className="overview-container create">
-        <div className="overview-table">
-          <div className="title">Add a new loan</div>
+    <div className='screen'>
+      <div className="screen-container">
+        <div className="table-box">
+          <h1>New loan</h1>
           <LoanCreateForm user={user} data={loanFormData} handleChange={handleChange} handleCreate={handleCreate} setLoan={setLoan} loan={loan} clients={clients} selectClient={selectClient}/>
         </div>
-
       </div>
-
     </div>
   )
 }
