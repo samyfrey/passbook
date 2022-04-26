@@ -21,7 +21,6 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
   const handleCreate = async event => {
     event.preventDefault()
     try {
-      console.log('user is', user)
       setIsNewLoan(false)
       await createLoan(user, loan)
       setRender(true)
@@ -31,7 +30,6 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
         variant: 'success'
       })
     } catch (error) {
-      console.log(error)
       msgAlert({
         heading: 'Operation failed',
         message: error.message,
@@ -65,7 +63,6 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
     }
 
   ]
-  console.log('loan is', loan)
 
   return (
     <div className='overview'>

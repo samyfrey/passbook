@@ -50,7 +50,6 @@ const App = () => {
         const resClients = await indexClients()
         setClients(resClients.data.clients)
         const resBudget = await indexBudgets()
-        console.log('budget res is', resBudget)
         setBudgets(resBudget.data.budget)
         setCreditBudget(resBudget.data.budget[0].amount)
         setRevenueBudget(resBudget.data.budget[1].amount)

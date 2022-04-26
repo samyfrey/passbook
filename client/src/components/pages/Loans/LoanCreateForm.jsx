@@ -29,8 +29,6 @@ export const LoanCreateForm = ({ data, handleChange, handleCreate, loan, setLoan
     { value: 'Dec', label: 'December' }
 
   ]
-  console.log('options is', idOptions)
-  console.log('clients is', clients)
 
   const handleBorrowerId = (selectedBorrower) => {
     setLoan({ ...loan, borrowerId: selectedBorrower.value })

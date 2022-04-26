@@ -9,7 +9,6 @@ const NewsFeed = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const res = await axios.get('https://newsapi.org/v2/top-headlines?sources=bloomberg&pageSize=10&apiKey=cc12a9a486d746b590e2849b48b94bb1')
-      // console.log(res)
       setNews(res.data.articles)
     }
 

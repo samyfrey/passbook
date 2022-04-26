@@ -25,12 +25,9 @@ router.get('/loans', (req, res, next) => {
 // GET /loans/5a7db6c74d55bc51bdf39793
 router.get('/loans/:loanId&:borrowerId', (req, res, next) => {
 	const loanId = req.params.loanId
-	console.log('loanId is', loanId)
 
 	const borrowerId = req.params.borrowerId
-	console.log('borrowerId is', borrowerId)
-	// const clientId = loanData.borrowerId
-	// console.log('clientId is', clientId)
+
 
 	Client.findById(borrowerId)
 		.then(handle404)
@@ -38,10 +35,7 @@ router.get('/loans/:loanId&:borrowerId', (req, res, next) => {
 		.then(client => res.status(200).json({ client }))
 
 		.then((client) => {
-			console.log('client is', client)
-
 			const loan = client.loans.id(loanId)
-			console.log('loan is', loan)
 			return loan
 		})
 		.then(loan => res.status(200).json({ loan }))
