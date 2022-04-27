@@ -2,30 +2,29 @@
 import React, { useState, useEffect } from 'react'
 // import { ClientDetail } from './ClientDetail'
 import { indexClients } from './api/clients'
+import { indexBudgets } from './api/budget'
 
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import { Sidebar } from './components/sidebar/Sidebar'
-// import Header from './components/Header/Header'
+import Sidebar from './components/sidebar/Sidebar'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import { Dashboard } from './components/pages/Dashboard/Dashboard'
+import Dashboard from './components/pages/Dashboard/Dashboard'
 import ClientsOverview from './components/pages/Clients/ClientsOverview'
 import ClientDetail from './components/pages/Clients/ClientDetail'
-import { ClientCreate } from './components/pages/Clients/ClientCreate'
+import ClientCreate from './components/pages/Clients/ClientCreate'
 import Account from './components/pages/Account/Account'
 import LoansOverview from './components/pages/Loans/LoansOverview'
 import LoanCreate from './components/pages/Loans/LoanCreate'
 import Budget from './components/pages/Budget/Budget'
-import { indexBudgets } from './api/budget'
 import TopBar from './components/sidebar/TopBar'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
 import ClientEdit from './components/pages/Clients/ClientEdit'
-import LoanEdit from './components/pages/Loans/LoanEdit'
+// import LoanEdit from './components/pages/Loans/LoanEdit'
 import Register from './components/pages/Account/Register'
 
 const App = () => {
@@ -205,7 +204,7 @@ const App = () => {
                 />
               }
             />
-            <Route
+            {/* <Route
               path=':loanId'
               element={
                 <LoanEdit
@@ -216,9 +215,10 @@ const App = () => {
                   selectClient={selectClient}
                   setSelectClient={setSelectClient}
                 />
+
                 // <ShowLoan user={user} selectClient={selectClient} />
               }
-            />
+            /> */}
           </Route>
 
           <Route path='/budget/'>

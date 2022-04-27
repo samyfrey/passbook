@@ -19,20 +19,14 @@ export default function NewsTable ({ data }) {
     const newDateFormat = `${Month} ${Day}, ${Year}`
     return newDateFormat
   }
+
   return (
     <div>
       <TableContainer component={Paper} className="table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-          {/* <TableHead>
-            <TableRow className='tableRow'>
-              <TableCell className="header"size="small">Headline</TableCell>
-              <TableCell className="header" align="right" size="small"></TableCell>
-            </TableRow>
-
-          </TableHead> */}
           <TableBody>
             {data.map(news => (
-              <TableRow key={news.id}>
+              <TableRow key={news.url}>
                 <TableCell className="tableCell" size="small">
                   <a
                     href={news.url}

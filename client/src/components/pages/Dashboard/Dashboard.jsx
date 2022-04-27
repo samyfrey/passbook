@@ -8,7 +8,7 @@ import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
 
-export const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, setRender, setSelectClient }) => {
+const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, setRender, setSelectClient }) => {
   const budgetData = {
     thisYearBudget: revenueBudget,
     ytdRev: grandTotalRev(clients),
@@ -74,3 +74,5 @@ export const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenue
     </div>
   )
 }
+
+export default Dashboard

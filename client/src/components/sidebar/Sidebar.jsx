@@ -7,7 +7,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 import TimelineIcon from '@mui/icons-material/Timeline'
 import PersonIcon from '@mui/icons-material/Person'
 
-export function Sidebar ({ user }) {
+function Sidebar ({ user }) {
   return (
     <div className='sidebar'>
       {/* <GridViewIcon/> */}
@@ -54,4 +54,4 @@ export function Sidebar ({ user }) {
   )
 }
 
-// export default Sidebar
+export default Sidebar

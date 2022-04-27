@@ -4,7 +4,7 @@ import { createClient } from '../../../api/clients'
 import './client.scss'
 import { ClientCreateForm } from '../Clients/ClientCreateForm'
 
-export const ClientCreate = ({ user, setRender, msgAlert }) => {
+const ClientCreate = ({ user, setRender, msgAlert }) => {
   const [client, setClient] = useState(
     { name: '', industry: '', creditLimit: '' }
   )
@@ -72,3 +72,5 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
     </div>
   )
 }
+
+export default ClientCreate
