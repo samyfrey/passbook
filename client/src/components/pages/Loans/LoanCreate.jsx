@@ -20,6 +20,7 @@ const LoanCreate = ({ user, updateMode, selectClient, clients, setRender, msgAle
   const handleCreate = async event => {
     event.preventDefault()
     try {
+      setRender(false)
       setIsNewLoan(false)
       await createLoan(user, loan)
       setRender(true)
