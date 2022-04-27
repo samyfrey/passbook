@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { createClient } from '../../../api/clients'
 import './client.scss'
 import { ClientCreateForm } from '../Clients/ClientCreateForm'
@@ -64,6 +64,8 @@ export const ClientCreate = ({ user, setRender, msgAlert }) => {
     <div className='screen'>
       <div className="screen-container">
         <div className="table-box">
+          {!user && <Link to='/account/register'>Sign in or Register to create a new client</Link>}
+
           <ClientCreateForm data={clientFormData} handleChange={handleChange} handleCreate={handleCreate} />
         </div>
       </div>

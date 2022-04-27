@@ -64,7 +64,7 @@ const App = () => {
     }
     fetchData()
   }, [render])
-`
+
   return (
     <div className='app'>
       <Sidebar user={user} />
