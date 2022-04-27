@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/bankbook/static/css/main.2dd211a7.chunk.css",
-    "main.js": "/bankbook/static/js/main.f49e10af.chunk.js",
-    "main.js.map": "/bankbook/static/js/main.f49e10af.chunk.js.map",
-    "runtime-main.js": "/bankbook/static/js/runtime-main.74ef2bd9.js",
-    "runtime-main.js.map": "/bankbook/static/js/runtime-main.74ef2bd9.js.map",
-    "static/css/2.6c0f60ba.chunk.css": "/bankbook/static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.6eeb1402.chunk.js": "/bankbook/static/js/2.6eeb1402.chunk.js",
-    "static/js/2.6eeb1402.chunk.js.map": "/bankbook/static/js/2.6eeb1402.chunk.js.map",
-    "index.html": "/bankbook/index.html",
-    "static/css/2.6c0f60ba.chunk.css.map": "/bankbook/static/css/2.6c0f60ba.chunk.css.map",
-    "static/css/main.2dd211a7.chunk.css.map": "/bankbook/static/css/main.2dd211a7.chunk.css.map",
-    "static/js/2.6eeb1402.chunk.js.LICENSE.txt": "/bankbook/static/js/2.6eeb1402.chunk.js.LICENSE.txt"
+    "main.css": "/passbook/static/css/main.2dd211a7.chunk.css",
+    "main.js": "/passbook/static/js/main.9ac0df8a.chunk.js",
+    "main.js.map": "/passbook/static/js/main.9ac0df8a.chunk.js.map",
+    "runtime-main.js": "/passbook/static/js/runtime-main.286f550b.js",
+    "runtime-main.js.map": "/passbook/static/js/runtime-main.286f550b.js.map",
+    "static/css/2.6c0f60ba.chunk.css": "/passbook/static/css/2.6c0f60ba.chunk.css",
+    "static/js/2.33352fb2.chunk.js": "/passbook/static/js/2.33352fb2.chunk.js",
+    "static/js/2.33352fb2.chunk.js.map": "/passbook/static/js/2.33352fb2.chunk.js.map",
+    "index.html": "/passbook/index.html",
+    "static/css/2.6c0f60ba.chunk.css.map": "/passbook/static/css/2.6c0f60ba.chunk.css.map",
+    "static/css/main.2dd211a7.chunk.css.map": "/passbook/static/css/main.2dd211a7.chunk.css.map",
+    "static/js/2.33352fb2.chunk.js.LICENSE.txt": "/passbook/static/js/2.33352fb2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.74ef2bd9.js",
+    "static/js/runtime-main.286f550b.js",
     "static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.6eeb1402.chunk.js",
+    "static/js/2.33352fb2.chunk.js",
     "static/css/main.2dd211a7.chunk.css",
-    "static/js/main.f49e10af.chunk.js"
+    "static/js/main.9ac0df8a.chunk.js"
   ]
 }
