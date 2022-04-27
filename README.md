@@ -1,5 +1,10 @@
+Deployed application: https://samyfrey.github.io/passbook/
+
 # Passbook 📊
-Passbook is a banking transaction management tool that allows bankers to manage their client portfolio, providing a consolidated view of their revenue targets, outstanding loans and budget performance. Users also have access to all the latest business and client-specific news
+Passbook is a banking transaction management tool that allows bankers to manage their client portfolio, providing a consolidated view of their revenue targets, outstanding loans and budget performance. Users also have access to all the latest business and client-specific news (requires business tier to work in deployed apps)
+
+![Screenshot](http://g.recordit.co/tlZgZ4gtlY.gif)
+
 
 ## Solution 
 This project aims to be a solution to issues I faced as an investment banking analyst: automate repetitive tasks and provide instant snapshot of business metrics avoiding manual work done through excel. Passbook also integrates NewsAPI to speed up the news summary process
@@ -18,6 +23,12 @@ As a user, I want to quickly access a consolidated view of all my portfolio, cre
 ## Set Up
 * ```npm install``` to install all dependencies 
 * Creating a user account is not necessary to access all the functionalities, it is required for creating, editing and deleting resources though. 
+
+## Main Libraries
+* Charts: [recharts](https://recharts.org/en-US/)
+* Icons: [materialUI](https://mui.com/)
+* News API: [NewsAPI](https://newsapi.org/) - Note: unavailable in the deployed version as the API requires a business tier to work with deployed sites
+
 
 ## Architecture
 * MongoDB resource models are created with mongoose, there is a one-to-many relationship between a client and loan documents and a one-to-one relationship between a loan and a client. A loan can only be created if a client exisits. 
