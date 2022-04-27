@@ -18,6 +18,7 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
           <TableRow>
             <TableCell className="tableCell" size="small">Company Name</TableCell>
             <TableCell className="tableCell" align="right" size="small">Industry</TableCell>
+            <TableCell className="tableCell" align="right" size="small">Credit Authorization <span className='amountStyle' >($MM)</span></TableCell>
             <TableCell className="tableCell" align="right" size="small">Actions</TableCell>
 
           </TableRow>
@@ -37,6 +38,7 @@ export default function ListTable ({ user, clients, setRender, msgAlert }) {
               </TableCell>
 
               <TableCell align="right">{client.industry}</TableCell>
+              <TableCell align="right">{client.creditLimit}</TableCell>
               <TableCell align="right">
                 <div className="cellAction">
                   <Link className="link" to={`/clients/${client._id}/edit`}>
