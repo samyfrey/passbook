@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/bankbook/static/css/main.2dd211a7.chunk.css",
-    "main.js": "/bankbook/static/js/main.fcd816a4.chunk.js",
-    "main.js.map": "/bankbook/static/js/main.fcd816a4.chunk.js.map",
+    "main.js": "/bankbook/static/js/main.f49e10af.chunk.js",
+    "main.js.map": "/bankbook/static/js/main.f49e10af.chunk.js.map",
     "runtime-main.js": "/bankbook/static/js/runtime-main.74ef2bd9.js",
     "runtime-main.js.map": "/bankbook/static/js/runtime-main.74ef2bd9.js.map",
     "static/css/2.6c0f60ba.chunk.css": "/bankbook/static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.1c8affef.chunk.js": "/bankbook/static/js/2.1c8affef.chunk.js",
-    "static/js/2.1c8affef.chunk.js.map": "/bankbook/static/js/2.1c8affef.chunk.js.map",
+    "static/js/2.6eeb1402.chunk.js": "/bankbook/static/js/2.6eeb1402.chunk.js",
+    "static/js/2.6eeb1402.chunk.js.map": "/bankbook/static/js/2.6eeb1402.chunk.js.map",
     "index.html": "/bankbook/index.html",
     "static/css/2.6c0f60ba.chunk.css.map": "/bankbook/static/css/2.6c0f60ba.chunk.css.map",
     "static/css/main.2dd211a7.chunk.css.map": "/bankbook/static/css/main.2dd211a7.chunk.css.map",
-    "static/js/2.1c8affef.chunk.js.LICENSE.txt": "/bankbook/static/js/2.1c8affef.chunk.js.LICENSE.txt"
+    "static/js/2.6eeb1402.chunk.js.LICENSE.txt": "/bankbook/static/js/2.6eeb1402.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.74ef2bd9.js",
     "static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.1c8affef.chunk.js",
+    "static/js/2.6eeb1402.chunk.js",
     "static/css/main.2dd211a7.chunk.css",
-    "static/js/main.fcd816a4.chunk.js"
+    "static/js/main.f49e10af.chunk.js"
   ]
 }
