@@ -26,20 +26,14 @@ export default function LoansTable ({ clients, user, setRender, msgAlert, select
         })
       } catch (error) {
         msgAlert({
-          heading: 'Failed to load',
-          message: error.message,
+          heading: 'Failed',
+          message: 'Make sure you are logged in before deleting',
           variant: 'danger'
         })
       }
     }
   }
 
-  // const navigate = useNavigate()
-  // const handleEdit = (client, loan) => {
-  //   setSelectClient(client)
-
-  //   navigate(`/loans/${loan._id}`)
-  // }
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
