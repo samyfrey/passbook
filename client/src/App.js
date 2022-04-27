@@ -65,7 +65,6 @@ const App = () => {
     fetchData()
   }, [render])
 
-  console.log('clients is', clients)
   return (
     <div className='app'>
       <Sidebar user={user} />
