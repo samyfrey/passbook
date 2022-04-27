@@ -1,6 +1,6 @@
 {
-  "homepage": "https://git-name.github.io/bankbook",
-  "name": "bankbook-client",
+  "homepage": "https://git-name.github.io/passbook",
+  "name": "passbook-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
