@@ -5,7 +5,6 @@ export function loanExtractor (array) {
     for (let j = 0; j < selectBorrower.length; j++) {
       const eachLoan = selectBorrower[j]
       selectLoans.push(eachLoan)
-      // console.log('select loan is', selectLoans)
     }
   }
   return selectLoans

@@ -15,8 +15,10 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
   useEffect(() => {
     const fetchLoans = async () => {
       try {
+        setRender(false)
         const res = await indexClients()
         setLoans(res.data.clients)
+        setRender(true)
       } catch (error) {
         msgAlert({
           heading: 'Failed!',

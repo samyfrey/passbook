@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { editBudget, showBudget } from '../../../api/budget'
 
-const BudgetEdit = ({ render, setRender, msgAlert }) => {
+const BudgetEdit = ({ render, user, setRender, msgAlert }) => {
   const { budgetId } = useParams()
   const [selectBudget, setSelectBudget] = useState('')
   const [updatedAmount, setUpdatedAmount] = useState('')
@@ -47,16 +47,17 @@ const BudgetEdit = ({ render, setRender, msgAlert }) => {
     return <Navigate to={'/budget'} />
   }
   return (
-    <div className='overview'>
-      <div className="overview-container create">
-        <div className="overview-table">
-          <div className="title">Update {selectBudget.type}</div>
+    <div className='screen'>
+      <div className="screen-container create">
+        <div className="table-box">
+          {!user && <Link to='/account/register'>Sign in or Register to edit a budget</Link>}
+          <h1>Update {selectBudget.type}</h1>
 
           <form className='create-client-form' onSubmit={handleSubmit} >
-
-            <input type='text' placeholder='Type new amount' name='amount' value={updatedAmount} onChange={event => setUpdatedAmount(event.target.value)}/>
-            <button className="button" type="submit">Update</button>
-
+            <div className="create-client-item">
+              <input type='text' placeholder='Type new amount' name='amount' value={updatedAmount} onChange={event => setUpdatedAmount(event.target.value)}/>
+              <button className="button" type="submit">Update</button>
+            </div>
           </form>
         </div>
         {/* <div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { editClient } from '../../../api/clients'
 
 const ClientEdit = ({ user, msgAlert, render, setRender }) => {
@@ -15,6 +15,7 @@ const ClientEdit = ({ user, msgAlert, render, setRender }) => {
 
     try {
       await editClient(borrowerId, user, name, industry, creditLimit)
+      setRender(false)
       msgAlert({
         heading: 'Done!',
         variant: 'success'
@@ -33,10 +34,11 @@ const ClientEdit = ({ user, msgAlert, render, setRender }) => {
     return <Navigate to={'/clients'} />
   }
   return (
-    <div className='overview'>
-      <div className="overview-container create">
-        <div className="overview-table">
-          <div className="title">Edit client details</div>
+    <div className='screen'>
+      <div className="screen-container create">
+        <div className="table-box">
+          {!user && <Link to='/account/register'>Sign in or Register to edit a client</Link>}
+          <h1>Edit Client</h1>
 
           <form className='fill-form' onSubmit={handleSubmit} >
 

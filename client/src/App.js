@@ -243,6 +243,7 @@ const App = () => {
               element={
                 <BudgetEdit
                   render={render}
+                  user={user}
                   setRender={setRender}
                   msgAlert={msgAlert}
                 />
