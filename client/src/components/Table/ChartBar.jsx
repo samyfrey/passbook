@@ -12,12 +12,12 @@ import {
 
 export const ChartBar = ({ data }) => {
   return (
-    <BarChart width={330} height={300} data={data}>
+    <BarChart width={330} height={260} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey='name' />
       <YAxis />
       <Tooltip />
-      <Legend />
+      <Legend wrapperStyle={{ position: 'absolute' }}/>
       <Bar dataKey='YTD' fill="#8884d8">
         <LabelList dataKey="YTD" position="top" />
 
@@ -30,5 +30,3 @@ export const ChartBar = ({ data }) => {
 
   )
 }
-
-// export default BarChart
