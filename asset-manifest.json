@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/passbook/static/css/main.2dd211a7.chunk.css",
-    "main.js": "/passbook/static/js/main.8064daf8.chunk.js",
-    "main.js.map": "/passbook/static/js/main.8064daf8.chunk.js.map",
+    "main.css": "/passbook/static/css/main.d7f6618c.chunk.css",
+    "main.js": "/passbook/static/js/main.100a0bad.chunk.js",
+    "main.js.map": "/passbook/static/js/main.100a0bad.chunk.js.map",
     "runtime-main.js": "/passbook/static/js/runtime-main.286f550b.js",
     "runtime-main.js.map": "/passbook/static/js/runtime-main.286f550b.js.map",
     "static/css/2.6c0f60ba.chunk.css": "/passbook/static/css/2.6c0f60ba.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.33352fb2.chunk.js.map": "/passbook/static/js/2.33352fb2.chunk.js.map",
     "index.html": "/passbook/index.html",
     "static/css/2.6c0f60ba.chunk.css.map": "/passbook/static/css/2.6c0f60ba.chunk.css.map",
-    "static/css/main.2dd211a7.chunk.css.map": "/passbook/static/css/main.2dd211a7.chunk.css.map",
+    "static/css/main.d7f6618c.chunk.css.map": "/passbook/static/css/main.d7f6618c.chunk.css.map",
     "static/js/2.33352fb2.chunk.js.LICENSE.txt": "/passbook/static/js/2.33352fb2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.286f550b.js",
     "static/css/2.6c0f60ba.chunk.css",
     "static/js/2.33352fb2.chunk.js",
-    "static/css/main.2dd211a7.chunk.css",
-    "static/js/main.8064daf8.chunk.js"
+    "static/css/main.d7f6618c.chunk.css",
+    "static/js/main.100a0bad.chunk.js"
   ]
 }
