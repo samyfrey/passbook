@@ -3,7 +3,19 @@ Deployed application: https://samyfrey.github.io/passbook/
 # Passbook 📊
 Passbook is a banking transaction management tool that allows bankers to manage their client portfolio, providing a consolidated view of their revenue targets, outstanding loans and budget performance. Users also have access to all the latest business and client-specific news (requires business tier to work in deployed apps)
 
-![Screenshot](http://g.recordit.co/tlZgZ4gtlY.gif)
+* **View your dashboard, search clients and get the latest news**
+* **Create an account, add new loans, track progress as charts and number get updated automatically**
+
+<p align="center">
+  <img src="http://g.recordit.co/tlZgZ4gtlY.gif" alt="site-overview" width="400" >
+  &ensp;
+  <img align="right" src="http://g.recordit.co/PJLloIdxqI.gif" alt="add-loan" width="500" >
+</p>
+
+## Set Up
+* ```npm install``` to install all dependencies 
+* Creating a user account is not necessary to access all the functionalities, it is required for creating, editing and deleting resources though 
+
 
 
 ## Solution 
@@ -14,15 +26,12 @@ As a user, I want to quickly access a consolidated view of all my portfolio, cre
 
 ## Main Features
 * Dashboard: View all important information in one place, revenues year-over-year, budget progress, recent loan transactions, latest business news
+* Search: Type the name of a client to access its page
 * Loans: Track all loans in the portfolio, delete loans as needed
-* Clients: Add new clients, edit details and delete as needed, follow relevant news on client page
+* Clients: Add new clients, edit details and delete as needed, follow relevant news on client page. When a user creates new client, the logo get retrieved automatically through an API
 * Budget: Edit my budgets as needed
 * Newsfeed: Get all relevant news on my dashboard and for each client 
 
-
-## Set Up
-* ```npm install``` to install all dependencies 
-* Creating a user account is not necessary to access all the functionalities, it is required for creating, editing and deleting resources though. 
 
 ## Main Libraries
 * Charts: [recharts](https://recharts.org/en-US/)
