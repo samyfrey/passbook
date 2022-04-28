@@ -40,7 +40,7 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
 
       return actualRevData
     }
-  }, [])
+  }, [clients])
 
   if (!revenueChartData && !budgetData) {
     return (
@@ -50,6 +50,13 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
     )
   }
 
+  if (!clients) {
+    return (
+      <Spinner animation='border' role='status'>
+        <span className='visually-hidden'>Loading...</span>
+      </Spinner>
+    )
+  }
   return (
     <div className='screen'>
 
