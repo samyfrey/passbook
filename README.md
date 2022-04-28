@@ -6,14 +6,14 @@ Passbook is a banking transaction management tool that allows bankers to manage 
 **View your dashboard, search clients and get the latest news**
 
 <p align="center">
-<img src="http://g.recordit.co/tlZgZ4gtlY.gif" alt="site-overview" width="700" >
+<img src="http://g.recordit.co/v3ndC4HCHg.gif" alt="site-overview" width="700" >
 </p>
 
 **Create an account, add new loans, track progress as charts and number get updated automatically**
 
 
 <p align="center">
-<img align="center" src="http://g.recordit.co/PJLloIdxqI.gif" alt="add-loan" width="700">
+<img align="center" src="http://g.recordit.co/tp0zyRSLww.gif" alt="add-loan" width="700">
 </p>
 
 ## Set Up
