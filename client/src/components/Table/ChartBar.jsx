@@ -18,7 +18,7 @@ export const ChartBar = ({ data }) => {
       <YAxis />
       <Tooltip />
       <Legend wrapperStyle={{ position: 'absolute' }}/>
-      <Bar dataKey='YTD' fill="#8884d8">
+      <Bar dataKey='YTD' fill="#9494A7">
         <LabelList dataKey="YTD" position="top" />
 
       </Bar>
