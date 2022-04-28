@@ -8,22 +8,7 @@ import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
 
-const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, setRender, setSelectClient }) => {
-  const budgetData = {
-    thisYearBudget: revenueBudget,
-    ytdRev: grandTotalRev(clients),
-    lastYearBudget: lastYearRevenueBudget
-
-  }
-
-  const progress = (budgetData.ytdRev * 100) / budgetData.thisYearBudget
-  const differenceYTD = budgetData.thisYearBudget - budgetData.ytdRev
-
-  const budgetStat = {
-    progress: progress,
-    differenceYTD: differenceYTD
-  }
-
+const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, render, setRender, setSelectClient }) => {
   useEffect(() => {
     const loans = loanExtractor(clients)
     const groupedLoans = grouping(loans)
@@ -40,9 +25,21 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
 
       return actualRevData
     }
-  }, [clients])
+  }, [render])
 
-  if (!revenueChartData && !budgetData) {
+  const budgetData = {
+    thisYearBudget: revenueBudget,
+    ytdRev: grandTotalRev(clients),
+    lastYearBudget: lastYearRevenueBudget
+  }
+  const progress = (budgetData.ytdRev * 100) / budgetData.thisYearBudget
+  const differenceYTD = budgetData.thisYearBudget - budgetData.ytdRev
+
+  const budgetStat = {
+    progress: progress,
+    differenceYTD: differenceYTD
+  }
+  if (!clients || !budgetData) {
     return (
       <Spinner animation='border' role='status'>
         <span className='visually-hidden'>Loading...</span>
@@ -50,13 +47,6 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
     )
   }
 
-  if (!clients) {
-    return (
-      <Spinner animation='border' role='status'>
-        <span className='visually-hidden'>Loading...</span>
-      </Spinner>
-    )
-  }
   return (
     <div className='screen'>
 

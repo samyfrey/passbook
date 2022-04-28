@@ -91,6 +91,7 @@ const App = () => {
                 msgAlert={msgAlert}
                 setRender={setRender}
                 setSelectClient={setSelectClient}
+                render={render}
               />
             }
           />
