@@ -19,7 +19,7 @@ Passbook is a banking transaction management tool that allows bankers to manage 
 ## Set Up
 * ```npm install``` to install all dependencies 
 * Creating a user account is not necessary to access all the functionalities, it is required for creating, editing and deleting resources though 
-
+* Note: the application is deployed with heroku
 
 
 ## Solution 
