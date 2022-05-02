@@ -47,6 +47,7 @@ As a user, I want to quickly access a consolidated view of all my portfolio, cre
 * MongoDB resource models are created with mongoose, there is a one-to-many relationship between a client and loan documents and a one-to-one relationship between a loan and a client. A loan can only be created if a client exisits. 
 * CRUD functions for each resource
 * RESTful routes to hit each API endpoint 
+* React components are seperated in two folders: pages and feature components. 
 
 
 resource | index | available routes 
