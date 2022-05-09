@@ -63,7 +63,8 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
         </div>
 
         <div className="table-box">
-          <div className="title">Latest News ⚠️ requires a business tier to work in production mode ⚠️</div>
+          <div className="title">Latest News </div>
+          <div className="title">⚠️ requires a business tier to work in production mode ⚠️ </div>
           <NewsFeed/>
         </div>
       </div>
