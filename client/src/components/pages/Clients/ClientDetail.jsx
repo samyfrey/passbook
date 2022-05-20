@@ -5,7 +5,7 @@ import './client.scss'
 import { Spinner } from 'react-bootstrap'
 import LoanTable from '../Loans/LoanTable'
 import { ChartBar } from '../../Table/ChartBar'
-import ClientNewsFeed from '../../News/ClientNewsFeed'
+// import ClientNewsFeed from '../../News/ClientNewsFeed'
 import ClientDelete from './ClientDelete'
 
 const ClientDetail = ({ user, msgAlert, render, setRender }) => {
@@ -96,10 +96,10 @@ const ClientDetail = ({ user, msgAlert, render, setRender }) => {
 
             </div> */}
 
-            <div className="table-box">
+            {/* <div className="table-box">
               <div className="title">Latest News</div>
               <ClientNewsFeed borrower={borrower} />
-            </div>
+            </div> */}
           </div>
         </div>
 

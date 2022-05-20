@@ -4,7 +4,7 @@ import LoansTable from '../Loans/LoansTable'
 import ChartLine from '../../Table/ChartLine'
 import { Spinner } from 'react-bootstrap'
 import ProgressChart from '../../Table/ProgressChart'
-import NewsFeed from '../../News/NewsFeed'
+// import NewsFeed from '../../News/NewsFeed'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
 
@@ -62,11 +62,11 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
           <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} setSelectClient={setSelectClient}/>
         </div>
 
-        <div className="table-box">
+        {/* <div className="table-box">
           <div className="title">Latest News </div>
           <div className="title">⚠️ requires a business tier to work in production mode ⚠️ </div>
           <NewsFeed/>
-        </div>
+        </div> */}
       </div>
 
     </div>
