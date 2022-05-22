@@ -5,7 +5,6 @@ import { indexClients } from './api/clients'
 import { indexBudgets } from './api/budget'
 
 import { Route, Routes } from 'react-router-dom'
-import { v4 as uuid } from 'uuid'
 
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Sidebar from './components/sidebar/Sidebar'
@@ -24,7 +23,6 @@ import Budget from './components/pages/Budget/Budget'
 import TopBar from './components/sidebar/TopBar'
 import BudgetEdit from './components/pages/Budget/BudgetEdit'
 import ClientEdit from './components/pages/Clients/ClientEdit'
-// import LoanEdit from './components/pages/Loans/LoanEdit'
 import Register from './components/pages/Account/Register'
 
 const App = () => {
@@ -36,12 +34,11 @@ const App = () => {
   const [revenueBudget, setRevenueBudget] = useState(null)
   const [creditBudget, setCreditBudget] = useState(null)
   const [budgets, setBudgets] = useState(null)
-  const [selectClient, setSelectClient] = useState(null)
+
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
-    const id = uuid()
-    setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant, id }]))
+    setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant }]))
   }
 
   useEffect(() => {
@@ -90,7 +87,6 @@ const App = () => {
                 user={user}
                 msgAlert={msgAlert}
                 setRender={setRender}
-                setSelectClient={setSelectClient}
                 render={render}
               />
             }
@@ -189,8 +185,6 @@ const App = () => {
                   render={render}
                   creditBudget={creditBudget}
                   msgAlert={msgAlert}
-                  selectClient={selectClient}
-                  setSelectClient={setSelectClient}
                 />
               }
             />
@@ -205,21 +199,6 @@ const App = () => {
                 />
               }
             />
-            {/* <Route
-              path=':loanId'
-              element={
-                <LoanEdit
-                  user={user}
-                  clients={clients}
-                  msgAlert={msgAlert}
-                  setRender={setRender}
-                  selectClient={selectClient}
-                  setSelectClient={setSelectClient}
-                />
-
-                // <ShowLoan user={user} selectClient={selectClient} />
-              }
-            /> */}
           </Route>
 
           <Route path='/budget/'>

@@ -9,7 +9,7 @@ import { ChartBar } from '../../Table/ChartBar'
 import FeatureCard from '../../Features/FeatureCard'
 import { loanAmounts } from '../../../dataManipulation'
 
-const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert, selectClient, setSelectClient }) => {
+const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAlert }) => {
   const [loans, setLoans] = useState(null)
 
   useEffect(() => {
@@ -69,7 +69,6 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
               <div className="title-header">
 
                 <h1>Loans</h1>
-                {/* <p>Total loans: {loanTotal(clients)}</p> */}
                 <div className="add-btn">
                   <Link to='/loans/create'>
                     <button>New loan</button>
@@ -95,7 +94,7 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
           <div className="table-box">
             <div className="title">Transactions List </div>
 
-            <LoansTable clients={clients} user={user} setRender={setRender} msgAlert={msgAlert} selectClient={selectClient} setSelectClient={setSelectClient}/>
+            <LoansTable clients={clients} user={user} setRender={setRender} msgAlert={msgAlert}/>
           </div>
         </div>
       </div>

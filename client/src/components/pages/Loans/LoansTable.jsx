@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper'
 import { Link } from 'react-router-dom'
 import { deleteLoan } from '../../../api/loans'
 
-export default function LoansTable ({ clients, user, setRender, msgAlert, selectClient, setSelectClient }) {
+export default function LoansTable ({ clients, user, setRender, msgAlert }) {
   async function handleDelete (user, loan, client) {
     const res = confirm('Are you sure you want to delete?')
     if (res) {

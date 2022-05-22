@@ -8,7 +8,7 @@ import ProgressChart from '../../Table/ProgressChart'
 import { actualRevData, lastYearRevenueBudget } from '../../../globalData'
 import { loanExtractor, grouping, cumulator, grandTotalRev } from '../../../dataManipulation'
 
-const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, render, setRender, setSelectClient }) => {
+const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartData, user, msgAlert, render, setRender }) => {
   useEffect(() => {
     const loans = loanExtractor(clients)
     const groupedLoans = grouping(loans)
@@ -59,7 +59,7 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
         <div className="table-box">
           <div className="title">Latest Transactions</div>
 
-          <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} setSelectClient={setSelectClient}/>
+          <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} />
         </div>
 
         {/* <div className="table-box">
