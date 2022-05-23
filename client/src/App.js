@@ -209,10 +209,6 @@ const App = () => {
                   user={user}
                   budgets={budgets}
                   msgAlert={msgAlert}
-                  revenueBudget={revenueBudget}
-                  setRevenueBudget={setRevenueBudget}
-                  creditBudget={creditBudget}
-                  setCreditBudget={setCreditBudget}
                   setBudgets={setBudgets}
                 />
               }

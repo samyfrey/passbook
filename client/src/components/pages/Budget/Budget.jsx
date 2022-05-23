@@ -4,31 +4,13 @@ import { Navigate } from 'react-router-dom'
 // import { postBudget } from '../../../api/budget'
 import { BudgetTable } from '../../Table/BudgetTable'
 
-const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
+const Budget = ({ budgets }) => {
   if (!budgets) {
     return (
       <Navigate to="/" />
     )
   }
-  // const [amount, setAmount] = useState()
-  // const [type, setType] = useState()
 
-  // const handleSubmit = async event => {
-  //   event.preventDefault()
-  //   try {
-  //     await postBudget(type, amount, user)
-  //     msgAlert({
-  //       heading: 'Done!',
-  //       variant: 'success'
-  //     })
-  //   } catch (error) {
-  //     msgAlert({
-  //       heading: 'Failed!',
-  //       message: error.message,
-  //       variant: 'danger'
-  //     })
-  //   }
-  // }
   return (
     <div className='screen'>
       <div className="screen-container">
@@ -55,7 +37,7 @@ const Budget = ({ user, msgAlert, budgets, revenueBudget, creditBudget }) => {
             </form>
           </div> */}
           <div className="title">Budget List </div>
-          <BudgetTable budgets={budgets} revenueBudget={revenueBudget} creditBudget={creditBudget}/>
+          <BudgetTable budgets={budgets}/>
         </div>
       </div>
     </div>

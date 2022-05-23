@@ -66,13 +66,6 @@ export default function LoansTable ({ clients, user, setRender, msgAlert }) {
                 </TableCell>
                 <TableCell align="right">
                   <div className="cellAction">
-                    {/* <Link to={`/loans/${loan._id}`}>
-                      <div className="viewButton" >Edit</div>
-                    </Link> */}
-                    {/* <Link to={`/loans/${loan._id}`}>
-                      <div className="viewButton" onClick={() => handleUpdate(user, loan, client)}>Edit</div>
-                    </Link> */}
-                    {/* <div className="viewButton" onClick={() => handleEdit(client, loan)}>Edit</div> */}
                     <div className="deleteButton" onClick={() => handleDelete(user, loan, client)}>Delete</div>
                   </div>
                 </TableCell>
