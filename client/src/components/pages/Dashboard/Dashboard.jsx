@@ -15,6 +15,7 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
     const finalArray = cumulator(groupedLoans)
     const finalChartData = pushDataToActual(finalArray)
     setRevenueChartData(finalChartData)
+    console.log('final chart data is', finalChartData)
 
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {
@@ -26,6 +27,18 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
       return actualRevData
     }
   }, [render])
+
+  console.log('clients is', clients)
+  function addClientLoans (clientName) {
+    for (let i = 0; i < clients.length; i++) {
+      if (clients[i].name === clientName) {
+        if (clients[i].hasOwnProperty.call('creditLimit')) {
+          return clients[i].creditLimit
+        }
+      }
+    }
+  }
+  console.log('tesla is', addClientLoans('Tesla'))
 
   const budgetData = {
     thisYearBudget: revenueBudget,
