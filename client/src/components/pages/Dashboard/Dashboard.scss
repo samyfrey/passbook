@@ -1,16 +1,24 @@
 .dashboard-charts{
     display: flex;
+    
     gap: 20px;
     padding: 5px 20px;
     height: 320px;
+    //     @media (max-width: 600px){
+    //     flex-direction: column;
+    // }
+
     
 
-    .revenue-chart {
-    flex: 4;
-    
-    }
-    .progress-chart {
-    flex: 2;
-
-    }
+    // .revenue-chart {
+    // flex: 4;
+    // background-color: red;
+    // @media (max-width: 600px){
+    //     flex-direction: column;
+    // }
+    // }
+//     .progress-chart {
+//     flex: 2;
+// background-color: red;
+//     }
 }     

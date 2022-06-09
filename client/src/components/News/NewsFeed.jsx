@@ -8,7 +8,7 @@ const NewsFeed = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const res = await axios.get('https://newsapi.org/v2/top-headlines?sources=bloomberg&pageSize=10&apiKey=cc12a9a486d746b590e2849b48b94bb1')
+      const res = await axios.get(`https://newsapi.org/v2/top-headlines?sources=bloomberg&pageSize=10&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
       setNews(res.data.articles)
     }
 
