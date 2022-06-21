@@ -1,15 +1,12 @@
 import './navbar.scss'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import DashboardIcon from '@mui/icons-material/Dashboard'
-import PeopleIcon from '@mui/icons-material/People'
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
-import TimelineIcon from '@mui/icons-material/Timeline'
-import PersonIcon from '@mui/icons-material/Person'
+
+import { UilEstate, UilUsersAlt, UilUniversity, UilChartLine, UilUserCircle } from '@iconscout/react-unicons'
 
 function Sidebar ({ user }) {
   return (
-    <div className='sidebar'>
+    <nav className='sidebar'>
       {/* <GridViewIcon/> */}
 
       <div className="logo">PASSBOOK
@@ -22,35 +19,35 @@ function Sidebar ({ user }) {
         <ul>
           <NavLink to='/'>
             <li>
-              <DashboardIcon className="icon" />
+              <UilEstate className="icon" />
               <span>Dashboard</span>
             </li>
           </NavLink>
           <NavLink to='/clients/' >
-            <li><PeopleIcon className="icon"/>
+            <li><UilUsersAlt className="icon"/>
               <span>Clients</span>
             </li>
           </NavLink>
           <NavLink to='/loans/' >
-            <li><AccountBalanceIcon className="icon"/>
+            <li><UilUniversity className="icon"/>
               <span>Loans</span>
             </li>
           </NavLink>
           <NavLink to='/budget/' >
-            <li><TimelineIcon className="icon"/>
+            <li><UilChartLine className="icon"/>
               <span>Budget</span>
             </li>
           </NavLink>
           {user &&
           <NavLink to='/account/' >
-            <li><PersonIcon className="icon"/>
+            <li><UilUserCircle className="icon"/>
               <span>Account</span>
             </li>
           </NavLink>
           }
         </ul>
       </div>
-    </div>
+    </nav>
   )
 }
 

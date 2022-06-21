@@ -1,13 +1,12 @@
 import React from 'react'
 import './navbar.scss'
-import VpnKeyIcon from '@mui/icons-material/VpnKey'
 import { Link } from 'react-router-dom'
 import SearchBar from '../Search/SearchBar'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import { UilLock, UilLockOpenAlt, UilSignOutAlt } from '@iconscout/react-unicons'
 const TopBar = ({ user, clients }) => {
   const signedInOptions = (
     <div className='signed-in-menu'>
-      <Link to='/account/sign-out'><VpnKeyIcon className="icon"/> Sign Out</Link>
+      <Link to='/account/sign-out'><UilSignOutAlt className="icon"/> Sign Out</Link>
 
     </div>
   )
@@ -22,7 +21,7 @@ const TopBar = ({ user, clients }) => {
 
         {user &&
         <>
-          <AccountCircleIcon className="icon"/>
+          <UilLockOpenAlt className="icon"/>
           <span>{user.email}</span>
 
         </>
@@ -31,7 +30,8 @@ const TopBar = ({ user, clients }) => {
           signedInOptions
         }
         {!user &&
-        <Link to='/account/register'><VpnKeyIcon className="icon"/> Sign-in/Register</Link>
+        <Link to='/account/register'><UilLock className="icon"/>
+         Sign-in/Register</Link>
         }
       </div>
 

@@ -28,17 +28,6 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
     }
   }, [render])
 
-  // function addClientLoans (clientName) {
-  //   for (let i = 0; i < clients.length; i++) {
-  //     if (clients[i].name === clientName) {
-  //       if (clients[i].hasOwnProperty.call('creditLimit')) {
-  //         return clients[i].creditLimit
-  //       }
-  //     }
-  //   }
-  // }
-  // console.log('tesla is', addClientLoans('Tesla'))
-
   const budgetData = {
     thisYearBudget: revenueBudget,
     ytdRev: grandTotalRev(clients),

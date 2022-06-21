@@ -7,7 +7,7 @@ $base-text:  #525252;
     height: 40px;
     margin: 5px 5px 10px;
     align-content: space-between;
-
+    border: solid 2px green;
     
     .search-bar{
       flex: 3;
@@ -17,15 +17,19 @@ $base-text:  #525252;
       ;
     }
 
-    .user-register{
+    .user-register a{
       flex: 3;
       padding: 0px 20px;
       gap: 10px;
       display: flex;
+      align-content: center;
       align-items: center;
       justify-content: right;
       margin-right: 5px;
+      height: 100%;
+
     }
+
 
 
   }
@@ -97,4 +101,13 @@ $base-text:  #525252;
         }
         }
     }
+
+@media screen and (max-width: 1200px){
+  .links span {
+    display: none;
+  }
+  .logo{
+    display: none;
+  }
 }
+  }
