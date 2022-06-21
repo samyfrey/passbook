@@ -1,3 +1,5 @@
+$base-text:  #525252;
+
 .top-bar {
     display: flex;
     flex: 6;
@@ -90,7 +92,7 @@
         span{
             font-size: 18px;
             font-weight: 500;
-            color: #888;
+            color: $base-text;
             margin-left: 10px;
         }
         }

@@ -1,9 +1,11 @@
+$base-text:  #525252;
+
 .chart {
   flex: 4;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   padding: 10px;
-  color: gray;
+  color: $base-text;
 
   .title {
     margin-bottom: 20px;
@@ -25,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: gray;
+    color: $base-text;
 
     .title {
       font-size: 16px;
@@ -48,7 +50,8 @@
 
     .title {
       font-weight: 500;
-      color: gray;
+      color: $base-text;
+;
       
       margin-top: 15px;
       margin-bottom: 0;
@@ -62,7 +65,8 @@
     .desc {
       font-weight: 300;
       font-size: 12px;
-      color: gray;
+      color: $base-text;
+;
       text-align: center;
     }
 
@@ -78,7 +82,7 @@
 
         .itemTitle {
           font-size: 14px;
-          color: gray;
+          color: $base-text;
         }
 
         .itemResult {
@@ -92,7 +96,7 @@
           }
 
           &.negative {
-            color: red;
+            color: #8A0000;
           }
         }
       }

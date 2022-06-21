@@ -1,5 +1,5 @@
 // @import '~bootstrap/scss/bootstrap';
-
+$base-text:  #525252;
 
 
 .app {
@@ -17,12 +17,12 @@
     h1{
         font-size: 38px;
         font-weight: 500;
-        color: #474747;
+        color: $base-text;
         margin-top: 10px;
     }
     .title {
         font-weight: 500;
-        color: gray;
+        color: $base-text;
         margin-bottom: 15px;
     }
 
@@ -45,7 +45,7 @@
         }
         input {
             border: none;
-            border: solid gray 0.5px;
+            border: solid $base-text 0.5px;
             width: 300px;
             gap: 10px;
             height: 35px;
