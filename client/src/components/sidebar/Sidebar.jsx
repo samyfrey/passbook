@@ -9,10 +9,6 @@ function Sidebar ({ user }) {
     <nav className='sidebar'>
       {/* <GridViewIcon/> */}
 
-      <div className="logo">PASSBOOK
-
-        {/* <img src={logo} alt='' /> */}
-      </div>
       {/* <div className='top'><span className="logo">passbook</span></div> */}
       {/* <hr/> */}
       <div className='links'>

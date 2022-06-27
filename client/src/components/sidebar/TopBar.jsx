@@ -13,6 +13,10 @@ const TopBar = ({ user, clients }) => {
 
   return (
     <div className='top-bar'>
+      <div className="logo">PASSBOOK
+
+        {/* <img src={logo} alt='' /> */}
+      </div>
       <div className="search-bar">
         <SearchBar data={clients}/>
       </div>

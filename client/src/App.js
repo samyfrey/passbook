@@ -63,8 +63,8 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Sidebar user={user} />
-      <div className='app-container'>
+      <div className='topBar'>
+
         <TopBar user={user} clients={clients} render={render} />
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
@@ -75,6 +75,13 @@ const App = () => {
             id={msgAlert.id}
           />
         ))}
+      </div>
+      <div className='sideBar'>
+        <Sidebar user={user} />
+
+      </div>
+      <div className="mainDisplay">
+
         <Routes>
           <Route
             path='/'
@@ -227,6 +234,7 @@ const App = () => {
             />
           </Route>
         </Routes>
+
       </div>
     </div>
   )

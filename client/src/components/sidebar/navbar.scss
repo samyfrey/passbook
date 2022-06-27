@@ -1,112 +1,114 @@
-$base-text:  #525252;
+// $base-text:  #525252;
 
-.top-bar {
-    display: flex;
-    flex: 6;
-    width: 100%;
-    height: 40px;
-    margin: 5px 5px 10px;
-    align-content: space-between;
+// .top-bar {
+//     display: flex;
+//     flex: 6;
+//     width: 100%;
+//     height: 40px;
+//     margin: 5px 5px 10px;
+//     align-content: space-between;
     
-    .search-bar{
-      flex: 3;
-      display: flex;
-      height: 100%;
-      padding: 0px 15px;
-      ;
-    }
+//     .search-bar{
+//       flex: 3;
+//       display: flex;
+//       height: 100%;
+//       padding: 0px 15px;
+//       ;
+//     }
 
-    .user-register a{
-      flex: 3;
-      padding: 0px 20px;
-      gap: 10px;
-      display: flex;
-      align-content: center;
-      align-items: center;
-      justify-content: right;
-      margin-right: 5px;
-      height: 100%;
+//     .user-register a{
+//       flex: 3;
+//       padding: 0px 20px;
+//       gap: 10px;
+//       display: flex;
+//       align-content: center;
+//       align-items: center;
+//       justify-content: right;
+//       margin-right: 5px;
+//       height: 100%;
 
-    }
+//     }
 
 
 
-  }
+//   }
   
-.sidebar {
-    flex: 1;
-    border-right: 0.5px solid rgb(230, 227, 227);
-    min-height: 100vh;
-    background-color: #fff;
-    max-width: 220px;
+// .sidebar {
+//     flex: 1;
+//     border-right: 0.5px solid rgb(230, 227, 227);
+//     min-height: 100vh;
+//     background-color: #fff;
+//     max-width: 220px;
 
-    .logo{
+//     .logo{
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: 500;
-        color: rgba(82, 79, 79, 0.972);
-        margin-top: 10px;
-        border-bottom:    0.5px solid rgb(230, 227, 227);
-    }
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         font-size: 25px;
+//         font-weight: 500;
+//         color: rgba(82, 79, 79, 0.972);
+//         margin-top: 10px;
+//         border-bottom:    0.5px solid rgb(230, 227, 227);
+//     }
+// .menu-active{
+//   background-color: red;
+// }
+//     .top{
+//         height: 40px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         border-bottom: solid grey;
 
-    .top{
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-bottom: solid grey;
 
+//         hr {
+//             height: 0;
+//             border: 0.5px solid rgb(230, 227, 227);
 
-        hr {
-            height: 0;
-            border: 0.5px solid rgb(230, 227, 227);
-
-        }
-    }
-    .links{
-        padding-top: 20px;
-        padding-left: 15px;
+//         }
+//     }
+//     .links{
+//         padding-top: 20px;
+//         padding-left: 15px;
         
-        ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        }
+//         ul {
+//         list-style: none;
+//         margin: 0;
+//         padding: 0;
+//         }
 
-        li {
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        cursor: pointer;
+//         li {
+//         display: flex;
+//         align-items: center;
+//         padding: 5px;
+//         cursor: pointer;
 
-        &:hover {
-          background-color: lightgray;
-        }
+//         &:hover {
+//           background-color: lightgray;
+//         }
         
         
-        .icon {
-          font-size: 18px;
-          color: #0a6ec7;
-        }
+//         .icon {
+//           font-size: 18px;
+//           color: #0a6ec7;
+//         }
 
-        span{
-            font-size: 18px;
-            font-weight: 500;
-            color: $base-text;
-            margin-left: 10px;
-        }
-        }
-    }
+//         span{
+//             font-size: 18px;
+//             font-weight: 500;
+//             color: $base-text;
+//             margin-left: 10px;
+//         }
+//         }
+//     }
 
-@media screen and (max-width: 1200px){
-  .links span {
-    display: none;
-  }
-  .logo{
-    display: none;
-  }
-}
-  }
+// @media screen and (max-width: 1200px){
+//   .links span {
+//     display: none;
+//   }
+//   .logo{
+//     display: none;
+//   }
+// }
+//   }
