@@ -12,7 +12,7 @@ const TopBar = ({ user, clients }) => {
   )
 
   return (
-    <div className='top-bar'>
+    <div >
       <div className="logo">PASSBOOK
 
         {/* <img src={logo} alt='' /> */}

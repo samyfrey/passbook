@@ -13,7 +13,17 @@ $base-text:  #525252;
 .topBar{
     grid-column: 1/3;
     border: green solid 5px;
+    display: flex;
+    // flex-direction:row;
+    height: 3rem
+    
 }
+.topBar div {
+    border: grey 1px dotted;
+    display: flex;
+    justify-content: space-between;
+}
+
 .sideBar{
     display: flex;
     // width: 200px;
