@@ -49,28 +49,32 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
   }
 
   return (
-    <div className='screen'>
+  // <div className='screen'>
+  //   <h1>Dashboard</h1>
 
-      <div className="screen-container">
-        <div className="dashboard-charts">
+    <div className="dashboard-container">
+      <div className="line-chart">
 
-          <ChartLine className="container-box revenue-chart" title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={revenueChartData}/>
-          <ProgressChart className="progress-chart"title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
-        </div>
-        <div className="table-box">
-          <div className="title">Latest Transactions</div>
+        <ChartLine title="Year-over-Year Revenue ($MM)" aspect={3 / 1} data={revenueChartData}/>
+      </div>
+      <div className="progress-chart">
+        <ProgressChart title="YTD Revenue to Budget" data={progress} budgetData={budgetData} budgetStat={budgetStat} />
 
-          <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} />
-        </div>
+      </div>
+      <div className="table">
+        <div className="title">Latest Transactions</div>
 
-        {/* <div className="table-box">
+        <LoansTable clients={clients} user={user} msgAlert={msgAlert} setRender={setRender} />
+      </div>
+
+      {/* <div className="table-box">
           <div className="title">Latest News </div>
           <div className="title">⚠️ requires a business tier to work in production mode ⚠️ </div>
           <NewsFeed/>
         </div> */}
-      </div>
-
     </div>
+
+  // </div>
   )
 }
 

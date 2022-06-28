@@ -1,9 +1,49 @@
 // below should only be in certain size screen otherwise nothing will stack on top of each other
-.dashboard-charts{
-    display: flex;
+.dashboard-container{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
     
-    gap: 20px;
-    padding: 5px 20px;
-    height: 320px;
+        "linechart progresschart"
+        "table table";
 
-}     
+}
+
+.line-chart{
+    grid-area: linechart;
+}
+.progress-chart{
+    grid-area: progresschart
+}
+.table{
+    grid-area: table;
+}
+// .dashboard-charts{
+//     display: flex;
+    
+//     gap: 20px;
+//     padding: 5px 20px;
+//     height: 320px;
+
+// }     
+
+@media only screen and (max-width: 800px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 2.2fr;
+    /*         grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr; */
+    grid-template-areas:
+      "linechart"
+      "progresschart"
+      "table";
+/*         grid-template-areas:
+      "nav"
+      "sidebar"
+      "main"
+      "content1"
+      "content2"
+      "content3"
+      "footer"; */
+  }
+}

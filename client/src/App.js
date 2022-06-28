@@ -62,8 +62,8 @@ const App = () => {
   }, [render])
 
   return (
-    <div className='app'>
-      <div className='topBar'>
+    <div className='app-container'>
+      <navbar className='topBar'>
 
         <TopBar user={user} clients={clients} render={render} />
         {msgAlerts.map((msgAlert) => (
@@ -75,12 +75,12 @@ const App = () => {
             id={msgAlert.id}
           />
         ))}
-      </div>
+      </navbar>
       <div className='sideBar'>
         <Sidebar user={user} />
 
       </div>
-      <div className="mainDisplay">
+      <main className="mainDisplay">
 
         <Routes>
           <Route
@@ -235,7 +235,7 @@ const App = () => {
           </Route>
         </Routes>
 
-      </div>
+      </main>
     </div>
   )
 }
