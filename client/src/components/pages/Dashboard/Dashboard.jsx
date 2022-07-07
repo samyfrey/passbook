@@ -15,7 +15,6 @@ const Dashboard = ({ revenueBudget, clients, revenueChartData, setRevenueChartDa
     const finalArray = cumulator(groupedLoans)
     const finalChartData = pushDataToActual(finalArray)
     setRevenueChartData(finalChartData)
-    console.log('final chart data is', finalChartData)
 
     function pushDataToActual (arr) {
       for (let i = 0; i < arr.length; i++) {

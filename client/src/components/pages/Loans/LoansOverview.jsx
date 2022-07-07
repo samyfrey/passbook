@@ -18,7 +18,7 @@ const LoansOverview = ({ clients, user, render, creditBudget, setRender, msgAler
         setRender(false)
         const res = await indexClients()
         setLoans(res.data.clients)
-        setRender(true)
+        // setRender(true)
       } catch (error) {
         msgAlert({
           heading: 'Failed!',
