@@ -1,7 +1,7 @@
 Deployed application: https://samyfrey.github.io/passbook/
 
 # Passbook 📊
-Passbook is a banking transaction management tool that allows bankers to manage their client portfolio, providing a consolidated view of their revenue targets, outstanding loans and budget performance. Users also have access to all the latest business and client-specific news (requires business tier to work in deployed apps)
+Passbook is a banking transaction management tool that allows bankers and their analysts to manage their client portfolio, providing a consolidated view of their revenue targets, outstanding loans and budget performance. Users also have access to all the latest business and client-specific news (requires business tier to work in deployed apps)
 
 **View your dashboard, search clients and get the latest news**
 
@@ -27,7 +27,8 @@ This project aims to be a solution to issues I faced as an investment banking an
 
 ## User Story
 As a banking analyst, I want to: 
-- Quickly access a consolidated view of all my portfolio to track my objectives
+- Quickly access a consolidated view of all my portfolio to track my revenue objectives
+- Visualize my authorizations
 - Create and manage client profiles and loans to keep my portfolio up-to-date
 - Manage my budget and be able to instantly update my objectives
 - Follow news relevant to my clients easily
