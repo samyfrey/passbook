@@ -26,7 +26,11 @@ Passbook is a banking transaction management tool that allows bankers to manage 
 This project aims to be a solution to issues I faced as an investment banking analyst: automate repetitive tasks and provide instant snapshot of business metrics avoiding manual work done through excel. Passbook also integrates NewsAPI to speed up the news summary process
 
 ## User Story
-As a user, I want to quickly access a consolidated view of all my portfolio, create client profiles and add loans to my portfolio, track my budgets and follow news relevant to my clients 
+As a banking analyst, I want to: 
+- Quickly access a consolidated view of all my portfolio to track my objectives
+- Create and manage client profiles and loans to keep my portfolio up-to-date
+- Manage my budget and be able to instantly update my objectives
+- Follow news relevant to my clients easily
 
 ## Main Features
 * Dashboard: View all important information in one place, revenues year-over-year, budget progress, recent loan transactions, latest business news
